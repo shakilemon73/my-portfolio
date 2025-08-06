@@ -1,50 +1,19 @@
 import { useState, useEffect } from 'react';
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Sarah Chen",
-    role: "Product Manager",
-    company: "TechCorp Inc.",
-    avatar: "SC",
-    content: "Shakil's design thinking transformed our user experience. His research-driven approach led to a 40% increase in user engagement.",
-    project: "ShopFlow Dashboard",
-    rating: 5
-  },
-  {
-    id: 2,
-    name: "Marcus Rodriguez",
-    role: "CEO",
-    company: "StartupXYZ",
-    avatar: "MR",
-    content: "Working with Shakil was exceptional. He delivered a fintech app that exceeded our expectations and user feedback has been outstanding.",
-    project: "PaySecure Mobile",
-    rating: 5
-  },
-  {
-    id: 3,
-    name: "Dr. Emily Johnson",
-    role: "Chief Medical Officer",
-    company: "HealthTech Solutions",
-    avatar: "EJ",
-    content: "Shakil created a patient portal that's both secure and incredibly user-friendly. The compliance with HIPAA standards was flawless.",
-    project: "MediConnect Portal",
-    rating: 5
-  }
-];
+import { Badge } from '@/components/ui/badge';
+import { TESTIMONIALS_FAANG } from '@/lib/faang-portfolio-data';
 
 export function TestimonialsSection() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+      setCurrentTestimonial((prev) => (prev + 1) % TESTIMONIALS_FAANG.length);
     }, 5000);
 
     return () => clearInterval(timer);
   }, []);
 
-  const testimonial = testimonials[currentTestimonial];
+  const testimonial = TESTIMONIALS_FAANG[currentTestimonial];
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -81,14 +50,22 @@ export function TestimonialsSection() {
             </div>
           </div>
 
-          <div className="text-sm text-cool-gray">
-            Project: <span className="text-neon-green">{testimonial.project}</span>
+          <div className="flex items-center justify-between">
+            <div className="text-sm text-cool-gray">
+              Project: <span className="text-neon-green">{testimonial.project}</span>
+            </div>
+            {testimonial.linkedin && (
+              <Badge variant="outline" className="border-electric-cyan text-electric-cyan">
+                <i className="fab fa-linkedin mr-1"></i>
+                Verified
+              </Badge>
+            )}
           </div>
         </div>
 
         {/* Testimonial indicators */}
         <div className="flex justify-center space-x-2 mt-8">
-          {testimonials.map((_, index) => (
+          {TESTIMONIALS_FAANG.map((_, index: number) => (
             <button
               key={index}
               onClick={() => setCurrentTestimonial(index)}
