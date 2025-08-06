@@ -104,7 +104,7 @@ export function FaangLevelHero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-start items-start mb-8">
               <Button
                 onClick={() => scrollToSection('work')}
-                className="px-8 py-4 bg-gradient-to-r from-electric-cyan to-neon-pink text-black font-bold rounded-full hover:scale-105 transition-all duration-300 min-w-[200px] shadow-xl border-2 border-white/20"
+                className="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-gray-100 hover:scale-105 transition-all duration-300 min-w-[200px] shadow-xl border-4 border-electric-cyan"
                 data-hover
               >
                 <i className="fas fa-rocket mr-2 text-black"></i>
