@@ -73,14 +73,12 @@
   .custom-cursor::before {
     content: '';
     position: absolute;
-    width: 2px;
-    height: 20px;
-    background: linear-gradient(to bottom, #8B4513, #DAA520);
-    border-radius: 1px;
-    top: 2px;
-    left: 11px;
-    transform: rotate(45deg);
-    transform-origin: bottom center;
+    width: 1px;
+    height: 18px;
+    background: linear-gradient(to bottom, #333, #666);
+    top: 3px;
+    left: 11.5px;
+    border-radius: 0.5px;
   }
 
   .custom-cursor::after {
@@ -88,12 +86,11 @@
     position: absolute;
     width: 0;
     height: 0;
-    border-left: 3px solid transparent;
-    border-right: 3px solid transparent;
-    border-bottom: 8px solid #2C2C2C;
-    top: 0;
-    left: 9px;
-    transform: rotate(45deg);
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 6px solid #000;
+    top: 2px;
+    left: 10px;
   }
   
   .custom-cursor-hover {
@@ -101,13 +98,13 @@
   }
 
   .custom-cursor-hover::before {
-    background: linear-gradient(to bottom, #FFD700, #FF6B35);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    background: linear-gradient(to bottom, #00FFFF, #FF1493);
+    box-shadow: 0 0 6px rgba(0, 255, 255, 0.4);
   }
 
   .custom-cursor-hover::after {
-    border-bottom-color: #FF6B35;
-    box-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
+    border-bottom-color: #FF1493;
+    box-shadow: 0 0 4px rgba(255, 20, 147, 0.3);
   }
   
   .glass-morphism {

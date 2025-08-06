@@ -375,7 +375,7 @@ export function EnhancedContactForm() {
       <motion.button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-primary text-primary-foreground py-4 px-6 rounded-lg font-medium hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-3"
+        className="w-full bg-gradient-to-r from-electric-cyan to-neon-pink text-black font-bold py-4 px-6 rounded-xl hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-3 shadow-xl border-2 border-white/20"
         variants={buttonHover}
         whileHover={!isSubmitting ? "hover" : undefined}
         whileTap={!isSubmitting ? "tap" : undefined}
