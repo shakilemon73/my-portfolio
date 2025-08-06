@@ -242,9 +242,14 @@ export function FaangPortfolioSection() {
                 {caseStudy.business_impact?.primary_metrics && (
                   <div className="grid grid-cols-2 gap-2">
                     {caseStudy.business_impact.primary_metrics.slice(0, 2).map((metric: any, index: number) => (
-                      <div key={index} className="text-center p-2 bg-charcoal rounded-lg">
-                        <div className="text-sm font-bold text-neon-green">{metric.improvement}</div>
-                        <div className="text-xs text-cool-gray">{metric.metric.split(' ')[0]}</div>
+                      <div key={index} className="text-center p-3 bg-charcoal rounded-lg min-h-[60px] flex flex-col justify-center">
+                        <div className="text-sm font-bold text-neon-green mb-1">{metric.improvement}</div>
+                        <div className="text-xs text-cool-gray leading-tight">
+                          {metric.metric.length > 12 ? 
+                            metric.metric.split(' ').slice(0, 2).join(' ') : 
+                            metric.metric
+                          }
+                        </div>
                       </div>
                     ))}
                   </div>
