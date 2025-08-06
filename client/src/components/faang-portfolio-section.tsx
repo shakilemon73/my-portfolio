@@ -147,27 +147,115 @@ export function FaangPortfolioSection() {
                 <div className="space-y-4">
                   {/* Main Project Visual */}
                   <div className="w-full h-80 bg-gradient-to-br from-charcoal via-deep-black to-charcoal rounded-2xl flex items-center justify-center border border-glass-border relative overflow-hidden group-hover:border-electric-cyan transition-colors">
-                    {/* Animated Background Grid */}
-                    <div className="absolute inset-0 opacity-20">
-                      <div className="grid grid-cols-6 h-full">
-                        {Array.from({ length: 36 }).map((_, index) => (
-                          <div 
-                            key={index} 
-                            className="border border-electric-cyan opacity-50"
-                            style={{ 
-                              animationDelay: `${index * 0.1}s`,
-                              animation: 'pulse 3s infinite' 
-                            }}
-                          ></div>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="text-center z-10">
-                      <i className="fas fa-laptop-code text-5xl text-electric-cyan mb-4"></i>
-                      <p className="text-cool-gray">Enterprise Dashboard Design</p>
-                      <p className="text-sm text-cool-gray mt-2">Interactive Prototype Available</p>
-                    </div>
+                    {/* Context-based project mockup */}
+                    <svg viewBox="0 0 400 320" className="w-full h-full max-w-sm">
+                      <defs>
+                        <linearGradient id="mockupBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1a1a2e" />
+                          <stop offset="100%" stopColor="#16213e" />
+                        </linearGradient>
+                        <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#2c3e50" />
+                          <stop offset="100%" stopColor="#34495e" />
+                        </linearGradient>
+                      </defs>
+                      
+                      {/* Device Frame (Mobile/Tablet) */}
+                      <rect x="50" y="20" width="300" height="280" rx="20" fill="url(#mockupBg)" stroke="#00d2ff" strokeWidth="2" />
+                      <rect x="60" y="40" width="280" height="200" rx="10" fill="url(#screenGrad)" />
+                      
+                      {/* Healthcare App UI Elements */}
+                      {caseStudy.category === 'Healthcare' && (
+                        <g>
+                          {/* Header */}
+                          <rect x="70" y="50" width="260" height="30" rx="5" fill="#00d2ff" opacity="0.3" />
+                          <text x="200" y="68" fill="#00d2ff" fontSize="12" textAnchor="middle" fontFamily="sans-serif">HealthCare Pro</text>
+                          
+                          {/* Patient Cards */}
+                          <rect x="80" y="90" width="240" height="40" rx="8" fill="#34495e" />
+                          <circle cx="95" cy="110" r="8" fill="#ff0080" />
+                          <rect x="110" y="100" width="80" height="6" rx="3" fill="#ecf0f1" />
+                          <rect x="110" y="115" width="60" height="4" rx="2" fill="#bdc3c7" />
+                          
+                          <rect x="80" y="140" width="240" height="40" rx="8" fill="#34495e" />
+                          <circle cx="95" cy="160" r="8" fill="#00ff88" />
+                          <rect x="110" y="150" width="90" height="6" rx="3" fill="#ecf0f1" />
+                          <rect x="110" y="165" width="70" height="4" rx="2" fill="#bdc3c7" />
+                          
+                          {/* Action Button */}
+                          <rect x="80" y="200" width="240" height="25" rx="12" fill="#00ff88" />
+                          <text x="200" y="215" fill="white" fontSize="10" textAnchor="middle" fontFamily="sans-serif">Book Appointment</text>
+                        </g>
+                      )}
+                      
+                      {/* E-commerce App UI Elements */}
+                      {caseStudy.category === 'E-commerce' && (
+                        <g>
+                          {/* Header with cart */}
+                          <rect x="70" y="50" width="260" height="30" rx="5" fill="#ff0080" opacity="0.3" />
+                          <text x="180" y="68" fill="#ff0080" fontSize="12" textAnchor="middle" fontFamily="sans-serif">ShopBD</text>
+                          <circle cx="290" cy="65" r="8" fill="#ff0080" />
+                          
+                          {/* Product Grid */}
+                          <rect x="80" y="90" width="110" height="80" rx="8" fill="#34495e" />
+                          <rect x="85" y="95" width="100" height="50" rx="5" fill="#ff0080" opacity="0.2" />
+                          <rect x="85" y="150" width="60" height="4" rx="2" fill="#ecf0f1" />
+                          <rect x="85" y="158" width="40" height="4" rx="2" fill="#00ff88" />
+                          
+                          <rect x="210" y="90" width="110" height="80" rx="8" fill="#34495e" />
+                          <rect x="215" y="95" width="100" height="50" rx="5" fill="#00d2ff" opacity="0.2" />
+                          <rect x="215" y="150" width="70" height="4" rx="2" fill="#ecf0f1" />
+                          <rect x="215" y="158" width="50" height="4" rx="2" fill="#00ff88" />
+                          
+                          {/* Checkout Button */}
+                          <rect x="80" y="200" width="240" height="25" rx="12" fill="#00ff88" />
+                          <text x="200" y="215" fill="white" fontSize="10" textAnchor="middle" fontFamily="sans-serif">Proceed to Checkout</text>
+                        </g>
+                      )}
+                      
+                      {/* FinTech Trading UI Elements */}
+                      {caseStudy.category === 'Fintech' && (
+                        <g>
+                          {/* Header */}
+                          <rect x="70" y="50" width="260" height="30" rx="5" fill="#00d2ff" opacity="0.3" />
+                          <text x="200" y="68" fill="#00d2ff" fontSize="12" textAnchor="middle" fontFamily="sans-serif">Trading Dashboard</text>
+                          
+                          {/* Chart Area */}
+                          <rect x="80" y="90" width="240" height="100" rx="8" fill="#34495e" />
+                          <polyline points="90,150 120,130 150,140 180,120 210,110 240,125 270,115 300,105" 
+                                   fill="none" stroke="#00ff88" strokeWidth="2" />
+                          <polyline points="90,170 120,160 150,155 180,145 210,140 240,150 270,135 300,130" 
+                                   fill="none" stroke="#ff0080" strokeWidth="2" />
+                          
+                          {/* Trading Stats */}
+                          <rect x="80" y="200" width="70" height="25" rx="5" fill="#00ff88" opacity="0.2" />
+                          <text x="115" y="215" fill="#00ff88" fontSize="8" textAnchor="middle" fontFamily="sans-serif">+12.5%</text>
+                          
+                          <rect x="165" y="200" width="70" height="25" rx="5" fill="#ff0080" opacity="0.2" />
+                          <text x="200" y="215" fill="#ff0080" fontSize="8" textAnchor="middle" fontFamily="sans-serif">Portfolio</text>
+                          
+                          <rect x="250" y="200" width="70" height="25" rx="5" fill="#00d2ff" opacity="0.2" />
+                          <text x="285" y="215" fill="#00d2ff" fontSize="8" textAnchor="middle" fontFamily="sans-serif">Buy/Sell</text>
+                        </g>
+                      )}
+                      
+                      {/* Default/Other categories */}
+                      {!['Healthcare', 'E-commerce', 'Fintech'].includes(caseStudy.category) && (
+                        <g>
+                          {/* Generic Dashboard UI */}
+                          <rect x="70" y="50" width="260" height="30" rx="5" fill="#00d2ff" opacity="0.3" />
+                          <text x="200" y="68" fill="#00d2ff" fontSize="12" textAnchor="middle" fontFamily="sans-serif">Dashboard</text>
+                          
+                          {/* Content blocks */}
+                          <rect x="80" y="90" width="240" height="40" rx="8" fill="#34495e" />
+                          <rect x="80" y="140" width="240" height="40" rx="8" fill="#34495e" />
+                          <rect x="80" y="200" width="240" height="25" rx="12" fill="#00ff88" />
+                        </g>
+                      )}
+                      
+                      {/* Device details */}
+                      <circle cx="200" cy="270" r="8" fill="#34495e" stroke="#00d2ff" strokeWidth="1" />
+                    </svg>
 
                     {/* Floating Design Tools */}
                     <div className="absolute top-4 right-4 glass-morphism rounded-lg p-2 animate-float">

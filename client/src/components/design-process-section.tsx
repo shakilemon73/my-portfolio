@@ -194,14 +194,154 @@ export function DesignProcessSection() {
                 ))}
               </div>
 
-              <div className="mt-8 p-6 bg-gradient-to-r from-charcoal to-deep-black rounded-2xl border border-glass-border">
-                <h5 className="font-semibold mb-2 text-neon-green">Success Metrics</h5>
-                <div className="text-sm text-cool-gray space-y-1">
-                  <div>• User satisfaction improvement</div>
-                  <div>• Task completion rate increase</div>
-                  <div>• Business goal achievement</div>
-                  <div>• Technical performance optimization</div>
-                </div>
+              {/* Visual Process Illustration */}
+              <div className="mt-8 h-64 bg-gradient-to-r from-charcoal to-deep-black rounded-2xl border border-glass-border relative overflow-hidden">
+                <svg viewBox="0 0 400 200" className="w-full h-full">
+                  <defs>
+                    <linearGradient id="processBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1a1a2e" />
+                      <stop offset="100%" stopColor="#16213e" />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Research & Discovery */}
+                  {activeStep === 0 && (
+                    <g>
+                      {/* User interviews */}
+                      <rect x="50" y="50" width="80" height="50" rx="10" fill="#34495e" stroke="#00d2ff" strokeWidth="2" />
+                      <circle cx="70" cy="70" r="8" fill="#00d2ff" />
+                      <rect x="85" y="65" width="30" height="3" fill="#ecf0f1" />
+                      <rect x="85" y="72" width="25" height="2" fill="#bdc3c7" />
+                      <rect x="85" y="78" width="35" height="2" fill="#bdc3c7" />
+                      
+                      {/* Analytics */}
+                      <rect x="150" y="50" width="80" height="50" rx="10" fill="#34495e" stroke="#00d2ff" strokeWidth="2" />
+                      <rect x="160" y="65" width="60" height="20" fill="#00d2ff" opacity="0.3" />
+                      <polyline points="165,75 175,70 185,78 195,72 205,80" fill="none" stroke="#00d2ff" strokeWidth="2" />
+                      
+                      {/* Research notes */}
+                      <rect x="250" y="50" width="80" height="50" rx="10" fill="#34495e" stroke="#00d2ff" strokeWidth="2" />
+                      <rect x="260" y="60" width="40" height="2" fill="#ecf0f1" />
+                      <rect x="260" y="67" width="50" height="2" fill="#ecf0f1" />
+                      <rect x="260" y="74" width="30" height="2" fill="#ecf0f1" />
+                      <rect x="260" y="81" width="45" height="2" fill="#ecf0f1" />
+                      <rect x="260" y="88" width="35" height="2" fill="#ecf0f1" />
+                      
+                      <text x="200" y="130" fill="#00d2ff" fontSize="12" textAnchor="middle" fontFamily="sans-serif">User Research & Data Analysis</text>
+                    </g>
+                  )}
+                  
+                  {/* Ideation & Strategy */}
+                  {activeStep === 1 && (
+                    <g>
+                      {/* Brainstorming */}
+                      <circle cx="100" cy="75" r="30" fill="#34495e" stroke="#ff0080" strokeWidth="2" />
+                      <circle cx="90" cy="65" r="8" fill="#ff0080" opacity="0.3" />
+                      <circle cx="110" cy="70" r="6" fill="#ff0080" opacity="0.5" />
+                      <circle cx="95" cy="85" r="5" fill="#ff0080" opacity="0.4" />
+                      <circle cx="115" cy="85" r="7" fill="#ff0080" opacity="0.6" />
+                      
+                      {/* User flows */}
+                      <rect x="180" y="50" width="100" height="50" rx="10" fill="#34495e" stroke="#ff0080" strokeWidth="2" />
+                      <circle cx="195" cy="70" r="6" fill="#ff0080" />
+                      <path d="M205 70 L220 70" stroke="#ff0080" strokeWidth="2" markerEnd="url(#arrowhead)" />
+                      <rect x="225" y="65" width="15" height="10" rx="2" fill="#ff0080" opacity="0.3" />
+                      <path d="M245 70 L260 70" stroke="#ff0080" strokeWidth="2" />
+                      <circle cx="270" cy="70" r="6" fill="#ff0080" />
+                      
+                      <text x="200" y="130" fill="#ff0080" fontSize="12" textAnchor="middle" fontFamily="sans-serif">Ideation & Information Architecture</text>
+                    </g>
+                  )}
+                  
+                  {/* Design & Prototype */}
+                  {activeStep === 2 && (
+                    <g>
+                      {/* Design system */}
+                      <rect x="50" y="50" width="70" height="50" rx="10" fill="#34495e" stroke="#00ff88" strokeWidth="2" />
+                      <rect x="60" y="60" width="20" height="15" rx="3" fill="#00ff88" opacity="0.3" />
+                      <rect x="85" y="60" width="25" height="15" rx="3" fill="#00ff88" opacity="0.5" />
+                      <circle cx="67" cy="85" r="5" fill="#00ff88" />
+                      <rect x="78" y="82" width="15" height="6" rx="2" fill="#00ff88" opacity="0.4" />
+                      <rect x="98" y="82" width="12" height="6" rx="2" fill="#00ff88" opacity="0.6" />
+                      
+                      {/* Prototypes */}
+                      <rect x="140" y="50" width="80" height="50" rx="10" fill="#34495e" stroke="#00ff88" strokeWidth="2" />
+                      <rect x="150" y="60" width="60" height="30" rx="5" fill="#00ff88" opacity="0.2" />
+                      <rect x="155" y="65" width="15" height="8" rx="2" fill="#00ff88" />
+                      <rect x="175" y="65" width="15" height="8" rx="2" fill="#00ff88" />
+                      <rect x="195" y="65" width="10" height="20" rx="2" fill="#00ff88" opacity="0.7" />
+                      
+                      {/* High-fi mockups */}
+                      <rect x="250" y="50" width="80" height="50" rx="10" fill="#34495e" stroke="#00ff88" strokeWidth="2" />
+                      <rect x="260" y="60" width="20" height="25" rx="2" fill="#00ff88" opacity="0.3" />
+                      <rect x="285" y="60" width="20" height="25" rx="2" fill="#00ff88" opacity="0.4" />
+                      <rect x="310" y="60" width="15" height="25" rx="2" fill="#00ff88" opacity="0.5" />
+                      
+                      <text x="200" y="130" fill="#00ff88" fontSize="12" textAnchor="middle" fontFamily="sans-serif">Visual Design & Interactive Prototypes</text>
+                    </g>
+                  )}
+                  
+                  {/* Test & Validate */}
+                  {activeStep === 3 && (
+                    <g>
+                      {/* User testing */}
+                      <rect x="50" y="50" width="80" height="50" rx="10" fill="#34495e" stroke="#ff0080" strokeWidth="2" />
+                      <circle cx="70" cy="70" r="8" fill="#ff0080" />
+                      <rect x="85" y="60" width="35" height="20" rx="3" fill="#ff0080" opacity="0.3" />
+                      <path d="M90 68 L95 73 L105 63" stroke="white" strokeWidth="2" fill="none" />
+                      
+                      {/* A/B testing */}
+                      <rect x="160" y="50" width="80" height="50" rx="10" fill="#34495e" stroke="#ff0080" strokeWidth="2" />
+                      <rect x="170" y="60" width="25" height="15" fill="#ff0080" opacity="0.3" />
+                      <text x="182" y="70" fill="white" fontSize="8" textAnchor="middle">A</text>
+                      <rect x="205" y="60" width="25" height="15" fill="#00ff88" opacity="0.3" />
+                      <text x="217" y="70" fill="white" fontSize="8" textAnchor="middle">B</text>
+                      <rect x="175" y="80" width="50" height="3" fill="#00ff88" />
+                      
+                      {/* Analytics */}
+                      <rect x="270" y="50" width="80" height="50" rx="10" fill="#34495e" stroke="#ff0080" strokeWidth="2" />
+                      <rect x="280" y="65" width="60" height="20" fill="#ff0080" opacity="0.2" />
+                      <rect x="285" y="70" width="15" height="8" fill="#00ff88" />
+                      <rect x="305" y="72" width="20" height="6" fill="#ff0080" />
+                      <rect x="330" y="68" width="10" height="10" fill="#00d2ff" />
+                      
+                      <text x="200" y="130" fill="#ff0080" fontSize="12" textAnchor="middle" fontFamily="sans-serif">User Testing & Performance Validation</text>
+                    </g>
+                  )}
+                  
+                  {/* Implement & Launch */}
+                  {activeStep === 4 && (
+                    <g>
+                      {/* Handoff */}
+                      <rect x="50" y="50" width="70" height="50" rx="10" fill="#34495e" stroke="#00d2ff" strokeWidth="2" />
+                      <rect x="60" y="60" width="50" height="30" rx="5" fill="#00d2ff" opacity="0.3" />
+                      <rect x="65" y="65" width="15" height="2" fill="#ecf0f1" />
+                      <rect x="65" y="70" width="25" height="2" fill="#ecf0f1" />
+                      <rect x="65" y="75" width="20" height="2" fill="#ecf0f1" />
+                      <rect x="65" y="80" width="30" height="2" fill="#ecf0f1" />
+                      
+                      {/* Development */}
+                      <rect x="140" y="50" width="80" height="50" rx="10" fill="#34495e" stroke="#00d2ff" strokeWidth="2" />
+                      <rect x="150" y="60" width="60" height="30" rx="3" fill="#2c3e50" />
+                      <rect x="155" y="65" width="30" height="2" fill="#00ff88" />
+                      <rect x="155" y="70" width="40" height="2" fill="#00d2ff" />
+                      <rect x="155" y="75" width="25" height="2" fill="#ff0080" />
+                      <rect x="155" y="80" width="35" height="2" fill="#ecf0f1" />
+                      
+                      {/* Launch */}
+                      <circle cx="290" cy="75" r="25" fill="#34495e" stroke="#00d2ff" strokeWidth="2" />
+                      <path d="M280 75 L285 70 L285 73 L300 73 L300 77 L285 77 L285 80 Z" fill="#00ff88" />
+                      
+                      <text x="200" y="130" fill="#00d2ff" fontSize="12" textAnchor="middle" fontFamily="sans-serif">Development Handoff & Launch</text>
+                    </g>
+                  )}
+                  
+                  <defs>
+                    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+                      <polygon points="0 0, 6 2, 0 4" fill="#ff0080" />
+                    </marker>
+                  </defs>
+                </svg>
               </div>
             </div>
           </div>
