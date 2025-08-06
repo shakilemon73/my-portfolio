@@ -217,12 +217,6 @@ export function FaangPortfolioSection() {
                   <Badge variant="outline" className="border-neon-pink text-neon-pink text-xs">
                     {caseStudy.category} • {caseStudy.year}
                   </Badge>
-                  {caseStudy.confidential_note && (
-                    <Badge variant="outline" className="border-cool-gray text-cool-gray text-xs">
-                      <i className="fas fa-shield-alt mr-1"></i>
-                      NDA
-                    </Badge>
-                  )}
                 </div>
                 
                 <h3 className="text-xl font-bold group-hover:text-neon-pink transition-colors">
@@ -233,9 +227,15 @@ export function FaangPortfolioSection() {
                   {caseStudy.subtitle}
                 </p>
 
-                <div className="flex items-center justify-between text-xs text-cool-gray">
-                  <span>{caseStudy.timeline}</span>
-                  <span>{caseStudy.my_role}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-xs text-cool-gray">
+                  <span className="flex items-center">
+                    <i className="fas fa-clock mr-1"></i>
+                    {caseStudy.timeline}
+                  </span>
+                  <span className="flex items-center">
+                    <i className="fas fa-user mr-1"></i>
+                    {caseStudy.my_role}
+                  </span>
                 </div>
 
                 {/* Quick Metrics */}
