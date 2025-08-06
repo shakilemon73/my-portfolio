@@ -173,14 +173,14 @@ export function DesignProcessSection() {
 
             <div>
               <h4 className="font-semibold mb-6 text-electric-cyan text-xl">Deliverables</h4>
-              <div className="space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {processSteps[activeStep].deliverables.map((deliverable, index) => (
                   <div 
                     key={index}
-                    className="glass-morphism rounded-xl p-5 hover-glow transition-all duration-300 border border-glass-border"
+                    className="glass-morphism rounded-xl p-4 hover-glow transition-all duration-300 border border-glass-border h-full"
                     data-hover
                   >
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-3 h-full">
                       <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-deep-black font-bold text-sm flex-shrink-0 ${
                         processSteps[activeStep].color === 'electric-cyan' ? 'bg-electric-cyan' :
                         processSteps[activeStep].color === 'neon-pink' ? 'bg-neon-pink' :
@@ -188,7 +188,7 @@ export function DesignProcessSection() {
                       }`}>
                         {index + 1}
                       </div>
-                      <span className="font-medium text-white leading-relaxed flex-grow">{deliverable}</span>
+                      <span className="font-medium text-white leading-relaxed flex-grow text-sm">{deliverable}</span>
                     </div>
                   </div>
                 ))}
