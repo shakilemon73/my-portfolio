@@ -1,7 +1,22 @@
+import { useState } from 'react';
 import { CaseStudyCard } from '@/components/case-study-card';
+import { CaseStudyModal } from '@/components/case-study-modal';
 import { PORTFOLIO_DATA } from '@/lib/constants';
 
 export function PortfolioSection() {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = (project: any) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <section id="work" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,7 +32,7 @@ export function PortfolioSection() {
         {/* Bento Grid Portfolio */}
         <div className="bento-grid">
           {PORTFOLIO_DATA.projects.map((project) => (
-            <CaseStudyCard key={project.id} project={project} />
+            <CaseStudyCard key={project.id} project={project} onOpenModal={handleOpenModal} />
           ))}
           
           {/* More Projects Link */}
@@ -32,6 +47,12 @@ export function PortfolioSection() {
             </button>
           </div>
         </div>
+
+        <CaseStudyModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          caseStudy={selectedProject}
+        />
       </div>
     </section>
   );

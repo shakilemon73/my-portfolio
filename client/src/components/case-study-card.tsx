@@ -14,6 +14,7 @@ interface CaseStudyCardProps {
     featured?: boolean;
     gridSpan: string;
   };
+  onOpenModal: (project: CaseStudyCardProps['project']) => void;
 }
 
 const categoryColors = {
@@ -30,13 +31,14 @@ const categoryIcons = {
   'HEALTHCARE': 'fas fa-heartbeat'
 };
 
-export function CaseStudyCard({ project }: CaseStudyCardProps) {
+export function CaseStudyCard({ project, onOpenModal }: CaseStudyCardProps) {
   const categoryColor = categoryColors[project.category as keyof typeof categoryColors] || 'text-electric-cyan';
   const categoryIcon = categoryIcons[project.category as keyof typeof categoryIcons] || 'fas fa-star';
 
   return (
     <div 
-      className={`${project.gridSpan} glass-morphism rounded-3xl p-6 lg:p-8 hover-glow transition-all duration-500 group`}
+      className={`${project.gridSpan} glass-morphism rounded-3xl p-6 lg:p-8 hover-glow transition-all duration-500 group cursor-pointer`}
+      onClick={() => onOpenModal(project)}
       data-hover
     >
       {/* Placeholder for project image */}

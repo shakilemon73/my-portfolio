@@ -52,6 +52,13 @@ export function Navigation() {
                 Work
               </button>
               <button 
+                onClick={() => scrollToSection('process')}
+                className="hover:text-electric-cyan transition-colors duration-300" 
+                data-hover
+              >
+                Process
+              </button>
+              <button 
                 onClick={() => scrollToSection('about')}
                 className="hover:text-electric-cyan transition-colors duration-300" 
                 data-hover
@@ -103,6 +110,13 @@ export function Navigation() {
             data-hover
           >
             Work
+          </button>
+          <button 
+            onClick={() => scrollToSection('process')}
+            className="text-lg hover:text-electric-cyan transition-colors text-left" 
+            data-hover
+          >
+            Process
           </button>
           <button 
             onClick={() => scrollToSection('about')}
