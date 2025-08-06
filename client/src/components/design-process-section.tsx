@@ -173,18 +173,22 @@ export function DesignProcessSection() {
 
             <div>
               <h4 className="font-semibold mb-6 text-electric-cyan text-xl">Deliverables</h4>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {processSteps[activeStep].deliverables.map((deliverable, index) => (
                   <div 
                     key={index}
-                    className="glass-morphism rounded-xl p-4 hover-glow transition-all duration-300"
+                    className="glass-morphism rounded-xl p-5 hover-glow transition-all duration-300 border border-glass-border"
                     data-hover
                   >
-                    <div className="flex items-center space-x-3">
-                      <div className={`w-8 h-8 bg-${processSteps[activeStep].color} rounded-lg flex items-center justify-center text-deep-black text-sm`}>
+                    <div className="flex items-center space-x-4">
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-deep-black font-bold text-sm flex-shrink-0 ${
+                        processSteps[activeStep].color === 'electric-cyan' ? 'bg-electric-cyan' :
+                        processSteps[activeStep].color === 'neon-pink' ? 'bg-neon-pink' :
+                        processSteps[activeStep].color === 'neon-green' ? 'bg-neon-green' : 'bg-electric-cyan'
+                      }`}>
                         {index + 1}
                       </div>
-                      <span className="font-medium">{deliverable}</span>
+                      <span className="font-medium text-white leading-relaxed flex-grow">{deliverable}</span>
                     </div>
                   </div>
                 ))}
