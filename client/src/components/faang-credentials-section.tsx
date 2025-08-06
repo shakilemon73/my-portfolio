@@ -60,7 +60,7 @@ export function FaangCredentialsSection() {
             {FAANG_PORTFOLIO_DATA.achievements.map((achievement, index) => (
               <div key={index} className="bg-charcoal rounded-xl p-6 text-center hover-glow transition-all duration-300">
                 <div className="w-16 h-16 bg-gradient-to-br from-electric-cyan to-neon-pink rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-award text-2xl text-deep-black"></i>
+                  <i className="fas fa-award text-2xl text-white"></i>
                 </div>
                 <h4 className="text-lg font-semibold text-white mb-2">{achievement.title}</h4>
                 <p className="text-electric-cyan text-sm font-medium mb-2">{achievement.organization}</p>

@@ -135,10 +135,10 @@ export function FaangPortfolioSection() {
                       e.stopPropagation();
                       handleOpenCaseStudy(caseStudy);
                     }}
-                    className="bg-gradient-to-r from-electric-cyan to-neon-pink text-deep-black font-semibold px-6 py-3 rounded-xl hover-glow transition-all duration-300"
+                    className="bg-white text-black font-bold px-6 py-3 rounded-xl hover:bg-gray-100 hover:scale-105 transition-all duration-300 border-2 border-electric-cyan shadow-lg"
                     data-hover
                   >
-                    <i className="fas fa-external-link-alt mr-2"></i>
+                    <i className="fas fa-external-link-alt mr-2 text-black"></i>
                     View Full Case Study
                   </Button>
                 </div>

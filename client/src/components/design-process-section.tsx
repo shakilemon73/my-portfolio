@@ -88,7 +88,7 @@ export function DesignProcessSection() {
           <h2 className="text-4xl sm:text-6xl font-black mb-6">
             Design <span className="text-gradient">Process</span>
           </h2>
-          <p className="text-xl text-cool-gray max-w-3xl mx-auto">
+          <p className="text-xl text-cool-gray max-w-3xl mx-auto leading-relaxed">
             My systematic approach to creating user-centered solutions that drive business results
           </p>
         </div>
