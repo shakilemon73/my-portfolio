@@ -2,7 +2,7 @@ import { CustomCursor } from '@/components/custom-cursor';
 import { ScrollProgress } from '@/components/scroll-progress';
 import { UXEnhancementSystem } from '@/components/ux-enhancement-system';
 import { Navigation } from '@/components/navigation';
-import { FaangLevelHero } from '@/components/faang-level-hero';
+import { WorldClassHero } from '@/components/world-class-hero';
 import { FaangPortfolioSection } from '@/components/faang-portfolio-section';
 import { DesignProcessSection } from '@/components/design-process-section';
 import { FaangCredentialsSection } from '@/components/faang-credentials-section';
@@ -20,7 +20,7 @@ export default function Home() {
       <ScrollProgress />
       <Navigation />
       <main>
-        <FaangLevelHero />
+        <WorldClassHero />
         <FaangPortfolioSection />
         <DesignProcessSection />
         <FaangCredentialsSection />
