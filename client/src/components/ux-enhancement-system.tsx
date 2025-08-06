@@ -130,20 +130,40 @@ export function UXEnhancementSystem() {
 
   const applyMobileFirstPrinciples = () => {
     // Luke Wroblewski - Touch targets and mobile optimization
-    const touchTargets = document.querySelectorAll('button, a, input, [role="button"]');
+    const touchTargets = document.querySelectorAll('button, a, input, [role="button"], [data-hover]');
     
     touchTargets.forEach(element => {
       const htmlElement = element as HTMLElement;
-      const rect = htmlElement.getBoundingClientRect();
+      
+      // Skip if already enhanced
+      if (htmlElement.dataset.touchOptimized) return;
+      
+      // Get computed styles instead of getBoundingClientRect for better accuracy
+      const computedStyle = window.getComputedStyle(htmlElement);
+      const currentHeight = parseInt(computedStyle.height) || htmlElement.offsetHeight;
+      const currentWidth = parseInt(computedStyle.width) || htmlElement.offsetWidth;
       
       // Ensure minimum 44px touch targets
-      if (rect.height < 44 || rect.width < 44) {
+      if (currentHeight < 44) {
         htmlElement.style.minHeight = '44px';
+        htmlElement.style.paddingTop = Math.max(8, parseInt(computedStyle.paddingTop) || 8) + 'px';
+        htmlElement.style.paddingBottom = Math.max(8, parseInt(computedStyle.paddingBottom) || 8) + 'px';
+      }
+      
+      if (currentWidth < 44) {
         htmlElement.style.minWidth = '44px';
-        htmlElement.style.display = 'flex';
+        htmlElement.style.paddingLeft = Math.max(12, parseInt(computedStyle.paddingLeft) || 12) + 'px';
+        htmlElement.style.paddingRight = Math.max(12, parseInt(computedStyle.paddingRight) || 12) + 'px';
+      }
+      
+      // Ensure proper display and alignment
+      if (!htmlElement.style.display || htmlElement.style.display === 'inline') {
+        htmlElement.style.display = 'inline-flex';
         htmlElement.style.alignItems = 'center';
         htmlElement.style.justifyContent = 'center';
       }
+      
+      htmlElement.dataset.touchOptimized = 'true';
     });
     
     // Form optimization

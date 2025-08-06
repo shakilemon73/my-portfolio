@@ -63,19 +63,51 @@
 @layer components {
   .custom-cursor {
     position: fixed;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, var(--electric-cyan), transparent);
-    border-radius: 50%;
+    width: 24px;
+    height: 24px;
     pointer-events: none;
     z-index: 9999;
     transition: all 0.1s ease;
-    mix-blend-mode: difference;
+  }
+
+  .custom-cursor::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, #8B4513, #DAA520);
+    border-radius: 1px;
+    top: 2px;
+    left: 11px;
+    transform: rotate(45deg);
+    transform-origin: bottom center;
+  }
+
+  .custom-cursor::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 8px solid #2C2C2C;
+    top: 0;
+    left: 9px;
+    transform: rotate(45deg);
   }
   
   .custom-cursor-hover {
-    transform: scale(2);
-    background: radial-gradient(circle, var(--neon-pink), transparent);
+    transform: scale(1.5) rotate(45deg);
+  }
+
+  .custom-cursor-hover::before {
+    background: linear-gradient(to bottom, #FFD700, #FF6B35);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+
+  .custom-cursor-hover::after {
+    border-bottom-color: #FF6B35;
+    box-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
   }
   
   .glass-morphism {
