@@ -58,9 +58,39 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* UX/UI Enhancement: Accessibility & Focus Management */
+  *:focus {
+    outline: 2px solid hsl(192, 100%, 50%);
+    outline-offset: 2px;
+  }
+
+  /* UX/UI Enhancement: Touch Target Compliance (Luke Wroblewski) */
+  button, a, input, textarea, select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* UX/UI Enhancement: Typography Hierarchy (Dieter Rams + Susan Weinschenk) */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 600;
+    color: hsl(0, 0%, 98%);
+  }
+
+  p {
+    line-height: 1.7;
+    max-width: 70ch; /* Optimal reading length */
+  }
+
+  /* UX/UI Enhancement: Scannable Text (Steve Krug) */
+  .scannable-text {
+    max-width: 15ch; /* Maximum 15 words for quick scanning */
+  }
 }
 
 @layer components {
+  /* UX/UI Enhancement: Improved Cursor with Feedback (Don Norman) */
   .custom-cursor {
     position: fixed;
     width: 28px;
@@ -127,14 +157,98 @@
     background-clip: text;
   }
   
+  /* UX/UI Enhancement: Emotional Design & Feedback (Aarron Walter + Don Norman) */
   .hover-glow {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
   }
   
   .hover-glow:hover {
     box-shadow: 0 0 30px hsla(192, 100%, 50%, 0.6);
-    transform: translateY(-5px);
+    transform: translateY(-2px) scale(1.02);
   }
+
+  .hover-glow:active {
+    transform: translateY(0) scale(0.98);
+    transition: all 0.1s ease;
+  }
+
+  /* UX/UI Enhancement: Loading States & Micro-interactions */
+  .loading-state {
+    opacity: 0.7;
+    pointer-events: none;
+    position: relative;
+  }
+
+  .loading-state::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* UX Enhancement: Error States & User Feedback (Alan Cooper - Forgiveness) */
+  .error-state {
+    border-color: #ff4444 !important;
+    background-color: rgba(255, 68, 68, 0.1) !important;
+  }
+
+  .success-state {
+    border-color: #00ff88 !important;
+    background-color: rgba(0, 255, 136, 0.1) !important;
+  }
+
+  /* UX Enhancement: Information Architecture (Steve Krug - Scannability) */
+  .section-divider {
+    position: relative;
+    margin: 4rem 0;
+  }
+
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.3), transparent);
+  }
+
+  /* UX Enhancement: Progressive Enhancement (Susan Weinschenk - Recognition) */
+  @media (max-width: 768px) {
+    .mobile-stack {
+      flex-direction: column !important;
+      gap: 1rem !important;
+    }
+    
+    .mobile-center {
+      text-align: center !important;
+    }
+    
+    .mobile-full {
+      width: 100% !important;
+    }
+  }
+
+  /* UX Enhancement: Color Psychology & Emotional Design (Aarron Walter) */
+  .status-success { color: #00ff88; }
+  .status-warning { color: #ffaa00; }
+  .status-error { color: #ff4444; }
+  .status-info { color: #00d2ff; }
+
+  /* UX Enhancement: Consistent Spacing System (Julie Zhuo - Systems Thinking) */
+  .spacing-xs { margin: 0.25rem; }
+  .spacing-sm { margin: 0.5rem; }
+  .spacing-md { margin: 1rem; }
+  .spacing-lg { margin: 1.5rem; }
+  .spacing-xl { margin: 2rem; }
+  .spacing-2xl { margin: 3rem; }
   
   .scroll-indicator {
     position: fixed;

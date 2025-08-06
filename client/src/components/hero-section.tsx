@@ -36,21 +36,28 @@ export function HeroSection() {
             {PORTFOLIO_DATA.tagline}.{' '}
             <span className="text-electric-cyan">{PORTFOLIO_DATA.experience}</span> of transforming complex problems into elegant solutions.
           </p>
+          {/* UX Enhancement: Clear Call-to-Action Hierarchy (Don Norman + Luke Wroblewski) */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               onClick={() => scrollToSection('work')}
-              className="px-8 py-4 bg-electric-cyan text-deep-black font-semibold rounded-full hover-glow transition-all duration-300"
+              className="px-8 py-4 bg-electric-cyan text-deep-black font-semibold rounded-full hover-glow transition-all duration-300 min-h-[44px] min-w-[44px] focus:ring-4 focus:ring-electric-cyan/30 active:scale-95"
               data-hover
+              aria-label="View portfolio work section"
+              data-testid="button-view-work"
             >
-              View My Work
+              <i className="fas fa-external-link-alt mr-2" aria-hidden="true"></i>
+              <span>View My Work</span>
             </Button>
             <Button
               variant="outline"
               onClick={() => scrollToSection('contact')}
-              className="px-8 py-4 glass-morphism rounded-full font-semibold hover-glow transition-all duration-300 border-glass-border"
+              className="px-8 py-4 glass-morphism rounded-full font-semibold hover-glow transition-all duration-300 border-glass-border min-h-[44px] min-w-[44px] focus:ring-4 focus:ring-white/30 active:scale-95"
               data-hover
+              aria-label="Navigate to contact section"
+              data-testid="button-contact"
             >
-              Let's Connect
+              <i className="fas fa-envelope mr-2" aria-hidden="true"></i>
+              <span>Let's Connect</span>
             </Button>
           </div>
           <div className="animate-float">

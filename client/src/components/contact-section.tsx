@@ -21,13 +21,39 @@ export function ContactSection() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  // UX Enhancement: Error Prevention & User Feedback (Alan Cooper + Susan Weinschenk)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.message) {
+    // Clear previous errors
+    const inputs = document.querySelectorAll('.error-state');
+    inputs.forEach(input => input.classList.remove('error-state'));
+    
+    let hasErrors = false;
+    
+    // Validate required fields with specific feedback
+    if (!formData.name.trim()) {
+      const nameInput = document.getElementById('name');
+      nameInput?.classList.add('error-state');
+      hasErrors = true;
+    }
+    
+    if (!formData.email.trim()) {
+      const emailInput = document.getElementById('email');
+      emailInput?.classList.add('error-state');
+      hasErrors = true;
+    }
+    
+    if (!formData.message.trim()) {
+      const messageInput = document.getElementById('message');
+      messageInput?.classList.add('error-state');
+      hasErrors = true;
+    }
+    
+    if (hasErrors) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields.",
+        description: "Please fill in all required fields marked in red.",
         variant: "destructive"
       });
       return;
@@ -35,23 +61,35 @@ export function ContactSection() {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // Simulate form submission with realistic timing
     setTimeout(() => {
+      // Success feedback with clear next steps
       toast({
-        title: "Message Sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: "Message Sent Successfully! ✓",
+        description: "Thank you for reaching out. I'll respond within 24 hours with next steps.",
         variant: "default"
       });
+      
+      // Mark form as successful
+      const form = document.querySelector('form');
+      if (form) form.classList.add('success-state');
+      
       setFormData({ name: '', email: '', company: '', project: '', message: '' });
       setIsSubmitting(false);
-    }, 1000);
+      
+      // Reset success state after 3 seconds
+      setTimeout(() => {
+        form?.classList.remove('success-state');
+      }, 3000);
+    }, 1500);
   };
 
   return (
     <section id="contact" className="py-24 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-6xl font-black mb-6">
+          {/* UX Enhancement: Clear Purpose & Emotional Connection (Aarron Walter) */}
+          <h2 className="text-4xl sm:text-6xl font-black mb-6 text-white">
             Ready to <span className="text-gradient">Transform</span> Your Product?
           </h2>
           <p className="text-xl text-cool-gray">
@@ -110,30 +148,37 @@ export function ContactSection() {
           {/* Contact Form */}
           <div className="glass-morphism rounded-3xl p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* UX Enhancement: Form Simplicity & Clear Labels (Luke Wroblewski) */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">Name *</label>
+                <label htmlFor="name" className="block text-sm font-medium mb-2 text-white">Name *</label>
                 <Input
                   type="text"
                   id="name"
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-charcoal border border-glass-border rounded-xl focus:outline-none focus:border-electric-cyan transition-colors"
+                  className="w-full px-4 py-3 bg-charcoal border border-glass-border rounded-xl focus:outline-none focus:border-electric-cyan focus:ring-2 focus:ring-electric-cyan/30 transition-all duration-300 min-h-[44px] text-white"
                   placeholder="Your full name"
+                  aria-describedby="name-help"
+                  data-testid="input-name"
                 />
+                <div id="name-help" className="sr-only">Enter your full name for contact purposes</div>
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">Email *</label>
+                <label htmlFor="email" className="block text-sm font-medium mb-2 text-white">Email *</label>
                 <Input
                   type="email"
                   id="email"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-charcoal border border-glass-border rounded-xl focus:outline-none focus:border-electric-cyan transition-colors"
+                  className="w-full px-4 py-3 bg-charcoal border border-glass-border rounded-xl focus:outline-none focus:border-electric-cyan focus:ring-2 focus:ring-electric-cyan/30 transition-all duration-300 min-h-[44px] text-white"
                   placeholder="your.email@example.com"
+                  aria-describedby="email-help"
+                  data-testid="input-email"
                 />
+                <div id="email-help" className="sr-only">Enter your email address for follow-up communication</div>
               </div>
               
               <div>
@@ -165,23 +210,29 @@ export function ContactSection() {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">Message *</label>
+                <label htmlFor="message" className="block text-sm font-medium mb-2 text-white">Message *</label>
                 <Textarea
                   id="message"
                   value={formData.message}
                   onChange={(e) => handleInputChange('message', e.target.value)}
                   rows={5}
                   required
-                  className="w-full px-4 py-3 bg-charcoal border border-glass-border rounded-xl focus:outline-none focus:border-electric-cyan transition-colors resize-none"
-                  placeholder="Tell me about your project..."
+                  className="w-full px-4 py-3 bg-charcoal border border-glass-border rounded-xl focus:outline-none focus:border-electric-cyan focus:ring-2 focus:ring-electric-cyan/30 transition-all duration-300 min-h-[120px] text-white resize-none"
+                  placeholder="Tell me about your project, challenges, and goals..."
+                  aria-describedby="message-help"
+                  data-testid="textarea-message"
                 />
+                <div id="message-help" className="sr-only">Describe your project requirements, challenges, and objectives</div>
               </div>
               
+              {/* UX Enhancement: Clear Submit Action with Loading State (Alan Cooper - Forgiveness) */}
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-gradient-to-r from-electric-cyan to-neon-pink text-deep-black font-semibold rounded-xl hover-glow transition-all duration-300"
+                className={`w-full px-8 py-4 bg-gradient-to-r from-electric-cyan to-neon-pink text-deep-black font-semibold rounded-xl hover-glow transition-all duration-300 min-h-[44px] focus:ring-4 focus:ring-electric-cyan/30 active:scale-98 ${isSubmitting ? 'loading-state' : ''}`}
                 data-hover
+                aria-label={isSubmitting ? 'Sending message...' : 'Send message'}
+                data-testid="button-submit"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>

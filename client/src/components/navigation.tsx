@@ -35,116 +35,152 @@ export function Navigation() {
       <nav className="fixed top-0 w-full z-50 glass-morphism">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="text-xl font-bold text-electric-cyan min-h-[44px] flex items-center">Shakil.design</div>
-            <div className="hidden md:flex space-x-4">
+            {/* UX Enhancement: Clear Brand Identity (Jonathan Ive - Purpose) */}
+            <div className="text-xl font-bold text-electric-cyan min-h-[44px] flex items-center" role="banner">
+              <span>Shakil.design</span>
+            </div>
+            
+            {/* UX Enhancement: Navigation with Clear Affordances (Don Norman - Discoverability) */}
+            <div className="hidden md:flex space-x-2" role="navigation" aria-label="Main navigation">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
+                aria-label="Navigate to home section"
               >
-                Home
+                <span className="scannable-text">Home</span>
               </button>
               <button 
                 onClick={() => scrollToSection('work')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
+                aria-label="Navigate to work portfolio section"
               >
-                Work
+                <span className="scannable-text">Work</span>
               </button>
               <button 
                 onClick={() => scrollToSection('process')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
+                aria-label="Navigate to design process section"
               >
-                Process
+                <span className="scannable-text">Process</span>
               </button>
               <button 
                 onClick={() => scrollToSection('credentials')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
+                aria-label="Navigate to credentials section"
               >
-                Credentials
+                <span className="scannable-text">Credentials</span>
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
+                aria-label="Navigate to about section"
               >
-                About
+                <span className="scannable-text">About</span>
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
+                aria-label="Navigate to contact section"
               >
-                Contact
+                <span className="scannable-text">Contact</span>
               </button>
             </div>
+            {/* UX Enhancement: Mobile Menu with Clear Signifiers */}
             <div className="md:hidden">
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-electric-cyan p-2"
+                className="text-electric-cyan p-2 min-h-[44px] min-w-[44px]"
                 id="mobileMenuBtn"
                 data-hover
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobileMenu"
               >
-                <i className="fas fa-bars text-xl"></i>
+                <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-xl transition-transform duration-300`}></i>
               </Button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* UX Enhancement: Mobile Menu with Clear Hierarchy & Visual Affordances */}
       <div 
         id="mobileMenu" 
-        className={`fixed top-16 right-0 w-64 h-full glass-morphism transform transition-transform duration-300 z-40 md:hidden ${
+        className={`fixed top-16 right-0 w-64 h-full glass-morphism transform transition-all duration-300 z-40 md:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
+        role="navigation"
+        aria-label="Mobile navigation menu"
+        aria-hidden={!isMobileMenuOpen}
       >
-        <div className="flex flex-col space-y-6 p-8">
+        <div className="flex flex-col space-y-2 p-6">
           <button 
             onClick={() => scrollToSection('home')}
-            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
+            role="menuitem"
+            aria-label="Navigate to home section"
           >
-            Home
+            <i className="fas fa-home mr-3 text-electric-cyan w-4"></i>
+            <span>Home</span>
           </button>
           <button 
             onClick={() => scrollToSection('work')}
-            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
+            role="menuitem"
+            aria-label="Navigate to work portfolio section"
           >
-            Work
+            <i className="fas fa-briefcase mr-3 text-electric-cyan w-4"></i>
+            <span>Work</span>
           </button>
           <button 
             onClick={() => scrollToSection('process')}
-            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
+            role="menuitem"
+            aria-label="Navigate to design process section"
           >
-            Process
+            <i className="fas fa-cogs mr-3 text-electric-cyan w-4"></i>
+            <span>Process</span>
           </button>
           <button 
             onClick={() => scrollToSection('credentials')}
-            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
+            role="menuitem"
+            aria-label="Navigate to credentials section"
           >
-            Credentials
+            <i className="fas fa-award mr-3 text-electric-cyan w-4"></i>
+            <span>Credentials</span>
           </button>
           <button 
             onClick={() => scrollToSection('about')}
-            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
+            role="menuitem"
+            aria-label="Navigate to about section"
           >
-            About
+            <i className="fas fa-user mr-3 text-electric-cyan w-4"></i>
+            <span>About</span>
           </button>
           <button 
             onClick={() => scrollToSection('contact')}
-            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
+            role="menuitem"
+            aria-label="Navigate to contact section"
           >
-            Contact
+            <i className="fas fa-envelope mr-3 text-electric-cyan w-4"></i>
+            <span>Contact</span>
           </button>
         </div>
       </div>
