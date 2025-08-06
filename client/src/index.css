@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(10, 2%, 4%);
+  --foreground: hsl(0, 0%, 100%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(192, 100%, 50%);
+  --primary-foreground: hsl(10, 2%, 4%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+  
+  /* Custom colors */
+  --deep-black: hsl(10, 2%, 4%);
+  --charcoal: hsl(16, 3%, 10%);
+  --electric-cyan: hsl(192, 100%, 50%);
+  --neon-pink: hsl(347, 100%, 60%);
+  --cool-gray: hsl(240, 5%, 65%);
+  --neon-green: hsl(142, 71%, 45%);
+  --glass-white: hsla(0, 0%, 100%, 0.1);
+  --glass-border: hsla(0, 0%, 100%, 0.2);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    cursor: none;
+  }
+
+  body {
+    @apply font-inter antialiased bg-background text-foreground overflow-x-hidden;
+    background-color: var(--deep-black);
+    color: var(--foreground);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--electric-cyan), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.1s ease;
+    mix-blend-mode: difference;
+  }
+  
+  .custom-cursor-hover {
+    transform: scale(2);
+    background: radial-gradient(circle, var(--neon-pink), transparent);
+  }
+  
+  .glass-morphism {
+    background: var(--glass-white);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, var(--electric-cyan) 0%, var(--neon-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsla(192, 100%, 50%, 0.6);
+    transform: translateY(-5px);
+  }
+  
+  .scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--electric-cyan), var(--neon-pink));
+    transform-origin: left;
+    z-index: 1000;
+  }
+  
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .bento-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes glow {
+    0% { box-shadow: 0 0 20px hsla(192, 100%, 50%, 0.5); }
+    100% { box-shadow: 0 0 30px hsla(192, 100%, 50%, 0.8); }
+  }
+  
+  @keyframes slideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+}
+
+/* Font family utilities */
+.font-inter {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', Monaco, monospace;
+}
+
+/* Color utilities */
+.text-deep-black {
+  color: var(--deep-black);
+}
+
+.text-charcoal {
+  color: var(--charcoal);
+}
+
+.text-electric-cyan {
+  color: var(--electric-cyan);
+}
+
+.text-neon-pink {
+  color: var(--neon-pink);
+}
+
+.text-cool-gray {
+  color: var(--cool-gray);
+}
+
+.text-neon-green {
+  color: var(--neon-green);
+}
+
+.bg-deep-black {
+  background-color: var(--deep-black);
+}
+
+.bg-charcoal {
+  background-color: var(--charcoal);
+}
+
+.bg-electric-cyan {
+  background-color: var(--electric-cyan);
+}
+
+.bg-neon-pink {
+  background-color: var(--neon-pink);
+}
+
+.bg-neon-green {
+  background-color: var(--neon-green);
+}
+
+.border-glass-border {
+  border-color: var(--glass-border);
+}
