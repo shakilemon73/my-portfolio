@@ -52,10 +52,10 @@ export function ContactSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-6xl font-black mb-6">
-            Let's <span className="text-gradient">Connect</span>
+            Ready to <span className="text-gradient">Transform</span> Your Product?
           </h2>
           <p className="text-xl text-cool-gray">
-            Ready to create something amazing together? I'd love to hear from you.
+            Let's turn your complex challenges into breakthrough user experiences that drive real business results.
           </p>
         </div>
         

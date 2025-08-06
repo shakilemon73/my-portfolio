@@ -293,14 +293,30 @@ export function UXEnhancementSystem() {
       accessibility: true
     };
     
-    // Validate touch targets
-    const touchTargets = document.querySelectorAll('button, a, [role="button"]');
-    touchTargets.forEach(element => {
+    // Validate touch targets - Check all interactive elements (skip hidden ones)
+    const touchTargets = document.querySelectorAll('button, a, [role="button"], [data-hover], [onclick], .cursor-pointer');
+    const failingElements: string[] = [];
+    
+    touchTargets.forEach((element, index) => {
       const rect = element.getBoundingClientRect();
+      const style = window.getComputedStyle(element);
+      
+      // Skip hidden or display:none elements
+      if (style.display === 'none' || rect.width === 0 || rect.height === 0) {
+        return;
+      }
+      
       if (rect.height < 44 || rect.width < 44) {
         results.touchTargets = false;
+        const elementDesc = element.tagName + (element.className ? '.' + element.className.split(' ')[0] : '') + (element.textContent ? ': ' + element.textContent.substring(0, 20) : '');
+        failingElements.push(`${elementDesc} (${Math.round(rect.width)}x${Math.round(rect.height)}px)`);
       }
     });
+    
+    // Enhanced debugging - only show real failures
+    if (failingElements.length > 0) {
+      console.log('Touch Target Failures:', failingElements.slice(0, 5));
+    }
     
     // Validate feedback mechanisms
     const interactiveElements = document.querySelectorAll('[data-hover]');

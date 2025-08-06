@@ -65,9 +65,18 @@ export function FaangPortfolioSection() {
           {FAANG_PORTFOLIO_DATA.case_studies.filter(cs => cs.featured).map((caseStudy) => (
             <div 
               key={caseStudy.id}
-              className="glass-morphism rounded-3xl p-8 lg:p-12 hover-glow transition-all duration-500 cursor-pointer group"
+              className="glass-morphism rounded-3xl p-8 lg:p-12 hover-glow transition-all duration-500 cursor-pointer group min-h-[44px]"
               onClick={() => handleOpenCaseStudy(caseStudy)}
               data-hover
+              role="button"
+              tabIndex={0}
+              aria-label={`View ${caseStudy.title} case study`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleOpenCaseStudy(caseStudy);
+                }
+              }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Case Study Info */}

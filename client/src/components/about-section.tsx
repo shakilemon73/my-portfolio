@@ -11,13 +11,13 @@ export function AboutSection() {
                 About <span className="text-gradient">Me</span>
               </h2>
               <p className="text-xl text-cool-gray leading-relaxed mb-6">
-                With over 6 years of experience crafting digital experiences, I'm passionate about 
-                solving complex problems through user-centered design. My approach combines strategic 
-                thinking with creative execution to deliver solutions that truly make a difference.
+                I'm a strategic product designer who thrives at the intersection of user psychology, 
+                business strategy, and emerging technology. Over 6 years, I've helped startups scale 
+                from MVP to millions of users and guided enterprises through digital transformation.
               </p>
               <p className="text-lg text-cool-gray leading-relaxed">
-                I believe great design is invisible—it just works. When users can accomplish their 
-                goals effortlessly, that's when we've succeeded.
+                My superpower? Translating complex technical possibilities into experiences that feel 
+                magical to users while delivering concrete business value. Every pixel serves a purpose.
               </p>
             </div>
             

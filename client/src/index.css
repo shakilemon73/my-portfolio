@@ -286,3 +286,9 @@
 .border-glass-border {
   border-color: var(--glass-border);
 }
+
+/* UX Enhancement - Touch Targets */
+button, a[href], [role="button"], [data-hover] {
+  min-height: 44px !important;
+  min-width: 44px !important;
+}

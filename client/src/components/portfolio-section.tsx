@@ -41,7 +41,7 @@ export function PortfolioSection() {
             <p className="text-cool-gray mb-6">
               View additional case studies, experiments, and design explorations
             </p>
-            <button className="inline-flex items-center space-x-2 text-electric-cyan font-semibold hover:text-neon-pink transition-colors" data-hover>
+            <button className="inline-flex items-center space-x-2 text-electric-cyan font-semibold hover:text-neon-pink transition-colors min-h-[44px] min-w-[44px] px-4 py-3 rounded-lg hover:bg-electric-cyan/10" data-hover>
               <span>See Full Portfolio</span>
               <i className="fas fa-arrow-right"></i>
             </button>

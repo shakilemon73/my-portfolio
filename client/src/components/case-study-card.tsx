@@ -37,9 +37,18 @@ export function CaseStudyCard({ project, onOpenModal }: CaseStudyCardProps) {
 
   return (
     <div 
-      className={`${project.gridSpan} glass-morphism rounded-3xl p-6 lg:p-8 hover-glow transition-all duration-500 group cursor-pointer`}
+      className={`${project.gridSpan} glass-morphism rounded-3xl p-6 lg:p-8 hover-glow transition-all duration-500 group cursor-pointer min-h-[44px]`}
       onClick={() => onOpenModal(project)}
       data-hover
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${project.title} case study`}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onOpenModal(project);
+        }
+      }}
     >
       {/* Placeholder for project image */}
       <div className="w-full h-48 lg:h-80 bg-gradient-to-br from-charcoal to-deep-black rounded-2xl mb-6 flex items-center justify-center border border-glass-border">

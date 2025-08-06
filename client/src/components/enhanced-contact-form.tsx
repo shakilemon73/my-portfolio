@@ -359,7 +359,7 @@ export function EnhancedContactForm() {
         <input
           {...register('newsletterOptIn')}
           type="checkbox"
-          className="w-5 h-5 mt-0.5 text-primary border-border rounded focus:ring-primary"
+          className="w-6 h-6 mt-0.5 text-primary border-border rounded focus:ring-primary"
         />
         <div>
           <div className="text-sm font-medium text-foreground">
@@ -375,7 +375,7 @@ export function EnhancedContactForm() {
       <motion.button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-white text-black font-bold py-4 px-6 rounded-xl hover:bg-gray-100 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-3 shadow-xl border-4 border-electric-cyan"
+        className="w-full bg-white text-black font-bold min-h-[56px] px-6 rounded-xl hover:bg-gray-100 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-3 shadow-xl border-4 border-electric-cyan"
         variants={buttonHover}
         whileHover={!isSubmitting ? "hover" : undefined}
         whileTap={!isSubmitting ? "tap" : undefined}

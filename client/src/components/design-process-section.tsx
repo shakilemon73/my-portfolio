@@ -4,7 +4,7 @@ const processSteps = [
   {
     id: 1,
     title: "Research & Discovery",
-    description: "Understanding users, business goals, and technical constraints through comprehensive research",
+    description: "Deep-dive into user psychology, business drivers, and technical realities to uncover hidden opportunities and validate assumptions with data.",
     icon: "fas fa-search",
     color: "electric-cyan",
     activities: [
@@ -19,7 +19,7 @@ const processSteps = [
   {
     id: 2,
     title: "Ideation & Strategy",
-    description: "Translating research insights into strategic design solutions and user flows",
+    description: "Transform insights into breakthrough concepts that solve real problems while creating competitive advantages and scalable solutions.",
     icon: "fas fa-lightbulb",
     color: "neon-pink",
     activities: [
@@ -34,7 +34,7 @@ const processSteps = [
   {
     id: 3,
     title: "Design & Prototype",
-    description: "Creating high-fidelity designs and interactive prototypes for validation",
+    description: "Craft pixel-perfect experiences that feel intuitive and delightful while maintaining technical feasibility and business viability.",
     icon: "fas fa-pencil-ruler",
     color: "neon-green",
     activities: [
@@ -49,7 +49,7 @@ const processSteps = [
   {
     id: 4,
     title: "Test & Validate",
-    description: "Validating designs through user testing and iterating based on feedback",
+    description: "Rigorously test with real users to eliminate assumptions, reduce risk, and ensure solutions deliver measurable impact before launch.",
     icon: "fas fa-flask",
     color: "neon-pink",
     activities: [
@@ -64,7 +64,7 @@ const processSteps = [
   {
     id: 5,
     title: "Implement & Launch",
-    description: "Collaborating with development teams to ensure pixel-perfect implementation",
+    description: "Partner closely with engineering to bring designs to life with obsessive attention to detail and continuous optimization.",
     icon: "fas fa-rocket",
     color: "electric-cyan",
     activities: [

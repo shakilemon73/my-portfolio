@@ -70,7 +70,7 @@ export function FaangCaseStudyModal({ isOpen, onClose, caseStudy }: FANGCaseStud
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center space-x-2 px-3 py-2 rounded-md font-medium transition-all text-sm ${
+              className={`flex items-center space-x-2 px-4 py-3 min-h-[44px] rounded-md font-medium transition-all text-sm ${
                 activeTab === tab.id
                   ? 'bg-electric-cyan text-deep-black'
                   : 'text-cool-gray hover:text-white hover:bg-deep-black'
