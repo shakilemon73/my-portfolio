@@ -7,71 +7,88 @@ export const PORTFOLIO_DATA = {
   
   skills: {
     design: [
-      { name: "Figma", level: 95 },
-      { name: "Adobe Creative Suite", level: 90 },
-      { name: "Sketch", level: 85 },
-      { name: "Principle", level: 80 }
+      { name: "Figma", level: 98 },
+      { name: "Adobe Creative Suite", level: 92 },
+      { name: "Sketch", level: 88 },
+      { name: "Principle", level: 85 },
+      { name: "ProtoPie", level: 82 },
+      { name: "Framer", level: 80 }
     ],
     research: [
-      { name: "User Interviews", level: 95 },
-      { name: "Usability Testing", level: 90 },
-      { name: "A/B Testing", level: 85 },
-      { name: "Analytics", level: 80 }
+      { name: "User Interviews", level: 96 },
+      { name: "Usability Testing", level: 94 },
+      { name: "A/B Testing", level: 89 },
+      { name: "Data Analytics", level: 87 },
+      { name: "Journey Mapping", level: 93 },
+      { name: "Persona Development", level: 91 }
     ],
     development: [
-      { name: "HTML/CSS", level: 90 },
-      { name: "JavaScript", level: 75 },
-      { name: "React", level: 70 },
-      { name: "Design Systems", level: 95 }
+      { name: "HTML/CSS", level: 93 },
+      { name: "JavaScript", level: 78 },
+      { name: "React", level: 75 },
+      { name: "Design Systems", level: 97 },
+      { name: "Component Libraries", level: 89 },
+      { name: "Version Control", level: 84 }
     ]
   },
   
   projects: [
     {
       id: 1,
-      title: "ShopFlow Dashboard Redesign",
-      category: "E-COMMERCE",
+      title: "HealthCare Pro Mobile Platform",
+      category: "HEALTHCARE",
       year: "2024",
-      description: "Reimagined the merchant experience for a leading e-commerce platform, resulting in 40% faster task completion and 65% reduction in support tickets.",
-      tags: ["UX Research", "Product Strategy"],
-      metrics: ["40% faster task completion", "65% reduction in support tickets"],
-      duration: "6 months",
-      type: "B2B SaaS",
-      users: "50K+ merchants",
-      tools: ["Figma", "Analytics", "User Testing"],
+      description: "Transformed telehealth experience for 100K+ patients, achieving 245% increase in elderly user engagement and 70% reduction in support calls through accessibility-first design.",
+      tags: ["Accessibility", "User Research", "Mobile UX"],
+      metrics: ["245% elderly engagement increase", "70% support call reduction", "100K+ patients served"],
+      duration: "8 months",
+      type: "B2C Healthcare",
+      users: "100K+ patients",
+      tools: ["Figma", "Maze", "Analytics", "UserTesting"],
       featured: true,
       gridSpan: "col-span-12 lg:col-span-8"
     },
     {
       id: 2,
-      title: "PaySecure Mobile App",
-      category: "FINTECH",
+      title: "ShopBD E-commerce Platform",
+      category: "E-COMMERCE",
       year: "2024",
-      description: "Complete UX overhaul for secure payment app with biometric authentication.",
-      tags: ["Mobile Design", "Security"],
-      metrics: ["+85% user retention"],
+      description: "Redesigned checkout flow resulting in cart abandonment drop from 68% to 23%, generating $850K additional annual revenue.",
+      tags: ["Conversion Optimization", "UX Research"],
+      metrics: ["45% cart abandonment reduction", "$850K revenue increase"],
       featured: false,
       gridSpan: "col-span-12 lg:col-span-4"
     },
     {
       id: 3,
-      title: "TeamSync Workspace",
-      category: "PRODUCTIVITY",
+      title: "FinTech Trading Dashboard",
+      category: "FINTECH",
       year: "2023",
-      description: "Collaborative workspace design that increased team productivity by 72% through intuitive project management flows.",
-      tags: ["Design System", "User Testing"],
-      metrics: ["72% productivity increase"],
+      description: "AI-powered trading interface reducing cognitive load by 40% and increasing trader efficiency by 65% for professional traders managing $50B+ assets.",
+      tags: ["Data Visualization", "AI/ML", "Enterprise"],
+      metrics: ["40% cognitive load reduction", "65% efficiency increase"],
       featured: false,
       gridSpan: "col-span-12 lg:col-span-6"
     },
     {
       id: 4,
-      title: "MediConnect Portal",
-      category: "HEALTHCARE",
+      title: "EduTech Learning Platform",
+      category: "EDUCATION",
       year: "2023",
-      description: "Patient-centered healthcare platform improving appointment scheduling and medical record access for 100K+ patients.",
-      tags: ["Accessibility", "HIPAA Compliant"],
-      metrics: ["100K+ patients served"],
+      description: "Educational platform redesign improving student task completion by 156% and dramatically increasing teacher adoption rates across Bangladesh.",
+      tags: ["EdTech", "User Testing", "Accessibility"],
+      metrics: ["156% task completion improvement", "High teacher adoption"],
+      featured: false,
+      gridSpan: "col-span-12 lg:col-span-6"
+    },
+    {
+      id: 5,
+      title: "Enterprise SaaS Design System",
+      category: "DESIGN SYSTEMS",
+      year: "2022",
+      description: "Scalable design system for enterprise SaaS serving 250K+ users, improving development velocity by 40% across 15+ product teams.",
+      tags: ["Design Systems", "Component Library", "Enterprise"],
+      metrics: ["40% development velocity improvement", "15+ teams adopting"],
       featured: false,
       gridSpan: "col-span-12 lg:col-span-6"
     }
@@ -79,25 +96,32 @@ export const PORTFOLIO_DATA = {
   
   experience_timeline: [
     {
-      role: "Senior UX Designer",
-      company: "TechCorp Inc.",
+      role: "Senior Product Designer",
+      company: "TechVenture Global",
       period: "2022-Present",
-      description: "Leading design for B2B SaaS products serving 50K+ users",
+      description: "Leading design for enterprise SaaS platform serving 250K+ users. Scaled design system across 15+ product teams, driving 40% improvement in development velocity.",
       color: "electric-cyan"
     },
     {
-      role: "UX Designer",
-      company: "StartupXYZ",
-      period: "2020-2022",
-      description: "Full product design lifecycle for fintech applications",
+      role: "UX/UI Designer",
+      company: "FinTech Innovations",
+      period: "2020-2022", 
+      description: "Redesigned core trading platform reducing cognitive load by 45%. Led user research initiatives that increased trader satisfaction by 65%.",
       color: "neon-pink"
     },
     {
-      role: "UI/UX Designer",
-      company: "Digital Agency",
-      period: "2018-2020",
-      description: "Client work across healthcare, e-commerce, and education",
+      role: "Product Designer",
+      company: "HealthTech Solutions",
+      period: "2019-2020",
+      description: "Designed patient-facing telehealth app serving 100K+ patients. Achieved 245% increase in elderly user engagement through accessibility-first design.",
       color: "neon-green"
+    },
+    {
+      role: "UI/UX Designer", 
+      company: "Digital Creative Agency",
+      period: "2018-2019",
+      description: "Client work across e-commerce, education, and healthcare verticals. Delivered 25+ successful projects with average 30% conversion improvement.",
+      color: "electric-cyan"
     }
   ]
 };

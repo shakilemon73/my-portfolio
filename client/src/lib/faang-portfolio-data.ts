@@ -322,6 +322,24 @@ export const FAANG_PORTFOLIO_DATA = {
       organization: "UX Bangladesh Community",
       year: "2023",
       description: "Acknowledged for contributions to local design community and mentorship programs"
+    },
+    {
+      title: "Design Leadership Recognition",
+      organization: "UX Professionals Association",
+      year: "2022",
+      description: "Outstanding leadership in cross-functional design team management"
+    },
+    {
+      title: "Accessibility Champion Award",
+      organization: "Inclusive Design Network",
+      year: "2022",
+      description: "Advancing digital accessibility in healthcare and financial services"
+    },
+    {
+      title: "Rising Design Talent",
+      organization: "Design Week Bangladesh",
+      year: "2021",
+      description: "Early career recognition for innovative approach to user research"
     }
   ],
 
@@ -370,27 +388,66 @@ export const TESTIMONIALS_FAANG = [
     name: "Dr. Rashida Khan",
     role: "Chief Medical Officer",
     company: "MediCare Solutions",
+    avatar: "RK",
     content: "Shakil transformed our telehealth platform from a user nightmare to a delightful experience. His accessibility-first approach increased elderly patient engagement by 245% and reduced support calls by 70%. A true strategic partner.",
     project: "HealthTech Mobile App Redesign",
-    rating: 5
+    rating: 5,
+    linkedin: true
   },
   {
     id: 2,
     name: "Ahmed Rahman",
     role: "Product Manager",
     company: "ShopBD",
+    avatar: "AR",
     content: "Shakil didn't just redesign our checkout flow—he engineered a conversion machine. Cart abandonment dropped from 68% to 23%, generating an additional $850K annually. His deep understanding of local user behavior was game-changing.",
     project: "E-commerce Mobile App",
-    rating: 5
+    rating: 5,
+    linkedin: true
   },
   {
     id: 3,
     name: "Fatima Ali",
     role: "Head of Digital",
     company: "EduTech Bangladesh",
+    avatar: "FA",
     content: "Shakil took our overwhelming educational platform and made it feel like magic. Student task completion improved 156% and teacher adoption soared. He has an incredible ability to simplify complexity without losing functionality.",
     project: "Educational Platform Dashboard", 
-    rating: 4
+    rating: 5,
+    linkedin: true
+  },
+  {
+    id: 4,
+    name: "Marcus Chen",
+    role: "VP of Product",
+    company: "FinTech Global",
+    avatar: "MC",
+    content: "Working with Shakil was transformative. He redesigned our trading dashboard, reducing cognitive load by 40% while increasing trader efficiency by 65%. His deep understanding of complex financial workflows is exceptional.",
+    project: "AI Trading Platform",
+    rating: 5,
+    linkedin: true
+  },
+  {
+    id: 5,
+    name: "Sarah Johnson",
+    role: "Chief Technology Officer",
+    company: "TechVenture Inc",
+    avatar: "SJ",
+    content: "Shakil's design leadership helped us scale from 10K to 500K users seamlessly. His systematic approach to design systems and user-centered thinking delivered measurable business impact - 30% increase in user retention.",
+    project: "SaaS Platform Redesign",
+    rating: 5,
+    linkedin: false
+  },
+  {
+    id: 6,
+    name: "David Park",
+    role: "Head of UX",
+    company: "E-commerce Pro",
+    avatar: "DP",
+    content: "Shakil's strategic approach to UX research uncovered insights that transformed our entire product strategy. His work resulted in a 45% increase in conversion rates and significantly improved user satisfaction scores.",
+    project: "E-commerce Optimization",
+    rating: 4,
+    linkedin: true
   }
 ];
 

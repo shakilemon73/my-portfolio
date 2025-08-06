@@ -6,10 +6,12 @@ export function FaangLevelHero() {
   const [currentMetric, setCurrentMetric] = useState(0);
   
   const metrics = [
-    { value: "40%", label: "Task Completion Improvement", color: "text-electric-cyan" },
-    { value: "65%", label: "Support Ticket Reduction", color: "text-neon-pink" },
-    { value: "300%", label: "Faster User Onboarding", color: "text-neon-green" },
-    { value: "50K+", label: "Users Impacted", color: "text-electric-cyan" }
+    { value: "1.2M+", label: "Users Impacted Globally", color: "text-electric-cyan" },
+    { value: "$3.8M+", label: "Revenue Generated", color: "text-neon-pink" },
+    { value: "245%", label: "User Engagement Increase", color: "text-neon-green" },
+    { value: "92%", label: "Project Success Rate", color: "text-electric-cyan" },
+    { value: "45%", label: "Efficiency Improvement", color: "text-neon-pink" },
+    { value: "89%", label: "User Satisfaction Score", color: "text-neon-green" }
   ];
 
   const scrollToSection = (sectionId: string) => {
