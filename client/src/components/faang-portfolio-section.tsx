@@ -1,22 +1,10 @@
-import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { FaangCaseStudyModal } from '@/components/faang-case-study-modal';
+import { Link } from 'wouter';
 import { FAANG_PORTFOLIO_DATA } from '@/lib/faang-portfolio-data';
+import { faangCaseStudies } from '@/data/faang-case-studies';
 
 export function FaangPortfolioSection() {
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<any>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenCaseStudy = (caseStudy: any) => {
-    setSelectedCaseStudy(caseStudy);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseCaseStudy = () => {
-    setIsModalOpen(false);
-    setSelectedCaseStudy(null);
-  };
 
   return (
     <section id="work" className="py-24 relative">
@@ -62,21 +50,13 @@ export function FaangPortfolioSection() {
 
         {/* Featured Case Study */}
         <div className="mb-16">
-          {FAANG_PORTFOLIO_DATA.case_studies.filter(cs => cs.featured).map((caseStudy) => (
-            <div 
+          {faangCaseStudies.filter(cs => cs.featured).map((caseStudy) => (
+            <Link 
               key={caseStudy.id}
-              className="glass-morphism rounded-3xl p-8 lg:p-12 hover-glow transition-all duration-500 cursor-pointer group min-h-[44px]"
-              onClick={() => handleOpenCaseStudy(caseStudy)}
+              href={`/case-study/${caseStudy.slug}`}
+              className="block glass-morphism rounded-3xl p-8 lg:p-12 hover-glow transition-all duration-500 group min-h-[44px]"
               data-hover
-              role="button"
-              tabIndex={0}
-              aria-label={`View ${caseStudy.title} case study`}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleOpenCaseStudy(caseStudy);
-                }
-              }}
+              data-testid={`link-case-study-${caseStudy.slug}`}
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Case Study Info */}
@@ -95,7 +75,7 @@ export function FaangPortfolioSection() {
                   </h3>
                   
                   <p className="text-lg text-cool-gray leading-relaxed">
-                    {caseStudy.subtitle}
+                    {caseStudy.overview}
                   </p>
 
                   <div className="grid grid-cols-2 gap-4 text-sm">
@@ -105,11 +85,11 @@ export function FaangPortfolioSection() {
                     </div>
                     <div>
                       <span className="text-cool-gray">Duration: </span>
-                      <span className="text-white font-medium">{caseStudy.timeline}</span>
+                      <span className="text-white font-medium">{caseStudy.duration}</span>
                     </div>
                     <div>
                       <span className="text-cool-gray">My Role: </span>
-                      <span className="text-white font-medium">{caseStudy.my_role}</span>
+                      <span className="text-white font-medium">{caseStudy.role}</span>
                     </div>
                     <div>
                       <span className="text-cool-gray">Year: </span>
@@ -121,7 +101,7 @@ export function FaangPortfolioSection() {
                   <div className="space-y-3">
                     <h4 className="font-semibold text-electric-cyan">Key Results</h4>
                     <div className="grid grid-cols-2 gap-3">
-                      {caseStudy.business_impact?.primary_metrics?.slice(0, 4).map((metric: any, index: number) => (
+                      {caseStudy.executiveSummary.impact.slice(0, 4).map((metric: any, index: number) => (
                         <div key={index} className="bg-charcoal rounded-lg p-3 text-center">
                           <div className="text-lg font-bold text-neon-green">{metric.improvement}</div>
                           <div className="text-xs text-cool-gray">{metric.metric}</div>
@@ -130,17 +110,12 @@ export function FaangPortfolioSection() {
                     </div>
                   </div>
 
-                  <Button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleOpenCaseStudy(caseStudy);
-                    }}
-                    className="bg-white text-black font-bold px-6 py-3 rounded-xl hover:bg-gray-100 hover:scale-105 transition-all duration-300 border-2 border-electric-cyan shadow-lg"
-                    data-hover
-                  >
-                    <i className="fas fa-external-link-alt mr-2 text-black"></i>
-                    View Full Case Study
-                  </Button>
+                  <div className="mt-4">
+                    <span className="inline-flex items-center px-6 py-3 bg-white text-black font-bold rounded-xl hover:bg-gray-100 hover:scale-105 transition-all duration-300 border-2 border-electric-cyan shadow-lg">
+                      <i className="fas fa-external-link-alt mr-2 text-black"></i>
+                      View Full Case Study
+                    </span>
+                  </div>
                 </div>
 
                 {/* Visual Showcase */}
@@ -165,7 +140,7 @@ export function FaangPortfolioSection() {
                       <rect x="60" y="40" width="280" height="200" rx="10" fill="url(#screenGrad)" />
                       
                       {/* Healthcare App UI Elements */}
-                      {caseStudy.category === 'Healthcare' && (
+                      {caseStudy.category === 'healthcare' && (
                         <g>
                           {/* Header */}
                           <rect x="70" y="50" width="260" height="30" rx="5" fill="#00d2ff" opacity="0.3" />
@@ -189,7 +164,7 @@ export function FaangPortfolioSection() {
                       )}
                       
                       {/* E-commerce App UI Elements */}
-                      {caseStudy.category === 'E-commerce' && (
+                      {caseStudy.category === 'web' && (
                         <g>
                           {/* Header with cart */}
                           <rect x="70" y="50" width="260" height="30" rx="5" fill="#ff0080" opacity="0.3" />
@@ -214,7 +189,7 @@ export function FaangPortfolioSection() {
                       )}
                       
                       {/* FinTech Trading UI Elements */}
-                      {caseStudy.category === 'Fintech' && (
+                      {caseStudy.category === 'fintech' && (
                         <g>
                           {/* Header */}
                           <rect x="70" y="50" width="260" height="30" rx="5" fill="#00d2ff" opacity="0.3" />
@@ -240,7 +215,7 @@ export function FaangPortfolioSection() {
                       )}
                       
                       {/* Default/Other categories */}
-                      {!['Healthcare', 'E-commerce', 'Fintech'].includes(caseStudy.category) && (
+                      {!['healthcare', 'web', 'fintech'].includes(caseStudy.category) && (
                         <g>
                           {/* Generic Dashboard UI */}
                           <rect x="70" y="50" width="260" height="30" rx="5" fill="#00d2ff" opacity="0.3" />
@@ -279,18 +254,18 @@ export function FaangPortfolioSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* Other Case Studies */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {FAANG_PORTFOLIO_DATA.case_studies.filter(cs => !cs.featured).map((caseStudy) => (
-            <div 
+          {faangCaseStudies.filter(cs => !cs.featured).map((caseStudy) => (
+            <Link 
               key={caseStudy.id}
-              className="glass-morphism rounded-3xl p-8 hover-glow transition-all duration-500 cursor-pointer group flex flex-col h-full"
-              onClick={() => handleOpenCaseStudy(caseStudy)}
-              data-hover
+              href={`/case-study/${caseStudy.slug}`}
+              className="block glass-morphism rounded-3xl p-8 hover-glow transition-all duration-500 group flex flex-col h-full"
+              data-testid={`link-case-study-${caseStudy.slug}`}
             >
               {/* Project Visual Placeholder */}
               <div className="w-full h-52 bg-gradient-to-br from-charcoal to-deep-black rounded-2xl mb-6 flex items-center justify-center border border-glass-border group-hover:border-neon-pink transition-colors relative overflow-hidden">
@@ -318,7 +293,7 @@ export function FaangPortfolioSection() {
                   </h3>
                   
                   <p className="text-cool-gray text-base leading-relaxed">
-                    {caseStudy.subtitle}
+                    {caseStudy.overview}
                   </p>
                 </div>
 
@@ -329,38 +304,36 @@ export function FaangPortfolioSection() {
                       <i className="fas fa-clock mr-2 text-electric-cyan"></i>
                       Timeline
                     </span>
-                    <span className="text-white font-medium">{caseStudy.timeline}</span>
+                    <span className="text-white font-medium">{caseStudy.duration}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="flex items-center text-cool-gray">
                       <i className="fas fa-user mr-2 text-neon-pink"></i>
                       Role
                     </span>
-                    <span className="text-white font-medium">{caseStudy.my_role}</span>
+                    <span className="text-white font-medium">{caseStudy.role}</span>
                   </div>
                 </div>
 
                 {/* Quick Metrics */}
-                {caseStudy.business_impact?.primary_metrics && (
-                  <div className="mt-auto">
-                    <h4 className="text-sm font-semibold text-electric-cyan mb-3">Key Results</h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      {caseStudy.business_impact.primary_metrics.slice(0, 2).map((metric: any, index: number) => (
-                        <div key={index} className="text-center p-4 bg-charcoal/80 rounded-xl border border-glass-border">
-                          <div className="text-lg font-bold text-neon-green mb-1">{metric.improvement}</div>
-                          <div className="text-xs text-cool-gray leading-tight font-medium">
-                            {metric.metric.length > 15 ? 
-                              metric.metric.split(' ').slice(0, 2).join(' ') : 
-                              metric.metric
-                            }
-                          </div>
+                <div className="mt-auto">
+                  <h4 className="text-sm font-semibold text-electric-cyan mb-3">Key Results</h4>
+                  <div className="grid grid-cols-2 gap-3">
+                    {caseStudy.executiveSummary.impact.slice(0, 2).map((metric: any, index: number) => (
+                      <div key={index} className="text-center p-4 bg-charcoal/80 rounded-xl border border-glass-border">
+                        <div className="text-lg font-bold text-neon-green mb-1">{metric.improvement}</div>
+                        <div className="text-xs text-cool-gray leading-tight font-medium">
+                          {metric.metric.length > 15 ? 
+                            metric.metric.split(' ').slice(0, 2).join(' ') : 
+                            metric.metric
+                          }
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
-                )}
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -394,12 +367,7 @@ export function FaangPortfolioSection() {
           </div>
         </div>
 
-        {/* Case Study Modal */}
-        <FaangCaseStudyModal
-          isOpen={isModalOpen}
-          onClose={handleCloseCaseStudy}
-          caseStudy={selectedCaseStudy}
-        />
+
       </div>
     </section>
   );
