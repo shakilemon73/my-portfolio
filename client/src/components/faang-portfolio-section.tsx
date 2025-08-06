@@ -213,8 +213,8 @@ export function FaangPortfolioSection() {
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <Badge variant="outline" className="border-neon-pink text-neon-pink text-xs">
+                <div className="flex items-center">
+                  <Badge variant="outline" className="border-neon-pink text-neon-pink text-xs px-3 py-1">
                     {caseStudy.category} • {caseStudy.year}
                   </Badge>
                 </div>
