@@ -3,8 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(10, 2%, 4%);
-  --foreground: hsl(0, 0%, 100%);
+  /* Core Design System Colors */
+  --background: 9 9 11; /* Zinc-900 */
+  --foreground: 250 250 250;
+  --primary: 129 140 248; /* Indigo-400 */
+  --primary-foreground: 15 23 42;
+  --secondary: 71 85 105; /* Slate-600 */
+  --accent: 52 211 153; /* Emerald-400 */
+  
+  /* Enhanced Color Palette */
   --muted: hsl(240, 3.7%, 15.9%);
   --muted-foreground: hsl(240, 5%, 64.9%);
   --popover: hsl(240, 10%, 3.9%);
@@ -13,19 +20,15 @@
   --card-foreground: hsl(0, 0%, 98%);
   --border: hsl(240, 3.7%, 15.9%);
   --input: hsl(240, 3.7%, 15.9%);
-  --primary: hsl(192, 100%, 50%);
-  --primary-foreground: hsl(10, 2%, 4%);
-  --secondary: hsl(240, 3.7%, 15.9%);
   --secondary-foreground: hsl(0, 0%, 98%);
-  --accent: hsl(240, 3.7%, 15.9%);
   --accent-foreground: hsl(0, 0%, 98%);
   --destructive: hsl(0, 62.8%, 30.6%);
   --destructive-foreground: hsl(0, 0%, 98%);
   --ring: hsl(240, 4.9%, 83.9%);
   --radius: 0.5rem;
   
-  /* Custom colors */
-  --deep-black: hsl(10, 2%, 4%);
+  /* World-Class Portfolio Colors */
+  --deep-black: hsl(9, 9%, 4%);
   --charcoal: hsl(16, 3%, 10%);
   --electric-cyan: hsl(192, 100%, 50%);
   --neon-pink: hsl(347, 100%, 60%);
@@ -33,6 +36,11 @@
   --neon-green: hsl(142, 71%, 45%);
   --glass-white: hsla(0, 0%, 100%, 0.1);
   --glass-border: hsla(0, 0%, 100%, 0.2);
+  
+  /* FAANG-Level Gradient Colors */
+  --gradient-primary: linear-gradient(135deg, hsl(129, 140%, 248%) 0%, hsl(52, 211%, 153%) 100%);
+  --gradient-hero: linear-gradient(135deg, hsl(192, 100%, 50%) 0%, hsl(347, 100%, 60%) 100%);
+  --gradient-text: linear-gradient(135deg, hsl(129, 140%, 248%), hsl(52, 211%, 153%));
 }
 
 @layer base {
@@ -117,6 +125,16 @@
 }
 
 @layer utilities {
+  /* Typography Scale - FAANG Level */
+  .text-display { font-size: 4.5rem; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; }
+  .text-h1 { font-size: 3.75rem; line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
+  .text-h2 { font-size: 3rem; line-height: 1.25; font-weight: 600; letter-spacing: -0.01em; }
+  .text-h3 { font-size: 2.25rem; line-height: 1.3; font-weight: 600; }
+  .text-body-lg { font-size: 1.25rem; line-height: 1.7; }
+  .text-body { font-size: 1rem; line-height: 1.75; }
+  .text-caption { font-size: 0.875rem; line-height: 1.6; }
+  
+  /* Advanced Animations */
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -131,6 +149,14 @@
   
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-stagger {
+    animation-delay: calc(var(--stagger) * 100ms);
   }
   
   @keyframes float {
@@ -151,6 +177,19 @@
   @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
+  }
+  
+  @keyframes scaleIn {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  /* Responsive Typography */
+  @media (max-width: 768px) {
+    .text-display { font-size: 2.5rem; }
+    .text-h1 { font-size: 2rem; }
+    .text-h2 { font-size: 1.75rem; }
+    .text-h3 { font-size: 1.5rem; }
   }
 }
 

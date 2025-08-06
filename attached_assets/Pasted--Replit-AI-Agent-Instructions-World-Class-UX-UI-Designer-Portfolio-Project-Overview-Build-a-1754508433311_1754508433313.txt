@@ -1,0 +1,630 @@
+# Replit AI Agent Instructions: World-Class UX/UI Designer Portfolio
+
+## Project Overview
+Build a world-class UX/UI designer portfolio website optimized to impress top tech companies (Google, Microsoft, Amazon, Salesforce) and rank in top 100 designer portfolios globally.
+
+## Technical Stack Requirements
+
+### Framework & Core Technologies
+```bash
+# Initialize Next.js project with TypeScript
+npx create-next-app@latest portfolio --typescript --tailwind --eslint --app
+cd portfolio
+```
+
+### Essential Dependencies
+```bash
+npm install framer-motion lucide-react next-themes @vercel/analytics
+npm install -D @types/node
+```
+
+## Project Structure
+```
+portfolio/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── about/
+│   ├── work/
+│   │   ├── [slug]/
+│   │   └── page.tsx
+│   ├── process/
+│   └── contact/
+├── components/
+│   ├── ui/
+│   ├── layout/
+│   ├── case-studies/
+│   └── animations/
+├── lib/
+├── public/
+│   ├── images/
+│   └── videos/
+└── data/
+    └── case-studies.ts
+```
+
+## Design System Specifications
+
+### Color Palette (Dark/Light Mode)
+```css
+:root {
+  /* Light Mode */
+  --background: 255 255 255;
+  --foreground: 0 0 0;
+  --primary: 79 70 229; /* Indigo-600 */
+  --primary-foreground: 255 255 255;
+  --secondary: 156 163 175; /* Gray-400 */
+  --accent: 16 185 129; /* Emerald-500 */
+}
+
+[data-theme="dark"] {
+  /* Dark Mode */
+  --background: 9 9 11; /* Zinc-900 */
+  --foreground: 250 250 250;
+  --primary: 129 140 248; /* Indigo-400 */
+  --primary-foreground: 15 23 42;
+  --secondary: 71 85 105; /* Slate-600 */
+  --accent: 52 211 153; /* Emerald-400 */
+}
+```
+
+### Typography Scale
+```css
+.text-display { font-size: 4.5rem; line-height: 1.1; font-weight: 800; }
+.text-h1 { font-size: 3.75rem; line-height: 1.2; font-weight: 700; }
+.text-h2 { font-size: 3rem; line-height: 1.25; font-weight: 600; }
+.text-h3 { font-size: 2.25rem; line-height: 1.3; font-weight: 600; }
+.text-body-lg { font-size: 1.25rem; line-height: 1.7; }
+.text-body { font-size: 1rem; line-height: 1.75; }
+```
+
+### Animation Specifications
+```typescript
+// Framer Motion Variants
+const pageVariants = {
+  initial: { opacity: 0, y: 20 },
+  in: { opacity: 1, y: 0 },
+  out: { opacity: 0, y: -20 }
+};
+
+const staggerChildren = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+```
+
+## Core Components to Build
+
+### 1. Hero Section Component
+```typescript
+// components/Hero.tsx
+interface HeroProps {
+  title: string;
+  subtitle: string;
+  description: string;
+  ctaText: string;
+  ctaLink: string;
+}
+```
+
+**Features:**
+- Animated text reveal
+- Scroll-triggered parallax background
+- Floating geometric shapes
+- Responsive video background option
+- Call-to-action with hover animations
+
+### 2. Case Study Card Component
+```typescript
+// components/CaseStudyCard.tsx
+interface CaseStudyProps {
+  id: string;
+  title: string;
+  company: string;
+  role: string;
+  duration: string;
+  tags: string[];
+  thumbnail: string;
+  preview: string;
+  impact: {
+    metric: string;
+    value: string;
+  }[];
+}
+```
+
+**Features:**
+- Hover reveal animations
+- Progressive image loading
+- Impact metrics display
+- Tag filtering system
+- Smooth page transitions
+
+### 3. Interactive Process Timeline
+```typescript
+// components/ProcessTimeline.tsx
+interface ProcessStep {
+  phase: string;
+  title: string;
+  description: string;
+  tools: string[];
+  deliverables: string[];
+  duration: string;
+}
+```
+
+**Features:**
+- Scroll-triggered animations
+- Interactive step expansion
+- Tool icons and tooltips
+- Progress indicator
+
+### 4. Skills & Tools Grid
+```typescript
+// components/SkillsGrid.tsx
+interface Skill {
+  category: string;
+  tools: {
+    name: string;
+    proficiency: number;
+    icon: string;
+  }[];
+}
+```
+
+**Features:**
+- Animated proficiency bars
+- Category filtering
+- Icon animations on hover
+- Responsive grid layout
+
+## Page Implementations
+
+### Homepage (app/page.tsx)
+```typescript
+export default function Home() {
+  return (
+    <main>
+      {/* Hero Section */}
+      <Hero />
+      
+      {/* Featured Work - 3 best case studies */}
+      <section className="py-24">
+        <FeaturedWork />
+      </section>
+      
+      {/* Process Overview */}
+      <section className="py-24 bg-secondary/10">
+        <ProcessOverview />
+      </section>
+      
+      {/* Testimonials */}
+      <section className="py-24">
+        <Testimonials />
+      </section>
+      
+      {/* CTA Section */}
+      <section className="py-24">
+        <CTASection />
+      </section>
+    </main>
+  );
+}
+```
+
+### Work Page (app/work/page.tsx)
+```typescript
+export default function Work() {
+  return (
+    <main>
+      {/* Work Hero */}
+      <section className="py-24">
+        <WorkHero />
+      </section>
+      
+      {/* Filter Tabs */}
+      <section>
+        <FilterTabs categories={['All', 'Mobile', 'Web', 'Enterprise', 'Concept']} />
+      </section>
+      
+      {/* Case Studies Grid */}
+      <section className="py-16">
+        <CaseStudyGrid />
+      </section>
+    </main>
+  );
+}
+```
+
+### Individual Case Study (app/work/[slug]/page.tsx)
+```typescript
+export default function CaseStudy({ params }: { params: { slug: string } }) {
+  return (
+    <article>
+      {/* Case Study Hero */}
+      <CaseStudyHero />
+      
+      {/* Executive Summary */}
+      <ExecutiveSummary />
+      
+      {/* Challenge & Context */}
+      <ChallengeSection />
+      
+      {/* Research & Discovery */}
+      <ResearchSection />
+      
+      {/* Design Process */}
+      <DesignProcessSection />
+      
+      {/* Solution & Results */}
+      <SolutionSection />
+      
+      {/* Impact & Metrics */}
+      <ImpactSection />
+      
+      {/* Reflection & Learnings */}
+      <ReflectionSection />
+      
+      {/* Next Project */}
+      <NextProjectSection />
+    </article>
+  );
+}
+```
+
+## Performance Optimization Requirements
+
+### Image Optimization
+```typescript
+// Use Next.js Image component everywhere
+import Image from 'next/image';
+
+// Implement lazy loading and blur placeholders
+<Image
+  src="/images/case-study-hero.jpg"
+  alt="Case study hero image"
+  width={1200}
+  height={800}
+  placeholder="blur"
+  blurDataURL="data:image/jpeg;base64,..."
+  priority={false} // Only true for above-fold images
+/>
+```
+
+### Code Splitting & Lazy Loading
+```typescript
+// Lazy load heavy components
+const InteractivePrototype = lazy(() => import('../components/InteractivePrototype'));
+
+// Use Suspense for loading states
+<Suspense fallback={<LoadingSpinner />}>
+  <InteractivePrototype />
+</Suspense>
+```
+
+### SEO Optimization
+```typescript
+// app/layout.tsx metadata
+export const metadata: Metadata = {
+  title: {
+    default: '[Your Name] - UX/UI Designer',
+    template: '%s | [Your Name] - UX/UI Designer'
+  },
+  description: 'Product Designer creating user-centered solutions for enterprise and consumer applications. Specializing in design systems, user research, and strategic design.',
+  keywords: ['UX Designer', 'UI Designer', 'Product Designer', 'Design Systems', 'User Research'],
+  authors: [{ name: '[Your Name]', url: 'https://yourportfolio.com' }],
+  creator: '[Your Name]',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://yourportfolio.com',
+    siteName: '[Your Name] - Portfolio',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: '[Your Name] - UX/UI Designer Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '[Your Name] - UX/UI Designer',
+    description: 'Product Designer creating user-centered solutions',
+    images: ['/og-image.jpg'],
+  },
+};
+```
+
+## Data Structure for Case Studies
+
+### Case Study Data Model
+```typescript
+// data/case-studies.ts
+export interface CaseStudy {
+  id: string;
+  slug: string;
+  title: string;
+  company: string;
+  year: string;
+  duration: string;
+  role: string;
+  team: string[];
+  tags: string[];
+  category: 'mobile' | 'web' | 'enterprise' | 'concept';
+  featured: boolean;
+  
+  // Hero content
+  heroImage: string;
+  heroVideo?: string;
+  overview: string;
+  
+  // Challenge
+  challenge: {
+    problem: string;
+    context: string;
+    constraints: string[];
+    objectives: string[];
+  };
+  
+  // Process
+  process: {
+    research: {
+      methods: string[];
+      insights: string[];
+      personas?: string;
+      journeyMap?: string;
+    };
+    ideation: {
+      workshops: string[];
+      sketches: string[];
+      wireframes: string[];
+    };
+    design: {
+      iterations: string[];
+      prototypes: string[];
+      testing: string[];
+    };
+  };
+  
+  // Solution
+  solution: {
+    description: string;
+    keyFeatures: {
+      title: string;
+      description: string;
+      image: string;
+    }[];
+    designSystem?: {
+      colors: string[];
+      typography: string;
+      components: string[];
+    };
+  };
+  
+  // Results
+  results: {
+    metrics: {
+      label: string;
+      value: string;
+      change: string;
+    }[];
+    testimonials?: {
+      quote: string;
+      author: string;
+      role: string;
+    }[];
+  };
+  
+  // Media
+  images: string[];
+  videos?: string[];
+  prototypes?: {
+    title: string;
+    url: string;
+    type: 'figma' | 'principle' | 'framer';
+  }[];
+  
+  // Navigation
+  nextProject?: string;
+  previousProject?: string;
+}
+```
+
+## Advanced Features to Implement
+
+### 1. Interactive Prototype Viewer
+```typescript
+// components/PrototypeViewer.tsx
+interface PrototypeViewerProps {
+  src: string;
+  title: string;
+  type: 'figma' | 'principle' | 'framer';
+  fullscreen?: boolean;
+}
+```
+
+### 2. Scroll-Triggered Animations
+```typescript
+// Use Intersection Observer for performance
+const useScrollAnimation = (threshold = 0.1) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold }
+    );
+    
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, isVisible };
+};
+```
+
+### 3. Dark/Light Mode Toggle
+```typescript
+// components/ThemeToggle.tsx
+import { useTheme } from 'next-themes';
+
+export function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  
+  return (
+    <button
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className="p-2 rounded-lg transition-colors hover:bg-secondary/20"
+    >
+      {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+    </button>
+  );
+}
+```
+
+### 4. Contact Form with Validation
+```typescript
+// components/ContactForm.tsx
+interface ContactFormData {
+  name: string;
+  email: string;
+  company: string;
+  message: string;
+  projectType: string;
+  budget: string;
+}
+```
+
+## Deployment & Analytics
+
+### Vercel Deployment
+```json
+// vercel.json
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "regions": ["iad1"],
+  "env": {
+    "NEXT_PUBLIC_GA_ID": "G-XXXXXXXXXX"
+  }
+}
+```
+
+### Google Analytics 4 Integration
+```typescript
+// lib/gtag.ts
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
+
+export const pageview = (url: string) => {
+  if (typeof window !== 'undefined') {
+    window.gtag('config', GA_TRACKING_ID, {
+      page_path: url,
+    });
+  }
+};
+
+export const event = ({ action, category, label, value }: {
+  action: string;
+  category: string;
+  label?: string;
+  value?: number;
+}) => {
+  if (typeof window !== 'undefined') {
+    window.gtag('event', action, {
+      event_category: category,
+      event_label: label,
+      value: value,
+    });
+  }
+};
+```
+
+## Content Guidelines
+
+### Case Study Writing Framework
+1. **Hook** (1-2 sentences): Compelling problem statement
+2. **Context** (1 paragraph): Business background and constraints  
+3. **Challenge** (2-3 paragraphs): Detailed problem exploration
+4. **Process** (Multiple sections): Step-by-step methodology
+5. **Solution** (Multiple sections): Design decisions and rationale
+6. **Impact** (1-2 paragraphs): Measurable results and outcomes
+7. **Reflection** (1 paragraph): Key learnings and next steps
+
+### SEO Content Strategy
+- Target keyword: "[Your Name] UX Designer"
+- Long-tail keywords: "Enterprise UX design portfolio", "Product designer [City]"
+- Alt text for all images with descriptive, keyword-rich captions
+- Schema markup for personal/professional website
+- Internal linking between case studies and process pages
+
+## Quality Assurance Checklist
+
+### Performance (Target Scores)
+- [ ] Lighthouse Performance: 95+
+- [ ] First Contentful Paint: <1.5s
+- [ ] Largest Contentful Paint: <2.5s
+- [ ] Cumulative Layout Shift: <0.1
+
+### Accessibility (WCAG 2.1 AA)
+- [ ] All images have descriptive alt text
+- [ ] Color contrast ratio 4.5:1 minimum
+- [ ] Keyboard navigation support
+- [ ] Screen reader compatibility
+- [ ] Focus indicators visible
+
+### Cross-Browser Testing
+- [ ] Chrome/Chromium (latest)
+- [ ] Firefox (latest)
+- [ ] Safari (latest)
+- [ ] Edge (latest)
+- [ ] Mobile Safari (iOS)
+- [ ] Chrome Mobile (Android)
+
+### Mobile Responsiveness
+- [ ] Breakpoints: 320px, 768px, 1024px, 1440px
+- [ ] Touch-friendly tap targets (44px minimum)
+- [ ] Horizontal scrolling eliminated
+- [ ] Text legibility on all screen sizes
+
+## Final Deployment Steps
+
+1. **Pre-launch Testing**
+   - Run `npm run build` to check for build errors
+   - Test all interactive elements
+   - Verify all links and navigation
+   - Check form submissions
+   - Validate SEO meta tags
+
+2. **Launch Checklist**
+   - Connect custom domain
+   - Set up Google Analytics
+   - Submit sitemap to Google Search Console
+   - Set up monitoring (Vercel Analytics)
+   - Create social media preview cards
+
+3. **Post-launch Optimization**
+   - Monitor Core Web Vitals
+   - A/B test CTA buttons and copy
+   - Track user behavior with heatmaps
+   - Collect and implement user feedback
+
+## Maintenance Schedule
+- **Weekly**: Check analytics and performance metrics
+- **Monthly**: Update case study content and testimonials  
+- **Quarterly**: Review and optimize SEO strategy
+- **Annually**: Design refresh and technology updates
+
+---
+
+**Deliverable**: A world-class portfolio that showcases strategic design thinking, technical execution, and measurable business impact - optimized to impress recruiters at top tech companies and rank among the world's best designer portfolios.
