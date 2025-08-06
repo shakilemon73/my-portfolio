@@ -200,58 +200,75 @@ export function FaangPortfolioSection() {
           {FAANG_PORTFOLIO_DATA.case_studies.filter(cs => !cs.featured).map((caseStudy) => (
             <div 
               key={caseStudy.id}
-              className="glass-morphism rounded-3xl p-6 hover-glow transition-all duration-500 cursor-pointer group"
+              className="glass-morphism rounded-3xl p-8 hover-glow transition-all duration-500 cursor-pointer group flex flex-col h-full"
               onClick={() => handleOpenCaseStudy(caseStudy)}
               data-hover
             >
               {/* Project Visual Placeholder */}
-              <div className="w-full h-48 bg-gradient-to-br from-charcoal to-deep-black rounded-2xl mb-6 flex items-center justify-center border border-glass-border group-hover:border-neon-pink transition-colors">
-                <div className="text-center">
-                  <i className="fas fa-mobile-alt text-4xl text-neon-pink mb-2"></i>
-                  <p className="text-cool-gray text-sm">{caseStudy.category} Project</p>
+              <div className="w-full h-52 bg-gradient-to-br from-charcoal to-deep-black rounded-2xl mb-6 flex items-center justify-center border border-glass-border group-hover:border-neon-pink transition-colors relative overflow-hidden">
+                <div className="text-center z-10">
+                  <i className="fas fa-mobile-alt text-5xl text-neon-pink mb-3"></i>
+                  <p className="text-cool-gray text-sm font-medium">{caseStudy.category} Project</p>
+                </div>
+                {/* Background pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="w-full h-full bg-gradient-to-br from-electric-cyan/20 to-neon-pink/20"></div>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <Badge variant="outline" className="border-neon-pink text-neon-pink text-xs px-3 py-1">
-                    {caseStudy.category} • {caseStudy.year}
-                  </Badge>
+              <div className="flex flex-col flex-grow space-y-5">
+                {/* Badge and Title Section */}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-start">
+                    <Badge variant="outline" className="border-neon-pink text-neon-pink text-xs px-3 py-1.5 font-medium">
+                      {caseStudy.category} • {caseStudy.year}
+                    </Badge>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold group-hover:text-neon-pink transition-colors leading-tight">
+                    {caseStudy.title}
+                  </h3>
+                  
+                  <p className="text-cool-gray text-base leading-relaxed">
+                    {caseStudy.subtitle}
+                  </p>
                 </div>
-                
-                <h3 className="text-xl font-bold group-hover:text-neon-pink transition-colors">
-                  {caseStudy.title}
-                </h3>
-                
-                <p className="text-cool-gray text-sm leading-relaxed">
-                  {caseStudy.subtitle}
-                </p>
 
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-xs text-cool-gray">
-                  <span className="flex items-center">
-                    <i className="fas fa-clock mr-1"></i>
-                    {caseStudy.timeline}
-                  </span>
-                  <span className="flex items-center">
-                    <i className="fas fa-user mr-1"></i>
-                    {caseStudy.my_role}
-                  </span>
+                {/* Meta Information */}
+                <div className="grid grid-cols-1 gap-3 py-4 border-t border-b border-glass-border">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="flex items-center text-cool-gray">
+                      <i className="fas fa-clock mr-2 text-electric-cyan"></i>
+                      Timeline
+                    </span>
+                    <span className="text-white font-medium">{caseStudy.timeline}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="flex items-center text-cool-gray">
+                      <i className="fas fa-user mr-2 text-neon-pink"></i>
+                      Role
+                    </span>
+                    <span className="text-white font-medium">{caseStudy.my_role}</span>
+                  </div>
                 </div>
 
                 {/* Quick Metrics */}
                 {caseStudy.business_impact?.primary_metrics && (
-                  <div className="grid grid-cols-2 gap-2">
-                    {caseStudy.business_impact.primary_metrics.slice(0, 2).map((metric: any, index: number) => (
-                      <div key={index} className="text-center p-3 bg-charcoal rounded-lg min-h-[60px] flex flex-col justify-center">
-                        <div className="text-sm font-bold text-neon-green mb-1">{metric.improvement}</div>
-                        <div className="text-xs text-cool-gray leading-tight">
-                          {metric.metric.length > 12 ? 
-                            metric.metric.split(' ').slice(0, 2).join(' ') : 
-                            metric.metric
-                          }
+                  <div className="mt-auto">
+                    <h4 className="text-sm font-semibold text-electric-cyan mb-3">Key Results</h4>
+                    <div className="grid grid-cols-2 gap-3">
+                      {caseStudy.business_impact.primary_metrics.slice(0, 2).map((metric: any, index: number) => (
+                        <div key={index} className="text-center p-4 bg-charcoal/80 rounded-xl border border-glass-border">
+                          <div className="text-lg font-bold text-neon-green mb-1">{metric.improvement}</div>
+                          <div className="text-xs text-cool-gray leading-tight font-medium">
+                            {metric.metric.length > 15 ? 
+                              metric.metric.split(' ').slice(0, 2).join(' ') : 
+                              metric.metric
+                            }
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
