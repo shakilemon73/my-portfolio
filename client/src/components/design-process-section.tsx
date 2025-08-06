@@ -102,8 +102,12 @@ export function DesignProcessSection() {
                   onClick={() => setActiveStep(index)}
                   className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
                     activeStep === index
-                      ? `bg-${step.color} text-deep-black`
-                      : 'glass-morphism hover:bg-charcoal'
+                      ? `${
+                        step.color === 'electric-cyan' ? 'bg-electric-cyan' :
+                        step.color === 'neon-pink' ? 'bg-neon-pink' :
+                        step.color === 'neon-green' ? 'bg-neon-green' : 'bg-electric-cyan'
+                      } text-deep-black`
+                      : 'glass-morphism hover:bg-charcoal text-white'
                   }`}
                   data-hover
                 >
@@ -111,7 +115,11 @@ export function DesignProcessSection() {
                 </button>
                 <div className="text-center lg:max-w-32">
                   <h3 className={`font-semibold text-sm ${
-                    activeStep === index ? `text-${step.color}` : 'text-cool-gray'
+                    activeStep === index ? `${
+                      step.color === 'electric-cyan' ? 'text-electric-cyan' :
+                      step.color === 'neon-pink' ? 'text-neon-pink' :
+                      step.color === 'neon-green' ? 'text-neon-green' : 'text-electric-cyan'
+                    }` : 'text-cool-gray'
                   }`}>
                     {step.title}
                   </h3>
@@ -129,12 +137,20 @@ export function DesignProcessSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <div className="flex items-center space-x-4 mb-6">
-                <div className={`w-12 h-12 bg-${processSteps[activeStep].color} rounded-full flex items-center justify-center text-deep-black`}>
+                <div className={`w-12 h-12 ${
+                  processSteps[activeStep].color === 'electric-cyan' ? 'bg-electric-cyan' :
+                  processSteps[activeStep].color === 'neon-pink' ? 'bg-neon-pink' :
+                  processSteps[activeStep].color === 'neon-green' ? 'bg-neon-green' : 'bg-electric-cyan'
+                } rounded-full flex items-center justify-center text-deep-black`}>
                   <i className={`${processSteps[activeStep].icon} text-xl`}></i>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">{processSteps[activeStep].title}</h3>
-                  <p className={`text-${processSteps[activeStep].color} text-sm`}>Step {activeStep + 1} of {processSteps.length}</p>
+                  <h3 className="text-2xl font-bold text-white">{processSteps[activeStep].title}</h3>
+                  <p className={`${
+                    processSteps[activeStep].color === 'electric-cyan' ? 'text-electric-cyan' :
+                    processSteps[activeStep].color === 'neon-pink' ? 'text-neon-pink' :
+                    processSteps[activeStep].color === 'neon-green' ? 'text-neon-green' : 'text-electric-cyan'
+                  } text-sm`}>Step {activeStep + 1} of {processSteps.length}</p>
                 </div>
               </div>
               

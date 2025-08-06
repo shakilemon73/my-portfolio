@@ -51,6 +51,15 @@ export default {
           "4": "var(--chart-4)",
           "5": "var(--chart-5)",
         },
+        // Portfolio-specific colors
+        "deep-black": "hsl(9, 9%, 4%)",
+        "charcoal": "hsl(16, 3%, 10%)",
+        "electric-cyan": "hsl(192, 100%, 50%)",
+        "neon-pink": "hsl(347, 100%, 60%)",
+        "cool-gray": "hsl(240, 5%, 65%)",
+        "neon-green": "hsl(142, 71%, 45%)",
+        "glass-white": "hsla(0, 0%, 100%, 0.1)",
+        "glass-border": "hsla(0, 0%, 100%, 0.2)",
         sidebar: {
           DEFAULT: "var(--sidebar-background)",
           foreground: "var(--sidebar-foreground)",

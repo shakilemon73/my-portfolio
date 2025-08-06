@@ -27,7 +27,7 @@ export function HeroSection() {
               {PORTFOLIO_DATA.title.toUpperCase()}
             </span>
           </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black mb-6 leading-tight">
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black mb-6 leading-tight text-white">
             <span className="block">SHAKIL</span>
             <span className="block text-gradient">AHMED</span>
             <span className="block">EMON</span>

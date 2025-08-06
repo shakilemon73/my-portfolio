@@ -39,42 +39,42 @@ export function Navigation() {
             <div className="hidden md:flex space-x-4">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
                 data-hover
               >
                 Home
               </button>
               <button 
                 onClick={() => scrollToSection('work')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
                 data-hover
               >
                 Work
               </button>
               <button 
                 onClick={() => scrollToSection('process')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
                 data-hover
               >
                 Process
               </button>
               <button 
                 onClick={() => scrollToSection('credentials')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
                 data-hover
               >
                 Credentials
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
                 data-hover
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-colors duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10" 
                 data-hover
               >
                 Contact
@@ -106,42 +106,42 @@ export function Navigation() {
         <div className="flex flex-col space-y-6 p-8">
           <button 
             onClick={() => scrollToSection('home')}
-            className="text-lg hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
             data-hover
           >
             Home
           </button>
           <button 
             onClick={() => scrollToSection('work')}
-            className="text-lg hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
             data-hover
           >
             Work
           </button>
           <button 
             onClick={() => scrollToSection('process')}
-            className="text-lg hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
             data-hover
           >
             Process
           </button>
           <button 
             onClick={() => scrollToSection('credentials')}
-            className="text-lg hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
             data-hover
           >
             Credentials
           </button>
           <button 
             onClick={() => scrollToSection('about')}
-            className="text-lg hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
             data-hover
           >
             About
           </button>
           <button 
             onClick={() => scrollToSection('contact')}
-            className="text-lg hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
+            className="text-lg text-white hover:text-electric-cyan transition-colors text-left min-h-[44px] min-w-[44px] py-2 flex items-center" 
             data-hover
           >
             Contact

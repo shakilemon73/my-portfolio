@@ -119,10 +119,18 @@ export function AboutSection() {
               <div className="space-y-6">
                 {PORTFOLIO_DATA.experience_timeline.map((exp, index) => (
                   <div key={index} className="flex items-start space-x-4">
-                    <div className={`w-3 h-3 bg-${exp.color} rounded-full mt-2 flex-shrink-0`}></div>
+                    <div className={`w-3 h-3 ${
+                      exp.color === 'electric-cyan' ? 'bg-electric-cyan' :
+                      exp.color === 'neon-pink' ? 'bg-neon-pink' :
+                      exp.color === 'neon-green' ? 'bg-neon-green' : 'bg-electric-cyan'
+                    } rounded-full mt-2 flex-shrink-0`}></div>
                     <div>
-                      <h4 className="font-semibold">{exp.role}</h4>
-                      <p className={`text-${exp.color} text-sm mb-1`}>{exp.company} • {exp.period}</p>
+                      <h4 className="font-semibold text-white">{exp.role}</h4>
+                      <p className={`${
+                        exp.color === 'electric-cyan' ? 'text-electric-cyan' :
+                        exp.color === 'neon-pink' ? 'text-neon-pink' :
+                        exp.color === 'neon-green' ? 'text-neon-green' : 'text-electric-cyan'
+                      } text-sm mb-1`}>{exp.company} • {exp.period}</p>
                       <p className="text-cool-gray text-sm">{exp.description}</p>
                     </div>
                   </div>
