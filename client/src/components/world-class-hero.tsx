@@ -103,11 +103,14 @@ export function WorldClassHero() {
               <span className="text-xs text-cool-gray uppercase tracking-wider">Trusted by Industry Leaders</span>
               <div className="flex gap-4">
                 {companyLogos.map((company, index) => (
-                  <i 
+                  <div 
                     key={index}
-                    className={`${company.icon} text-xl ${company.color} opacity-70 hover:opacity-100 transition-opacity cursor-pointer`}
+                    className="flex items-center justify-center min-h-[44px] min-w-[44px] p-2 glass-morphism rounded-lg hover:scale-110 transition-all duration-300 cursor-pointer"
                     title={company.name}
-                  />
+                    data-testid={`logo-${company.name.toLowerCase()}`}
+                  >
+                    <i className={`${company.icon} text-xl ${company.color} opacity-70 hover:opacity-100 transition-opacity`} />
+                  </div>
                 ))}
               </div>
             </div>
