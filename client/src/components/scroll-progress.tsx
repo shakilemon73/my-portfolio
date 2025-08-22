@@ -1,19 +1,21 @@
 import { useScrollProgress } from '@/hooks/use-scroll-progress';
 import { useActiveSection } from '@/hooks/use-active-section';
+import { useState } from 'react';
 
 export function ScrollProgress() {
   const progress = useScrollProgress();
   const activeSection = useActiveSection();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const sections = [
-    { id: 'home', label: 'Home', icon: 'fas fa-home' },
-    { id: 'work', label: 'Work', icon: 'fas fa-briefcase' },
-    { id: 'process', label: 'Process', icon: 'fas fa-cogs' },
-    { id: 'credentials', label: 'Credentials', icon: 'fas fa-award' },
-    { id: 'about', label: 'About', icon: 'fas fa-user' },
-    { id: 'skills', label: 'Skills', icon: 'fas fa-tools' },
-    { id: 'testimonials', label: 'Reviews', icon: 'fas fa-quote-left' },
-    { id: 'contact', label: 'Contact', icon: 'fas fa-envelope' },
+    { id: 'home', label: 'Home', short: 'H' },
+    { id: 'work', label: 'Work', short: 'W' },
+    { id: 'process', label: 'Process', short: 'P' },
+    { id: 'credentials', label: 'Credentials', short: 'C' },
+    { id: 'about', label: 'About', short: 'A' },
+    { id: 'skills', label: 'Skills', short: 'S' },
+    { id: 'testimonials', label: 'Reviews', short: 'R' },
+    { id: 'contact', label: 'Contact', short: 'T' },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -23,83 +25,126 @@ export function ScrollProgress() {
     }
   };
 
+  const currentSectionIndex = sections.findIndex(s => s.id === activeSection);
+
   return (
     <>
-      {/* Progress Bar at Top */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-deep-black/20 z-50">
-        <div 
-          className="h-full bg-gradient-to-r from-electric-cyan to-neon-pink transition-all duration-300 ease-out"
-          style={{ width: `${progress}%` }}
-        />
-      </div>
+      {/* Minimal Progress Line - Apple Style */}
+      <div 
+        className="fixed top-0 left-0 right-0 h-0.5 bg-transparent z-50 pointer-events-none"
+        style={{ 
+          background: `linear-gradient(90deg, rgb(0, 255, 255) ${progress}%, transparent ${progress}%)`,
+          opacity: progress > 1 ? 1 : 0,
+          transition: 'opacity 0.3s ease'
+        }}
+      />
 
-      {/* Floating Section Tracker */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-        <div className="glass-morphism rounded-2xl p-3 border border-glass-border/30">
-          <div className="flex flex-col gap-2">
-            {sections.map((section) => (
+      {/* Desktop: Minimal Dot Navigation - Linear/Figma Style */}
+      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
+        <div 
+          className="group"
+          onMouseEnter={() => setIsExpanded(true)}
+          onMouseLeave={() => setIsExpanded(false)}
+        >
+          {/* Progress Ring */}
+          <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full">
+            <svg className="w-6 h-6 -rotate-90 opacity-60" viewBox="0 0 24 24">
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                fill="none"
+                stroke="rgb(71, 85, 105)"
+                strokeWidth="1"
+                opacity="0.2"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                fill="none"
+                stroke="rgb(0, 255, 255)"
+                strokeWidth="1.5"
+                strokeDasharray="62.83"
+                strokeDashoffset={62.83 - (progress / 100) * 62.83}
+                strokeLinecap="round"
+                className="transition-all duration-500 ease-out"
+              />
+            </svg>
+          </div>
+
+          {/* Section Dots */}
+          <div className="flex flex-col items-center gap-3 py-2">
+            {sections.map((section, index) => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`group relative flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 min-w-[200px] min-h-[48px] text-left ${
+                className={`group/dot relative transition-all duration-300 ${
                   activeSection === section.id
-                    ? 'bg-electric-cyan text-deep-black font-semibold'
-                    : 'text-cool-gray hover:text-white hover:bg-white/5'
+                    ? 'w-4 h-4'
+                    : 'w-2 h-2 hover:w-3 hover:h-3'
                 }`}
-                title={`Go to ${section.label} section`}
-                data-testid={`tracker-${section.id}`}
+                title={`Go to ${section.label}`}
+                data-testid={`nav-${section.id}`}
+                aria-label={`Navigate to ${section.label} section`}
               >
-                <i className={`${section.icon} text-sm ${
-                  activeSection === section.id ? 'text-deep-black' : 'text-electric-cyan'
+                {/* Dot */}
+                <div className={`rounded-full transition-all duration-300 ${
+                  activeSection === section.id
+                    ? 'w-full h-full bg-electric-cyan shadow-lg shadow-electric-cyan/30'
+                    : 'w-full h-full bg-slate-500/60 hover:bg-electric-cyan/70'
                 }`} />
-                <span className="text-sm font-medium">{section.label}</span>
-                
-                {/* Active Indicator */}
+
+                {/* Label on hover */}
+                <div className={`absolute right-6 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-black/90 text-white text-sm font-medium rounded-lg backdrop-blur-sm border border-slate-700/50 whitespace-nowrap pointer-events-none transition-all duration-200 ${
+                  isExpanded 
+                    ? 'opacity-100 translate-x-0' 
+                    : 'opacity-0 translate-x-2'
+                }`}>
+                  {section.label}
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 w-2 h-2 bg-black/90 rotate-45 border-l border-b border-slate-700/50" />
+                </div>
+
+                {/* Active indicator line */}
                 {activeSection === section.id && (
-                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-neon-pink rounded-full" />
+                  <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-electric-cyan rounded-full" />
                 )}
-                
-                {/* Hover Effect */}
-                <div className={`absolute inset-0 rounded-xl bg-gradient-to-r from-electric-cyan/10 to-neon-pink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-                  activeSection === section.id ? 'opacity-0' : ''
-                }`} />
               </button>
             ))}
-          </div>
-          
-          {/* Progress Indicator */}
-          <div className="mt-4 pt-3 border-t border-glass-border/20">
-            <div className="flex items-center gap-2 text-xs text-cool-gray">
-              <i className="fas fa-chart-line text-electric-cyan" />
-              <span>Progress</span>
-              <span className="font-mono text-electric-cyan ml-auto">
-                {Math.round(progress)}%
-              </span>
-            </div>
-            <div className="w-full h-1 bg-glass-border rounded-full mt-2">
-              <div 
-                className="h-full bg-gradient-to-r from-electric-cyan to-neon-pink rounded-full transition-all duration-300"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile Section Indicator */}
-      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40 lg:hidden">
-        <div className="glass-morphism rounded-full px-6 py-3 border border-glass-border/30">
-          <div className="flex items-center gap-2 text-sm">
-            <i className={`${sections.find(s => s.id === activeSection)?.icon} text-electric-cyan`} />
-            <span className="text-white font-medium">
-              {sections.find(s => s.id === activeSection)?.label}
-            </span>
-            <div className="w-12 h-1 bg-glass-border rounded-full ml-3">
-              <div 
-                className="h-full bg-electric-cyan rounded-full transition-all duration-300"
-                style={{ width: `${progress}%` }}
-              />
+      {/* Mobile: Clean Bottom Indicator - Stripe Style */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 lg:hidden">
+        <div className="bg-black/80 backdrop-blur-md rounded-full px-4 py-2 border border-slate-700/30 shadow-2xl">
+          <div className="flex items-center gap-3">
+            {/* Section indicator */}
+            <div className="flex items-center gap-1.5">
+              <div className="w-2 h-2 bg-electric-cyan rounded-full animate-pulse" />
+              <span className="text-white/90 text-sm font-medium">
+                {sections.find(s => s.id === activeSection)?.label}
+              </span>
             </div>
+
+            {/* Progress dots */}
+            <div className="flex items-center gap-1 ml-2">
+              {sections.map((section, index) => (
+                <div
+                  key={section.id}
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                    index <= currentSectionIndex
+                      ? 'bg-electric-cyan'
+                      : 'bg-slate-600'
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Percentage */}
+            <span className="text-electric-cyan/80 text-xs font-mono ml-1">
+              {Math.round(progress)}%
+            </span>
           </div>
         </div>
       </div>
