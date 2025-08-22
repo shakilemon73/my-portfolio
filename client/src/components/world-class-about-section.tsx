@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import shakilLogo from '../assets/shakil-logo.svg';
 
 export function WorldClassAboutSection() {
   const [activeTab, setActiveTab] = useState('story');
@@ -140,8 +141,12 @@ export function WorldClassAboutSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                   {/* Profile Image Area */}
                   <div className="text-center lg:text-left">
-                    <div className="w-32 h-32 mx-auto lg:mx-0 mb-6 bg-gradient-to-br from-electric-cyan to-neon-pink rounded-full flex items-center justify-center text-deep-black text-4xl font-bold">
-                      SAE
+                    <div className="w-32 h-32 mx-auto lg:mx-0 mb-6 bg-gradient-to-br from-deep-black via-charcoal to-deep-black rounded-full flex items-center justify-center p-4 border border-electric-cyan/30">
+                      <img 
+                        src={shakilLogo} 
+                        alt="Shakil Ahmed Emon Logo" 
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-2">Shakil Ahmed Emon</h3>
                     <p className="text-electric-cyan font-medium mb-4">Senior UX/UI Product Designer</p>

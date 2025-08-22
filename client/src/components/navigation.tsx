@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import shakilLogo from '../assets/shakil-logo.svg';
 
 export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -36,8 +37,14 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* UX Enhancement: Clear Brand Identity (Jonathan Ive - Purpose) */}
-            <div className="text-xl font-bold text-electric-cyan min-h-[44px] flex items-center" role="banner">
-              <span>Shakil.design</span>
+            <div className="min-h-[44px] flex items-center" role="banner">
+              <img 
+                src={shakilLogo} 
+                alt="Shakil Ahmed Emon - Senior UX/UI Designer" 
+                className="h-10 w-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+                onClick={() => scrollToSection('home')}
+                data-testid="brand-logo"
+              />
             </div>
             
             {/* UX Enhancement: Navigation with Clear Affordances (Don Norman - Discoverability) */}
