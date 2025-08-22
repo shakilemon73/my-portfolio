@@ -54,7 +54,7 @@ export function WorldClassHero() {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-deep-black via-charcoal to-deep-black pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-deep-black via-charcoal to-deep-black pt-32">
       {/* Advanced Background Pattern */}
       <div className="absolute inset-0">
         {/* Animated Grid */}
