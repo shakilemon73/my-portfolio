@@ -197,7 +197,7 @@ export default function CaseStudyPage() {
                   <TrendingUp className="h-8 w-8 text-electric-cyan" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-black text-white">Business Impact</h2>
+                  <h2 className="text-2xl font-black text-white">Key Metrics</h2>
                   <p className="text-cool-gray">Measurable results delivered</p>
                 </div>
               </div>
