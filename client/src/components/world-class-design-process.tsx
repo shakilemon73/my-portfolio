@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useAnimatedCounter } from '@/hooks/use-animated-counter';
 
 interface ProcessStep {
   id: number;
@@ -14,6 +15,96 @@ interface ProcessStep {
   tools: string[];
   color: string;
   methods: string[];
+}
+
+interface AnimatedStatCardProps {
+  number: number;
+  suffix?: string;
+  prefix?: string;
+  label: string;
+  sublabel: string;
+  color: string;
+  icon: string;
+}
+
+function AnimatedStatCard({ 
+  number, 
+  suffix = '', 
+  prefix = '', 
+  label, 
+  sublabel, 
+  color, 
+  icon 
+}: AnimatedStatCardProps) {
+  const counter = useAnimatedCounter({
+    end: number,
+    duration: 2500,
+    suffix,
+    prefix
+  });
+
+  // Define color classes to ensure they're included in build
+  const colorClasses = {
+    'electric-cyan': {
+      border: 'hover:border-electric-cyan',
+      shadow: 'hover:shadow-electric-cyan/20',
+      bg: 'bg-electric-cyan/10 group-hover:bg-electric-cyan/20',
+      text: 'text-electric-cyan',
+      gradient: 'from-electric-cyan/5 to-electric-cyan/10'
+    },
+    'neon-pink': {
+      border: 'hover:border-neon-pink',
+      shadow: 'hover:shadow-neon-pink/20',
+      bg: 'bg-neon-pink/10 group-hover:bg-neon-pink/20',
+      text: 'text-neon-pink',
+      gradient: 'from-neon-pink/5 to-neon-pink/10'
+    },
+    'neon-green': {
+      border: 'hover:border-neon-green',
+      shadow: 'hover:shadow-neon-green/20',
+      bg: 'bg-neon-green/10 group-hover:bg-neon-green/20',
+      text: 'text-neon-green',
+      gradient: 'from-neon-green/5 to-neon-green/10'
+    },
+    'purple-400': {
+      border: 'hover:border-purple-400',
+      shadow: 'hover:shadow-purple-400/20',
+      bg: 'bg-purple-400/10 group-hover:bg-purple-400/20',
+      text: 'text-purple-400',
+      gradient: 'from-purple-400/5 to-purple-400/10'
+    }
+  };
+
+  const currentColor = colorClasses[color as keyof typeof colorClasses] || colorClasses['electric-cyan'];
+
+  return (
+    <Card className={`group glass-morphism border-glass-border text-center ${currentColor.border} hover:shadow-2xl ${currentColor.shadow} transition-all duration-500 hover:scale-105 cursor-default relative overflow-hidden`}>
+      <CardContent className="p-8 relative z-10">
+        {/* Icon */}
+        <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full ${currentColor.bg} mb-4 transition-all duration-300`}>
+          <i className={`${icon} ${currentColor.text} text-xl`}></i>
+        </div>
+        
+        {/* Animated Counter */}
+        <div ref={counter.ref} className={`text-4xl lg:text-5xl font-black ${currentColor.text} mb-3 font-mono tracking-tight`}>
+          {counter.value}
+        </div>
+        
+        {/* Label */}
+        <div className="text-base font-bold text-white mb-1 group-hover:text-white/90 transition-colors duration-300">
+          {label}
+        </div>
+        
+        {/* Sublabel */}
+        <div className="text-sm text-cool-gray uppercase tracking-wider group-hover:text-cool-gray/80 transition-colors duration-300">
+          {sublabel}
+        </div>
+
+        {/* Hover Effect Background */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${currentColor.gradient} opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-lg`}></div>
+      </CardContent>
+    </Card>
+  );
 }
 
 export function WorldClassDesignProcess() {
@@ -263,32 +354,40 @@ export function WorldClassDesignProcess() {
           </div>
         </div>
 
-        {/* Process Stats */}
+        {/* Process Stats - Stripe-Inspired Animated Counters */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <Card className="glass-morphism border-glass-border text-center hover:border-electric-cyan transition-all duration-300">
-            <CardContent className="p-6">
-              <div className="text-3xl font-black text-electric-cyan mb-2">6-12</div>
-              <div className="text-sm text-cool-gray uppercase tracking-wider">Weeks Timeline</div>
-            </CardContent>
-          </Card>
-          <Card className="glass-morphism border-glass-border text-center hover:border-neon-pink transition-all duration-300">
-            <CardContent className="p-6">
-              <div className="text-3xl font-black text-neon-pink mb-2">25+</div>
-              <div className="text-sm text-cool-gray uppercase tracking-wider">Deliverables</div>
-            </CardContent>
-          </Card>
-          <Card className="glass-morphism border-glass-border text-center hover:border-neon-green transition-all duration-300">
-            <CardContent className="p-6">
-              <div className="text-3xl font-black text-neon-green mb-2">100%</div>
-              <div className="text-sm text-cool-gray uppercase tracking-wider">Transparency</div>
-            </CardContent>
-          </Card>
-          <Card className="glass-morphism border-glass-border text-center hover:border-purple-400 transition-all duration-300">
-            <CardContent className="p-6">
-              <div className="text-3xl font-black text-purple-400 mb-2">24/7</div>
-              <div className="text-sm text-cool-gray uppercase tracking-wider">Communication</div>
-            </CardContent>
-          </Card>
+          <AnimatedStatCard
+            number={12}
+            suffix=" weeks"
+            label="Average Timeline"
+            sublabel="From Discovery to Launch"
+            color="electric-cyan"
+            icon="fas fa-clock"
+          />
+          <AnimatedStatCard
+            number={28}
+            suffix="+ deliverables"
+            label="Comprehensive Output"
+            sublabel="Detailed Documentation"
+            color="neon-pink"
+            icon="fas fa-tasks"
+          />
+          <AnimatedStatCard
+            number={100}
+            suffix="% transparency"
+            label="Complete Visibility"
+            sublabel="Every Step Documented"
+            color="neon-green"
+            icon="fas fa-eye"
+          />
+          <AnimatedStatCard
+            number={24}
+            suffix="/7 support"
+            label="Always Available"
+            sublabel="Direct Communication"
+            color="purple-400"
+            icon="fas fa-headset"
+          />
         </div>
 
         {/* CTA Section */}

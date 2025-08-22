@@ -39,79 +39,59 @@ export function ScrollProgress() {
         }}
       />
 
-      {/* Desktop: Minimal Dot Navigation - Linear/Figma Style */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
-        <div 
-          className="group"
-          onMouseEnter={() => setIsExpanded(true)}
-          onMouseLeave={() => setIsExpanded(false)}
-        >
-          {/* Progress Ring */}
-          <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full">
-            <svg className="w-6 h-6 -rotate-90 opacity-60" viewBox="0 0 24 24">
-              <circle
-                cx="12"
-                cy="12"
-                r="10"
-                fill="none"
-                stroke="rgb(71, 85, 105)"
-                strokeWidth="1"
-                opacity="0.2"
-              />
-              <circle
-                cx="12"
-                cy="12"
-                r="10"
-                fill="none"
-                stroke="rgb(0, 255, 255)"
-                strokeWidth="1.5"
-                strokeDasharray="62.83"
-                strokeDashoffset={62.83 - (progress / 100) * 62.83}
-                strokeLinecap="round"
-                className="transition-all duration-500 ease-out"
-              />
-            </svg>
-          </div>
+      {/* Desktop: Ultra-Minimal Navigation - Apple/Linear Style */}
+      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
+        <div className="flex flex-col items-center gap-2 py-3">
+          {sections.map((section, index) => (
+            <button
+              key={section.id}
+              onClick={() => scrollToSection(section.id)}
+              className="group relative min-w-[48px] min-h-[48px] flex items-center justify-center"
+              title={`Navigate to ${section.label}`}
+              data-testid={`nav-${section.id}`}
+              aria-label={`Navigate to ${section.label} section`}
+            >
+              {/* Touch target area (invisible but ensures 48px minimum) */}
+              <div className="absolute inset-0 rounded-full" />
+              
+              {/* Visual dot */}
+              <div className={`relative z-10 rounded-full transition-all duration-300 ${
+                activeSection === section.id
+                  ? 'w-3 h-3 bg-electric-cyan shadow-lg shadow-electric-cyan/40 ring-2 ring-electric-cyan/20 ring-offset-2 ring-offset-transparent'
+                  : 'w-2 h-2 bg-slate-500/50 group-hover:w-2.5 group-hover:h-2.5 group-hover:bg-electric-cyan/70'
+              }`} />
 
-          {/* Section Dots */}
-          <div className="flex flex-col items-center gap-3 py-2">
-            {sections.map((section, index) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className={`group/dot relative transition-all duration-300 ${
-                  activeSection === section.id
-                    ? 'w-4 h-4'
-                    : 'w-2 h-2 hover:w-3 hover:h-3'
-                }`}
-                title={`Go to ${section.label}`}
-                data-testid={`nav-${section.id}`}
-                aria-label={`Navigate to ${section.label} section`}
-              >
-                {/* Dot */}
-                <div className={`rounded-full transition-all duration-300 ${
-                  activeSection === section.id
-                    ? 'w-full h-full bg-electric-cyan shadow-lg shadow-electric-cyan/30'
-                    : 'w-full h-full bg-slate-500/60 hover:bg-electric-cyan/70'
-                }`} />
-
-                {/* Label on hover */}
-                <div className={`absolute right-6 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-black/90 text-white text-sm font-medium rounded-lg backdrop-blur-sm border border-slate-700/50 whitespace-nowrap pointer-events-none transition-all duration-200 ${
-                  isExpanded 
-                    ? 'opacity-100 translate-x-0' 
-                    : 'opacity-0 translate-x-2'
-                }`}>
-                  {section.label}
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 w-2 h-2 bg-black/90 rotate-45 border-l border-b border-slate-700/50" />
+              {/* Progress indicator for active section */}
+              {activeSection === section.id && (
+                <div className="absolute inset-0 rounded-full">
+                  <svg className="w-full h-full -rotate-90" viewBox="0 0 48 48">
+                    <circle
+                      cx="24"
+                      cy="24"
+                      r="20"
+                      fill="none"
+                      stroke="rgb(0, 255, 255)"
+                      strokeWidth="1"
+                      strokeDasharray="125.66"
+                      strokeDashoffset={125.66 - (progress / 100) * 125.66}
+                      strokeLinecap="round"
+                      className="transition-all duration-700 ease-out opacity-40"
+                    />
+                  </svg>
                 </div>
+              )}
 
-                {/* Active indicator line */}
-                {activeSection === section.id && (
-                  <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-electric-cyan rounded-full" />
-                )}
-              </button>
-            ))}
-          </div>
+              {/* Hover tooltip */}
+              <div className={`absolute right-14 top-1/2 -translate-y-1/2 px-3 py-2 bg-black/95 text-white text-sm font-medium rounded-lg backdrop-blur-sm border border-slate-700/40 whitespace-nowrap pointer-events-none transition-all duration-200 ${
+                activeSection === section.id || isExpanded
+                  ? 'opacity-100 translate-x-0 scale-100' 
+                  : 'opacity-0 translate-x-2 scale-95'
+              }`}>
+                {section.label}
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 w-2 h-2 bg-black/95 rotate-45 border-l border-b border-slate-700/40" />
+              </div>
+            </button>
+          ))}
         </div>
       </div>
 
