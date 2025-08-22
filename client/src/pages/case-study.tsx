@@ -456,7 +456,7 @@ export default function CaseStudyPage() {
           </div>
 
           {/* Research Deep Dive */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Methods & Process */}
             <div>
               <Card className="glass-morphism border-glass-border h-full">
@@ -497,6 +497,87 @@ export default function CaseStudyPage() {
                       </div>
                     </div>
                   ))}
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* User Journey Maps & Research Artifacts */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+              <Eye className="h-8 w-8 text-electric-cyan" />
+              User Journey Maps & Research Artifacts
+            </h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* User Journey Map */}
+              <Card className="glass-morphism border-glass-border">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-3">
+                    <Users className="h-6 w-6 text-electric-cyan" />
+                    Current State Journey Map
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-gradient-to-br from-charcoal to-deep-black rounded-lg p-6 border border-electric-cyan/20 mb-4">
+                    <div className="grid grid-cols-5 gap-4 text-center mb-6">
+                      {['Awareness', 'Research', 'Decision', 'Action', 'Support'].map((stage, index) => (
+                        <div key={index} className="space-y-3">
+                          <div className="w-12 h-12 bg-electric-cyan/20 rounded-full flex items-center justify-center mx-auto">
+                            <span className="text-electric-cyan font-bold text-sm">{index + 1}</span>
+                          </div>
+                          <div className="text-white font-medium text-sm">{stage}</div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {/* Emotional Journey Line */}
+                    <div className="relative h-24 bg-black/30 rounded-lg p-4">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-cool-gray text-sm">📈 Emotional journey visualization</div>
+                      </div>
+                      <div className="absolute bottom-2 left-4 text-xs text-neon-green">High</div>
+                      <div className="absolute top-2 left-4 text-xs text-red-400">Frustration</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <span className="text-cool-gray text-sm">5 detailed journey scenarios mapped</span>
+                    <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 min-h-[44px]" data-testid="button-view-journey">
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      View Full Map
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* User Personas */}
+              <Card className="glass-morphism border-glass-border">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-3">
+                    <Users className="h-6 w-6 text-neon-pink" />
+                    Primary User Personas
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {['Sarah - Senior Trader', 'Michael - Risk Manager', 'Lisa - Portfolio Analyst'].map((persona, index) => (
+                    <div key={index} className="flex items-center gap-4 p-4 bg-black/30 rounded-lg border border-neon-pink/20">
+                      <div className="w-12 h-12 bg-gradient-to-br from-neon-pink to-electric-cyan rounded-full flex items-center justify-center text-white font-bold">
+                        {persona.charAt(0)}
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-white font-medium text-sm">{persona.split(' - ')[0]}</div>
+                        <div className="text-cool-gray text-xs">{persona.split(' - ')[1]}</div>
+                      </div>
+                      <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 min-h-[44px]" data-testid={`button-persona-${index}`}>
+                        <Eye className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  ))}
+                  
+                  <div className="pt-4 border-t border-glass-border">
+                    <span className="text-cool-gray text-sm">Based on interviews with 45 participants</span>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -573,10 +654,55 @@ export default function CaseStudyPage() {
                 
                 <Card className="glass-morphism border-glass-border flex-1">
                   <CardContent className="p-8">
-                    <h3 className="text-2xl font-bold text-white mb-4">Ideation & Concept Development</h3>
+                    <h3 className="text-2xl font-bold text-white mb-4">Ideation & Wireframing</h3>
                     <p className="text-cool-gray leading-relaxed mb-6">
-                      Collaborative workshops and concept validation to explore solution possibilities
+                      Collaborative workshops, user flow mapping, and low-fidelity wireframes to explore solution possibilities
                     </p>
+                    
+                    {/* Wireframes & User Flows */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                      <div className="space-y-4">
+                        <h4 className="text-white font-medium flex items-center gap-2">
+                          <FileText className="h-5 w-5 text-electric-cyan" />
+                          Low-Fidelity Wireframes
+                        </h4>
+                        <div className="bg-gradient-to-br from-charcoal to-deep-black rounded-lg p-4 border border-electric-cyan/20">
+                          <div className="grid grid-cols-2 gap-2 mb-3">
+                            {[1, 2, 3, 4].map((wireframe) => (
+                              <div key={wireframe} className="bg-black/40 rounded border border-electric-cyan/30 h-16 flex items-center justify-center">
+                                <div className="text-electric-cyan text-xs">Wireframe {wireframe}</div>
+                              </div>
+                            ))}
+                          </div>
+                          <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 w-full min-h-[44px]" data-testid="button-view-wireframes">
+                            <ExternalLink className="h-4 w-4 mr-2" />
+                            View All Wireframes
+                          </Button>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-4">
+                        <h4 className="text-white font-medium flex items-center gap-2">
+                          <GitBranch className="h-5 w-5 text-neon-pink" />
+                          User Flow Diagrams
+                        </h4>
+                        <div className="bg-gradient-to-br from-charcoal to-deep-black rounded-lg p-4 border border-neon-pink/20">
+                          <div className="space-y-3">
+                            {['Primary Trading Flow', 'Account Setup Flow', 'Risk Management Flow'].map((flow, index) => (
+                              <div key={index} className="flex items-center gap-3 p-2 bg-black/30 rounded">
+                                <div className="w-2 h-2 bg-neon-pink rounded-full"></div>
+                                <span className="text-cool-gray text-sm">{flow}</span>
+                              </div>
+                            ))}
+                          </div>
+                          <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 w-full mt-3 min-h-[44px]" data-testid="button-view-flows">
+                            <ExternalLink className="h-4 w-4 mr-2" />
+                            View User Flows
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                    
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       <div className="text-center">
                         <div className="p-3 bg-electric-cyan/20 rounded-lg mb-3 inline-block">
@@ -590,14 +716,14 @@ export default function CaseStudyPage() {
                           <FileText className="h-6 w-6 text-neon-pink" />
                         </div>
                         <div className="text-white font-medium mb-2">Concept Validation</div>
-                        <div className="text-sm text-cool-gray">Multiple iterations tested</div>
+                        <div className="text-sm text-cool-gray">12 wireframe variations tested</div>
                       </div>
                       <div className="text-center">
                         <div className="p-3 bg-neon-green/20 rounded-lg mb-3 inline-block">
                           <GitBranch className="h-6 w-6 text-neon-green" />
                         </div>
-                        <div className="text-white font-medium mb-2">Rapid Prototyping</div>
-                        <div className="text-sm text-cool-gray">Interactive concepts developed</div>
+                        <div className="text-white font-medium mb-2">User Flow Maps</div>
+                        <div className="text-sm text-cool-gray">8 core user journeys mapped</div>
                       </div>
                     </div>
                   </CardContent>
@@ -615,10 +741,67 @@ export default function CaseStudyPage() {
                 
                 <Card className="glass-morphism border-glass-border flex-1">
                   <CardContent className="p-8">
-                    <h3 className="text-2xl font-bold text-white mb-4">Design & Usability Testing</h3>
+                    <h3 className="text-2xl font-bold text-white mb-4">High-Fidelity Design & Testing</h3>
                     <p className="text-cool-gray leading-relaxed mb-6">
-                      High-fidelity prototypes with continuous user testing and iteration
+                      High-fidelity mockups, interactive prototypes, and comprehensive usability testing
                     </p>
+                    
+                    {/* High-Fidelity Mockups */}
+                    <div className="mb-8">
+                      <h4 className="text-white font-medium mb-4 flex items-center gap-2">
+                        <Brush className="h-5 w-5 text-neon-pink" />
+                        High-Fidelity Mockups & Prototypes
+                      </h4>
+                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                        {/* Desktop Mockup */}
+                        <div className="bg-gradient-to-br from-charcoal to-deep-black rounded-lg p-4 border border-neon-pink/20">
+                          <div className="bg-black/40 rounded border-2 border-neon-pink/30 h-32 mb-3 flex flex-col">
+                            <div className="flex items-center gap-1 p-2 border-b border-neon-pink/20">
+                              <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                              <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                            </div>
+                            <div className="flex-1 flex items-center justify-center">
+                              <Monitor className="h-8 w-8 text-neon-pink opacity-60" />
+                            </div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-white font-medium text-sm">Desktop Interface</div>
+                            <div className="text-cool-gray text-xs">Trading Dashboard</div>
+                          </div>
+                        </div>
+                        
+                        {/* Mobile Mockup */}
+                        <div className="bg-gradient-to-br from-charcoal to-deep-black rounded-lg p-4 border border-electric-cyan/20">
+                          <div className="bg-black/40 rounded-2xl border-2 border-electric-cyan/30 h-32 w-16 mx-auto mb-3 flex items-center justify-center">
+                            <Smartphone className="h-6 w-6 text-electric-cyan opacity-60" />
+                          </div>
+                          <div className="text-center">
+                            <div className="text-white font-medium text-sm">Mobile App</div>
+                            <div className="text-cool-gray text-xs">iOS & Android</div>
+                          </div>
+                        </div>
+                        
+                        {/* Tablet Mockup */}
+                        <div className="bg-gradient-to-br from-charcoal to-deep-black rounded-lg p-4 border border-neon-green/20">
+                          <div className="bg-black/40 rounded border-2 border-neon-green/30 h-32 mb-3 flex items-center justify-center">
+                            <Tablet className="h-8 w-8 text-neon-green opacity-60" />
+                          </div>
+                          <div className="text-center">
+                            <div className="text-white font-medium text-sm">Tablet Version</div>
+                            <div className="text-cool-gray text-xs">Responsive Design</div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-center mt-4">
+                        <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 min-h-[44px]" data-testid="button-view-mockups">
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          View All Mockups & Prototypes
+                        </Button>
+                      </div>
+                    </div>
+                    
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div>
                         <h4 className="text-white font-medium mb-4 flex items-center gap-2">
@@ -672,6 +855,122 @@ export default function CaseStudyPage() {
             </p>
           </div>
 
+          {/* Final UI Showcase */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+              <Layers className="h-8 w-8 text-electric-cyan" />
+              Final UI Design & User Flows
+            </h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+              {/* Desktop UI */}
+              <Card className="glass-morphism border-glass-border">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-3">
+                    <Monitor className="h-6 w-6 text-electric-cyan" />
+                    Desktop Interface
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-gradient-to-br from-charcoal to-deep-black rounded-lg p-4 border border-electric-cyan/20 mb-4">
+                    <div className="bg-black/40 rounded border border-electric-cyan/30 h-40 flex flex-col">
+                      <div className="flex items-center gap-1 p-2 border-b border-electric-cyan/20">
+                        <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                        <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      </div>
+                      <div className="flex-1 p-3 space-y-2">
+                        <div className="bg-electric-cyan/20 rounded h-3 w-3/4"></div>
+                        <div className="grid grid-cols-3 gap-2 h-16">
+                          <div className="bg-neon-pink/20 rounded"></div>
+                          <div className="bg-neon-green/20 rounded"></div>
+                          <div className="bg-electric-cyan/20 rounded"></div>
+                        </div>
+                        <div className="bg-cool-gray/20 rounded h-2 w-1/2"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 w-full min-h-[44px]" data-testid="button-view-desktop">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    View Desktop Screens
+                  </Button>
+                </CardContent>
+              </Card>
+              
+              {/* Mobile UI */}
+              <Card className="glass-morphism border-glass-border">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-3">
+                    <Smartphone className="h-6 w-6 text-neon-pink" />
+                    Mobile Experience
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-gradient-to-br from-charcoal to-deep-black rounded-lg p-4 border border-neon-pink/20 mb-4">
+                    <div className="bg-black/40 rounded-xl border border-neon-pink/30 h-40 w-24 mx-auto flex flex-col">
+                      <div className="p-2 border-b border-neon-pink/20">
+                        <div className="bg-neon-pink/30 rounded-full h-1 w-8 mx-auto"></div>
+                      </div>
+                      <div className="flex-1 p-2 space-y-2">
+                        <div className="bg-neon-pink/20 rounded h-2 w-full"></div>
+                        <div className="grid grid-cols-2 gap-1 h-12">
+                          <div className="bg-electric-cyan/20 rounded"></div>
+                          <div className="bg-neon-green/20 rounded"></div>
+                        </div>
+                        <div className="space-y-1">
+                          <div className="bg-cool-gray/20 rounded h-1 w-full"></div>
+                          <div className="bg-cool-gray/20 rounded h-1 w-3/4"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 w-full min-h-[44px]" data-testid="button-view-mobile">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    View Mobile Screens
+                  </Button>
+                </CardContent>
+              </Card>
+              
+              {/* Information Architecture */}
+              <Card className="glass-morphism border-glass-border">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-3">
+                    <GitBranch className="h-6 w-6 text-neon-green" />
+                    Information Architecture
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-gradient-to-br from-charcoal to-deep-black rounded-lg p-4 border border-neon-green/20 mb-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-3 h-3 bg-neon-green rounded-full"></div>
+                        <div className="bg-neon-green/20 rounded h-2 w-20"></div>
+                      </div>
+                      <div className="ml-5 space-y-2">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-electric-cyan rounded-full"></div>
+                          <div className="bg-electric-cyan/20 rounded h-1 w-16"></div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-neon-pink rounded-full"></div>
+                          <div className="bg-neon-pink/20 rounded h-1 w-12"></div>
+                        </div>
+                        <div className="ml-4 space-y-1">
+                          <div className="bg-cool-gray/20 rounded h-1 w-8"></div>
+                          <div className="bg-cool-gray/20 rounded h-1 w-10"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="sm" className="text-neon-green hover:bg-neon-green/20 w-full min-h-[44px]" data-testid="button-view-architecture">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    View Site Map
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
           {/* Key Features */}
           <div className="space-y-16 mb-16">
             {caseStudy.solution.keyFeatures.map((feature, index) => (
@@ -694,11 +993,19 @@ export default function CaseStudyPage() {
                 </div>
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
                   <div className="bg-gradient-to-br from-charcoal to-deep-black rounded-2xl p-8 border border-glass-border">
-                    <div className="bg-gradient-to-br from-electric-cyan/20 to-neon-pink/20 rounded-lg h-64 flex items-center justify-center">
-                      <div className="text-center">
+                    <div className="bg-gradient-to-br from-electric-cyan/20 to-neon-pink/20 rounded-lg h-64 flex items-center justify-center relative overflow-hidden">
+                      <div className="text-center z-10">
                         <Monitor className="h-16 w-16 text-electric-cyan mx-auto mb-4" />
                         <div className="text-white font-medium">Interactive Prototype</div>
                         <div className="text-cool-gray text-sm">Live demo available</div>
+                      </div>
+                      {/* Mock UI Elements */}
+                      <div className="absolute inset-4 border border-electric-cyan/30 rounded-lg">
+                        <div className="grid grid-cols-3 gap-2 p-3 h-full">
+                          <div className="bg-electric-cyan/10 rounded"></div>
+                          <div className="bg-neon-pink/10 rounded"></div>
+                          <div className="bg-neon-green/10 rounded"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -707,41 +1014,146 @@ export default function CaseStudyPage() {
             ))}
           </div>
 
-          {/* Design System */}
-          <Card className="glass-morphism border-glass-border">
-            <CardHeader>
-              <CardTitle className="text-white text-2xl flex items-center gap-3">
-                <Layers className="h-6 w-6 text-electric-cyan" />
-                Design System & Technical Implementation
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-white font-medium mb-4">Design Principles</h4>
-                  <div className="space-y-3">
-                    {caseStudy.solution.designSystem?.principles?.map((principle: string, index: number) => (
-                      <div key={index} className="flex items-start gap-3 p-3 bg-black/30 rounded-lg">
-                        <CheckCircle className="h-5 w-5 text-electric-cyan flex-shrink-0 mt-0.5" />
-                        <span className="text-cool-gray text-sm">{principle}</span>
+          {/* Design System & Component Library */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+              <Layers className="h-8 w-8 text-electric-cyan" />
+              Design System & Component Library
+            </h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              {/* Component Library */}
+              <Card className="glass-morphism border-glass-border">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-3">
+                    <Code className="h-6 w-6 text-electric-cyan" />
+                    UI Component Library
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    {/* Components Grid */}
+                    <div className="grid grid-cols-2 gap-3">
+                      {['Buttons', 'Cards', 'Forms', 'Charts', 'Modals', 'Tables'].map((component, index) => (
+                        <div key={index} className="bg-gradient-to-br from-charcoal to-deep-black rounded-lg p-3 border border-electric-cyan/20">
+                          <div className="flex items-center gap-2 mb-2">
+                            <div className="w-3 h-3 bg-electric-cyan rounded-full"></div>
+                            <div className="text-white font-medium text-sm">{component}</div>
+                          </div>
+                          <div className="bg-electric-cyan/10 rounded h-6 flex items-center justify-center">
+                            <div className="text-electric-cyan text-xs opacity-60">Component</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="pt-4 border-t border-glass-border">
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-cool-gray">45+ reusable components</span>
+                        <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 min-h-[44px]" data-testid="button-view-components">
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          View Storybook
+                        </Button>
                       </div>
-                    ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              {/* Design Tokens */}
+              <Card className="glass-morphism border-glass-border">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-3">
+                    <Brush className="h-6 w-6 text-neon-pink" />
+                    Design Tokens & Guidelines
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    {/* Color Palette */}
+                    <div>
+                      <h5 className="text-white font-medium mb-3 text-sm">Color System</h5>
+                      <div className="flex gap-2">
+                        {[
+                          { name: 'Primary', color: 'bg-electric-cyan' },
+                          { name: 'Secondary', color: 'bg-neon-pink' },
+                          { name: 'Success', color: 'bg-neon-green' },
+                          { name: 'Warning', color: 'bg-yellow-400' },
+                        ].map((color, index) => (
+                          <div key={index} className="text-center">
+                            <div className={`w-8 h-8 ${color.color} rounded-full mb-1`}></div>
+                            <div className="text-xs text-cool-gray">{color.name}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Typography */}
+                    <div>
+                      <h5 className="text-white font-medium mb-3 text-sm">Typography Scale</h5>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-3">
+                          <div className="text-xl font-bold text-white">Aa</div>
+                          <div className="text-cool-gray text-sm">Display / 32px</div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="text-lg font-semibold text-white">Aa</div>
+                          <div className="text-cool-gray text-sm">Heading / 24px</div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="text-base text-white">Aa</div>
+                          <div className="text-cool-gray text-sm">Body / 16px</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="pt-4 border-t border-glass-border">
+                      <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 w-full min-h-[44px]" data-testid="button-view-tokens">
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        View Design Tokens
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            
+            {/* Technical Implementation */}
+            <Card className="glass-morphism border-glass-border">
+              <CardHeader>
+                <CardTitle className="text-white text-xl flex items-center gap-3">
+                  <Code className="h-6 w-6 text-neon-green" />
+                  Technical Implementation & Principles
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-white font-medium mb-4">Design Principles</h4>
+                    <div className="space-y-3">
+                      {caseStudy.solution.designSystem?.principles?.map((principle: string, index: number) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-black/30 rounded-lg">
+                          <CheckCircle className="h-5 w-5 text-electric-cyan flex-shrink-0 mt-0.5" />
+                          <span className="text-cool-gray text-sm">{principle}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium mb-4">Technical Constraints</h4>
+                    <div className="space-y-3">
+                      {caseStudy.solution.technicalImplementation?.constraints?.map((constraint: string, index: number) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-black/30 rounded-lg">
+                          <Info className="h-5 w-5 text-neon-pink flex-shrink-0 mt-0.5" />
+                          <span className="text-cool-gray text-sm">{constraint}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div>
-                  <h4 className="text-white font-medium mb-4">Technical Constraints</h4>
-                  <div className="space-y-3">
-                    {caseStudy.solution.technicalImplementation?.constraints?.map((constraint: string, index: number) => (
-                      <div key={index} className="flex items-start gap-3 p-3 bg-black/30 rounded-lg">
-                        <Info className="h-5 w-5 text-neon-pink flex-shrink-0 mt-0.5" />
-                        <span className="text-cool-gray text-sm">{constraint}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
