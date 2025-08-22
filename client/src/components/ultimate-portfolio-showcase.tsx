@@ -65,7 +65,7 @@ export function UltimatePortfolioShowcase() {
                           </Badge>
                         ))}
                       </div>
-                      <Link href={`/case-study/${project.id}`}>
+                      <Link href={`/case-study/${project.slug}`}>
                         <Button 
                           className="bg-white text-black hover:bg-electric-cyan hover:text-deep-black transition-all duration-300 w-full"
                           data-testid={`button-view-case-study-${project.id}`}
