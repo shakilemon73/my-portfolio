@@ -59,7 +59,7 @@ export default function CaseStudyPage() {
       </header>
 
       {/* Hero Section - Impact First */}
-      <section className="relative pt-24 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-deep-black via-charcoal to-deep-black">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-deep-black via-charcoal to-deep-black">
         <div className="absolute inset-0 bg-gradient-to-r from-electric-cyan/5 to-neon-pink/5 opacity-50"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           
