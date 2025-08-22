@@ -46,7 +46,6 @@
 @layer base {
   * {
     @apply border-border;
-    cursor: none;
   }
 
   body {
@@ -90,59 +89,6 @@
 }
 
 @layer components {
-  /* UX/UI Enhancement: Improved Cursor with Feedback (Don Norman) */
-  .custom-cursor {
-    position: fixed;
-    width: 28px;
-    height: 28px;
-    pointer-events: none;
-    z-index: 9999;
-    transition: all 0.1s ease;
-    background: #ffffff;
-    border-radius: 50% 50% 50% 0%;
-    border: 2px solid #333;
-    transform: rotate(-45deg);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  .custom-cursor::before {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: #333;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .custom-cursor::after {
-    content: '';
-    position: absolute;
-    width: 8px;
-    height: 2px;
-    background: #333;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    border-radius: 1px;
-  }
-  
-  .custom-cursor-hover {
-    transform: rotate(-45deg) scale(1.2);
-    background: #00FFFF;
-    border-color: #FF1493;
-    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.4);
-  }
-
-  .custom-cursor-hover::before {
-    background: #FF1493;
-  }
-
-  .custom-cursor-hover::after {
-    background: #FF1493;
-  }
   
   .glass-morphism {
     background: var(--glass-white);

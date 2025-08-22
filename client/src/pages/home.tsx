@@ -1,4 +1,3 @@
-import { CustomCursor } from '@/components/custom-cursor';
 import { ScrollProgress } from '@/components/scroll-progress';
 import { UXEnhancementSystem } from '@/components/ux-enhancement-system';
 import { Navigation } from '@/components/navigation';
@@ -16,7 +15,6 @@ export default function Home() {
   return (
     <div className="bg-deep-black text-white font-inter overflow-x-hidden">
       <UXEnhancementSystem />
-      <CustomCursor />
       <ScrollProgress />
       <Navigation />
       <main>
