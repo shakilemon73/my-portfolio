@@ -59,7 +59,7 @@ export function UltimatePortfolioShowcase() {
                   }`}>
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {project.technologies?.slice(0, 3).map((tech, techIndex) => (
+                        {project.tags?.slice(0, 3).map((tech: string, techIndex: number) => (
                           <Badge key={techIndex} variant="outline" className="border-electric-cyan text-electric-cyan text-xs">
                             {tech}
                           </Badge>
@@ -98,12 +98,12 @@ export function UltimatePortfolioShowcase() {
                   {/* Impact Metrics */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="text-center p-3 glass-morphism rounded-lg">
-                      <div className="text-lg font-bold text-electric-cyan">{project.impact?.businessMetrics?.[0]?.value || '+85%'}</div>
-                      <div className="text-xs text-cool-gray">{project.impact?.businessMetrics?.[0]?.label || 'User Satisfaction'}</div>
+                      <div className="text-lg font-bold text-electric-cyan">{project.executiveSummary?.impact?.[0]?.value || '+85%'}</div>
+                      <div className="text-xs text-cool-gray">{project.executiveSummary?.impact?.[0]?.metric || 'User Satisfaction'}</div>
                     </div>
                     <div className="text-center p-3 glass-morphism rounded-lg">
-                      <div className="text-lg font-bold text-neon-green">{project.impact?.userMetrics?.[0]?.value || '+40%'}</div>
-                      <div className="text-xs text-cool-gray">{project.impact?.userMetrics?.[0]?.label || 'Task Efficiency'}</div>
+                      <div className="text-lg font-bold text-neon-green">{project.executiveSummary?.impact?.[1]?.value || '+40%'}</div>
+                      <div className="text-xs text-cool-gray">{project.executiveSummary?.impact?.[1]?.metric || 'Task Efficiency'}</div>
                     </div>
                   </div>
                 </div>
