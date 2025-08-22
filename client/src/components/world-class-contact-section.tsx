@@ -100,9 +100,9 @@ export function WorldClassContactSection() {
           </h2>
 
           <p className="text-xl text-cool-gray max-w-3xl mx-auto leading-relaxed">
-            Transform your digital experience with user-centered design that drives 
-            <span className="text-electric-cyan font-semibold"> measurable results</span>. 
-            Let's discuss your vision and create something extraordinary together.
+            Got a project idea or a design problem that needs solving? I'd love to help you build something that 
+            <span className="text-electric-cyan font-semibold">actually works for your users</span>. 
+            Let's chat about what you're trying to achieve.
           </p>
         </div>
 

@@ -4,7 +4,7 @@ const processSteps = [
   {
     id: 1,
     title: "Research & Discovery",
-    description: "Deep-dive into user psychology, business drivers, and technical realities to uncover hidden opportunities and validate assumptions with data.",
+    description: "I talk to real users and dig into what they actually need. I also look at the business goals and what's technically possible to find the best solutions.",
     icon: "fas fa-search",
     color: "electric-cyan",
     activities: [
@@ -19,7 +19,7 @@ const processSteps = [
   {
     id: 2,
     title: "Ideation & Strategy",
-    description: "Transform insights into breakthrough concepts that solve real problems while creating competitive advantages and scalable solutions.",
+    description: "Taking what I learned from research and turning it into actual design ideas that solve problems and make business sense.",
     icon: "fas fa-lightbulb",
     color: "neon-pink",
     activities: [
@@ -34,7 +34,7 @@ const processSteps = [
   {
     id: 3,
     title: "Design & Prototype",
-    description: "Craft pixel-perfect experiences that feel intuitive and delightful while maintaining technical feasibility and business viability.",
+    description: "Creating the actual designs and prototypes that look good and work well. Everything needs to feel natural for users while being realistic to build.",
     icon: "fas fa-pencil-ruler",
     color: "neon-green",
     activities: [
@@ -49,7 +49,7 @@ const processSteps = [
   {
     id: 4,
     title: "Test & Validate",
-    description: "Rigorously test with real users to eliminate assumptions, reduce risk, and ensure solutions deliver measurable impact before launch.",
+    description: "Testing everything with real people to make sure it actually works. I'd rather find problems now than after we launch.",
     icon: "fas fa-flask",
     color: "neon-pink",
     activities: [
@@ -64,7 +64,7 @@ const processSteps = [
   {
     id: 5,
     title: "Implement & Launch",
-    description: "Partner closely with engineering to bring designs to life with obsessive attention to detail and continuous optimization.",
+    description: "Working with the development team to build it right. I stay involved to make sure the final product matches the vision and works as intended.",
     icon: "fas fa-rocket",
     color: "electric-cyan",
     activities: [
@@ -89,7 +89,7 @@ export function DesignProcessSection() {
             Design <span className="text-gradient">Process</span>
           </h2>
           <p className="text-xl text-cool-gray max-w-3xl mx-auto leading-relaxed">
-            My systematic approach to creating user-centered solutions that drive business results
+            How I approach design projects from start to finish
           </p>
         </div>
 

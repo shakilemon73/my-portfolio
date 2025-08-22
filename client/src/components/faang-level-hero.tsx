@@ -80,14 +80,14 @@ export function FaangLevelHero() {
 
             <div className="mb-8">
               <p className="text-xl sm:text-2xl text-cool-gray mb-4 leading-relaxed">
-                <span className="text-white font-semibold">6+ years</span> transforming complex business problems into 
-                <span className="text-electric-cyan"> intuitive digital experiences</span> that drive 
-                <span className="text-neon-pink"> measurable results</span>
+                I've spent <span className="text-white font-semibold">6+ years</span> solving real problems for real people. 
+                <span className="text-electric-cyan">Every design decision</span> I make is backed by 
+                <span className="text-neon-pink">user research and data</span>
               </p>
               <p className="text-lg text-cool-gray">
-                From <span className="text-neon-green">zero-to-one products</span> to 
-                <span className="text-electric-cyan"> enterprise-scale systems</span>, I craft solutions that 
-                <span className="text-neon-pink"> users love</span> and businesses depend on
+                Whether it's <span className="text-neon-green">building something from scratch</span> or 
+                <span className="text-electric-cyan">fixing what's broken</span>, I focus on creating stuff that 
+                <span className="text-neon-pink">actually works</span> for both users and business goals
               </p>
             </div>
 

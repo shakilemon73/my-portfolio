@@ -5,7 +5,7 @@ export const FAANG_PORTFOLIO_DATA = {
   name: "Shakil Ahmed Emon",
   title: "Senior UX/UI Product Designer",
   experience: "6+ years",
-  tagline: "Transforming complex business challenges into elegant, user-centered solutions that drive growth",
+  tagline: "I design digital products that people actually want to use, backed by research and real results",
   email: "shakil.ahmed.emon@gmail.com",
   location: "Dhaka, Bangladesh (Remote Global)",
   
@@ -62,35 +62,35 @@ export const FAANG_PORTFOLIO_DATA = {
       my_role: "Lead UX/UI Designer",
       
       // Business context
-      business_challenge: "Post-pandemic telehealth demand surged 300%, but our client's app couldn't handle the complexity. Patient satisfaction plummeted to 2.1/5 stars, with 73% preferring phone bookings over the digital experience.",
+      business_challenge: "When COVID hit, everyone suddenly needed telehealth services. But the app we were working with was a mess - patients hated it so much that most would rather call instead of use the app. The ratings were terrible and the business was losing money.",
       
       // User problem
-      user_problem: "Patients faced a cognitive overload: 12 screens, 47 form fields, and zero error recovery. Elderly users (40% of patient base) abandoned appointments 78% of the time, creating a $2.3M revenue leak annually.",
+      user_problem: "The app was honestly overwhelming. Too many screens, too many form fields, and if you made a mistake, good luck figuring out how to fix it. Older patients especially struggled - they'd start booking an appointment and just give up halfway through.",
       
       // Strategic approach
-      approach: "Led a human-centered research sprint with 32 patients across 4 age groups. Combined behavioral analytics with ethnographic studies to uncover the hidden barriers preventing successful digital adoption.",
+      approach: "I spent weeks talking to actual patients - young people, seniors, everyone in between. I watched them try to use the app and took notes on where they got stuck. Sometimes the best insights come from just observing real people struggle with your interface.",
       
       // Design process
       process: {
         discovery: {
           duration: "4 weeks",
           activities: [
-            "Conducted 20 patient interviews focusing on elderly users (60+)",
-            "Analyzed 6 months of user behavior data and support tickets",
-            "Competitive analysis of 8 telehealth platforms",
-            "Stakeholder interviews with doctors and admin staff",
-            "Accessibility audit of current app"
+            "Interviewed 20 patients, especially focusing on older users who were struggling the most",
+            "Dug through 6 months of support tickets to see what people were complaining about",
+            "Checked out 8 other telehealth apps to see what they were doing right",
+            "Talked to the doctors and staff to understand their workflow",
+            "Tested the current app with screen readers and accessibility tools"
           ],
           deliverables: ["User personas", "Journey maps", "Pain point analysis", "Opportunity mapping"]
         },
         design: {
           duration: "6 weeks", 
           activities: [
-            "Information architecture redesign with card sorting",
-            "Low-fidelity wireframes focusing on simplicity",
-            "High-fidelity prototypes with accessibility features",
-            "Design system creation for consistency",
-            "Multiple user flow iterations and testing"
+            "Reorganized the entire app structure based on how people actually think",
+            "Started with simple sketches to nail down the basic flow",
+            "Built detailed prototypes that worked with screen readers",
+            "Created a design system so everything would look and feel consistent",
+            "Tested and tweaked the user flows until they made sense"
           ],
           deliverables: ["Wireframes", "Interactive prototypes", "Design system", "Accessibility guidelines"]
         },
@@ -127,10 +127,10 @@ export const FAANG_PORTFOLIO_DATA = {
           { metric: "User satisfaction score", before: "3.2/5", after: "4.6/5", improvement: "44% increase" }
         ],
         business_outcomes: [
-          "Reduced phone booking costs by $180K annually",
-          "Increased patient engagement by 58%",
-          "Improved doctor utilization by 23%",
-          "Enhanced accessibility for elderly patients"
+          "Cut down on expensive phone support calls by $180K per year",
+          "More patients started actually using the digital platform",
+          "Doctors could see more patients because the booking system worked better",
+          "Made the app actually usable for people who aren't tech-savvy"
         ]
       },
       
@@ -171,11 +171,11 @@ export const FAANG_PORTFOLIO_DATA = {
       team_size: "Small team of 4",
       my_role: "UI/UX Designer",
       
-      business_challenge: "ShopBD faced a critical problem: users loved browsing but hated buying. With 68% cart abandonment and 2.3-star rating, the platform was hemorrhaging potential revenue—losing $850K annually to poor checkout UX.",
+      business_challenge: "People would browse through products all day but when it came time to actually buy something, they'd just leave. The checkout process was so broken that the company was losing hundreds of thousands of dollars every year.",
       
-      user_problem: "Users reported difficulty finding products, complex checkout flow, and concerns about payment security. Mobile experience was particularly poor with small touch targets and slow loading times.",
+      user_problem: "Customers couldn't find what they wanted, the checkout had too many steps, and people didn't trust putting their credit card info in. Plus on mobile, everything was tiny and slow.",
       
-      approach: "Focused on simplifying the user journey, building trust through design, and optimizing for mobile-first experience with clear navigation and secure payment indicators.",
+      approach: "I focused on making the whole shopping experience simpler and more trustworthy. Since most people shop on their phones, I made sure everything worked great on mobile first.",
       
       process: {
         discovery: {
@@ -264,7 +264,7 @@ export const FAANG_PORTFOLIO_DATA = {
 
   // Professional background
   experience_summary: {
-    overview: "6+ years of experience designing user-centered digital experiences across healthcare, e-commerce, and education sectors. Specialized in mobile-first design, accessibility, and cross-cultural user research.",
+    overview: "I've been designing digital products for over 6 years, working mostly with healthcare apps, online stores, and educational platforms. I really care about making things accessible and understanding how different people use technology.",
     
     specializations: [
       "Mobile-first responsive design",
@@ -278,11 +278,11 @@ export const FAANG_PORTFOLIO_DATA = {
     industries: ["Healthcare", "E-commerce", "Education", "Fintech", "Government"],
     
     career_highlights: [
-      "Led design for telehealth platform serving 100K+ patients",
-      "Improved e-commerce conversion rates by 176% through UX optimization",
-      "Designed accessible interfaces used by elderly users (60+)",
-      "Created design systems adopted across multiple product teams",
-      "Conducted user research in rural and urban Bangladesh markets"
+      "Redesigned a telehealth app that now helps over 100,000 patients book appointments",
+      "Fixed an e-commerce checkout flow and nearly tripled their conversion rate",
+      "Made interfaces that actually work for older users, not just young tech people",
+      "Built design systems that other teams could actually use and maintain",
+      "Did user research with people from different backgrounds and income levels"
     ]
   },
 
@@ -389,7 +389,7 @@ export const TESTIMONIALS_FAANG = [
     role: "Chief Medical Officer",
     company: "MediCare Solutions",
     avatar: "RK",
-    content: "Shakil transformed our telehealth platform from a user nightmare to a delightful experience. His accessibility-first approach increased elderly patient engagement by 245% and reduced support calls by 70%. A true strategic partner.",
+    content: "Shakil took our telehealth app from something patients dreaded using to something they actually found helpful. The changes he made were especially great for our older patients - way more of them started booking appointments online instead of calling.",
     project: "HealthTech Mobile App Redesign",
     rating: 5,
     linkedin: true
@@ -400,7 +400,7 @@ export const TESTIMONIALS_FAANG = [
     role: "Product Manager",
     company: "ShopBD",
     avatar: "AR",
-    content: "Shakil didn't just redesign our checkout flow—he engineered a conversion machine. Cart abandonment dropped from 68% to 23%, generating an additional $850K annually. His deep understanding of local user behavior was game-changing.",
+    content: "Shakil completely fixed our checkout problem. People used to abandon their carts all the time, but after his redesign, way more customers actually completed their purchases. He really gets how people in our market behave online.",
     project: "E-commerce Mobile App",
     rating: 5,
     linkedin: true
@@ -411,7 +411,7 @@ export const TESTIMONIALS_FAANG = [
     role: "Head of Digital",
     company: "EduTech Bangladesh",
     avatar: "FA",
-    content: "Shakil took our overwhelming educational platform and made it feel like magic. Student task completion improved 156% and teacher adoption soared. He has an incredible ability to simplify complexity without losing functionality.",
+    content: "Our educational platform was way too complicated before Shakil worked on it. Now students can actually find their assignments and teachers don't need training to use it. He's really good at making complex things simple.",
     project: "Educational Platform Dashboard", 
     rating: 5,
     linkedin: true
@@ -422,7 +422,7 @@ export const TESTIMONIALS_FAANG = [
     role: "VP of Product",
     company: "FinTech Global",
     avatar: "MC",
-    content: "Working with Shakil was transformative. He redesigned our trading dashboard, reducing cognitive load by 40% while increasing trader efficiency by 65%. His deep understanding of complex financial workflows is exceptional.",
+    content: "Shakil redesigned our trading dashboard and made it so much easier to use. Our traders can get their work done faster now because they're not overwhelmed by too much information on the screen at once.",
     project: "AI Trading Platform",
     rating: 5,
     linkedin: true
@@ -433,7 +433,7 @@ export const TESTIMONIALS_FAANG = [
     role: "Chief Technology Officer",
     company: "TechVenture Inc",
     avatar: "SJ",
-    content: "Shakil's design leadership helped us scale from 10K to 500K users seamlessly. His systematic approach to design systems and user-centered thinking delivered measurable business impact - 30% increase in user retention.",
+    content: "Shakil helped us grow from 10,000 users to half a million without breaking our user experience. His design systems approach meant our product stayed consistent even as we grew rapidly.",
     project: "SaaS Platform Redesign",
     rating: 5,
     linkedin: false
@@ -444,7 +444,7 @@ export const TESTIMONIALS_FAANG = [
     role: "Head of UX",
     company: "E-commerce Pro",
     avatar: "DP",
-    content: "Shakil's strategic approach to UX research uncovered insights that transformed our entire product strategy. His work resulted in a 45% increase in conversion rates and significantly improved user satisfaction scores.",
+    content: "Shakil's user research revealed some insights we never would have discovered on our own. The changes we made based on his findings really improved our conversion rates and made customers happier.",
     project: "E-commerce Optimization",
     rating: 4,
     linkedin: true

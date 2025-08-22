@@ -26,9 +26,9 @@ export function UltimatePortfolioShowcase() {
           </h2>
           
           <p className="text-xl text-cool-gray max-w-3xl mx-auto leading-relaxed">
-            Crafting user-centered solutions that drive <span className="text-electric-cyan font-semibold">measurable business impact</span> across 
-            <span className="text-neon-pink font-semibold"> Fortune 500 companies</span> and 
-            <span className="text-neon-green font-semibold"> innovative startups</span>
+            Here are some projects I've worked on that actually made a difference. I focus on solving real problems with designs that <span className="text-electric-cyan font-semibold">get results</span> for 
+            <span className="text-neon-pink font-semibold">established companies</span> and 
+            <span className="text-neon-green font-semibold">growing startups</span>
           </p>
         </div>
 
