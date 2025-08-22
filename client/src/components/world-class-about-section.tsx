@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import shakilLogo from '../assets/shakil-logo.svg';
+import shakilLogo from '@assets/generated_images/Dribbble-style_creative_tool_brand_cee52e2d.png';
 
 export function WorldClassAboutSection() {
   const [activeTab, setActiveTab] = useState('story');
@@ -141,7 +141,7 @@ export function WorldClassAboutSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                   {/* Profile Image Area */}
                   <div className="text-center lg:text-left">
-                    <div className="w-32 h-32 mx-auto lg:mx-0 mb-6 bg-gradient-to-br from-deep-black via-charcoal to-deep-black rounded-full flex items-center justify-center p-4 border border-electric-cyan/30">
+                    <div className="w-32 h-32 mx-auto lg:mx-0 mb-6 bg-gradient-to-br from-deep-black via-charcoal to-deep-black rounded-full flex items-center justify-center p-3 border border-electric-cyan/30">
                       <img 
                         src={shakilLogo} 
                         alt="Shakil Ahmed Emon Logo" 

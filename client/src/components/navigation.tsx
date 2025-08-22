@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import shakilLogo from '../assets/shakil-logo.svg';
+import shakilLogo from '@assets/generated_images/Dribbble-style_creative_tool_brand_cee52e2d.png';
 
 export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,7 +41,7 @@ export function Navigation() {
               <img 
                 src={shakilLogo} 
                 alt="Shakil Ahmed Emon - Senior UX/UI Designer" 
-                className="h-10 w-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+                className="h-12 w-auto hover:scale-105 transition-transform duration-300 cursor-pointer min-h-[44px] min-w-[44px]"
                 onClick={() => scrollToSection('home')}
                 data-testid="brand-logo"
               />
