@@ -1,5 +1,5 @@
 import { useParams, useLocation } from 'wouter';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { 
   ArrowLeft, Clock, Users, Target, TrendingUp, ExternalLink, ChevronRight, Star, Award, 
   Lightbulb, Zap, CheckCircle, Eye, Heart, MessageSquare, Download, Play, Pause, 
@@ -17,12 +17,84 @@ import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { faangCaseStudies } from '@/data/faang-case-studies';
 import { CaseStudy } from '../../../shared/case-study-schema';
+import '../scroll-animations.css';
+
+// Metric Counter Component with Animation
+const MetricCounter = ({ metric, index }: { metric: any, index: number }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
+  
+  useEffect(() => {
+    if (!isVisible) return;
+    
+    const endValue = parseFloat(metric.value.replace(/[^0-9.]/g, ''));
+    const duration = 2000;
+    const startTime = Date.now();
+    
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const currentValue = Math.floor(0 + endValue * easeOut);
+      
+      setCount(currentValue);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    
+    animate();
+  }, [isVisible, metric.value]);
+  
+  const formatValue = (value: number) => {
+    const originalValue = metric.value;
+    if (originalValue.includes('$')) return `$${value.toFixed(1)}M`;
+    if (originalValue.includes('%')) return `${Math.round(value)}%`;
+    if (originalValue.includes('K')) return `${value.toFixed(1)}K`;
+    return Math.round(value).toString();
+  };
+  
+  return (
+    <div ref={elementRef} className="text-center" data-animate={`metric-${index}`}>
+      <div className="text-3xl font-black text-electric-cyan mb-2 counter-animate">
+        {formatValue(count)}
+      </div>
+      <div className="text-sm text-cool-gray mb-2">{metric.metric}</div>
+      <div className="text-xs text-neon-green font-medium">{metric.change}</div>
+    </div>
+  );
+};
 
 export default function CaseStudyPage() {
   const params = useParams();
   const [, setLocation] = useLocation();
   const [caseStudy, setCaseStudy] = useState<CaseStudy | null>(null);
   const [activeSection, setActiveSection] = useState('overview');
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [animatedElements, setAnimatedElements] = useState(new Set<string>());
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const slug = params.slug;
@@ -41,11 +113,50 @@ export default function CaseStudyPage() {
     }
   }, [params.slug, setLocation]);
 
+  // Counter animation hook
+  const useCountAnimation = (endValue: number, duration: number = 2000) => {
+    const [count, setCount] = useState(0);
+    const [isVisible, setIsVisible] = useState(false);
+    
+    useEffect(() => {
+      if (!isVisible) return;
+      
+      const startTime = Date.now();
+      const startValue = 0;
+      
+      const animate = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.floor(startValue + (endValue - startValue) * easeOut);
+        
+        setCount(currentValue);
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+      
+      animate();
+    }, [isVisible, endValue, duration]);
+    
+    return [count, setIsVisible] as const;
+  };
+
+  // Scroll tracking and progress
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['overview', 'challenge', 'research', 'design', 'solution', 'results', 'learnings'];
       const scrollPosition = window.scrollY + 200;
       
+      // Calculate scroll progress
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = Math.min((window.scrollY / totalHeight) * 100, 100);
+      setScrollProgress(progress);
+      
+      // Update active section
       for (let i = sections.length - 1; i >= 0; i--) {
         const element = document.getElementById(sections[i]);
         if (element && element.offsetTop <= scrollPosition) {
@@ -55,9 +166,38 @@ export default function CaseStudyPage() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Intersection Observer for scroll-triggered animations
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const elementId = entry.target.getAttribute('data-animate');
+            if (elementId) {
+              setAnimatedElements(prev => new Set(prev).add(elementId));
+              entry.target.classList.add('animate-in');
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '-10% 0px -10% 0px'
+      }
+    );
+
+    // Observe all animatable elements
+    const elements = document.querySelectorAll('[data-animate]');
+    elements.forEach(el => observerRef.current?.observe(el));
+
+    return () => {
+      observerRef.current?.disconnect();
+    };
+  }, [caseStudy]);
 
   if (!caseStudy) {
     return (
@@ -80,8 +220,16 @@ export default function CaseStudyPage() {
 
   return (
     <div className="min-h-screen bg-deep-black text-white overflow-x-hidden">
+      {/* Scroll Progress Bar */}
+      <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-charcoal/50">
+        <div 
+          className="h-full bg-gradient-to-r from-electric-cyan via-neon-pink to-neon-green transition-all duration-300 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        ></div>
+      </div>
+
       {/* Fixed Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-deep-black/90 backdrop-blur-xl border-b border-glass-border">
+      <header className="fixed top-1 left-0 right-0 z-50 bg-deep-black/90 backdrop-blur-xl border-b border-glass-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Button 
@@ -191,7 +339,7 @@ export default function CaseStudyPage() {
             </div>
 
             {/* Impact Metrics - Results First */}
-            <div className="bg-gradient-to-br from-electric-cyan/10 to-neon-pink/10 rounded-3xl p-8 border border-electric-cyan/20">
+            <div className="bg-gradient-to-br from-electric-cyan/10 to-neon-pink/10 rounded-3xl p-8 border border-electric-cyan/20" data-animate="slide-right">
               <div className="flex items-center gap-3 mb-8">
                 <div className="p-3 bg-electric-cyan/20 rounded-xl">
                   <TrendingUp className="h-8 w-8 text-electric-cyan" />
@@ -204,11 +352,7 @@ export default function CaseStudyPage() {
               
               <div className="grid grid-cols-2 gap-6">
                 {caseStudy.executiveSummary.impact.map((metric, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-3xl font-black text-electric-cyan mb-2">{metric.value}</div>
-                    <div className="text-sm text-cool-gray mb-2">{metric.metric}</div>
-                    <div className="text-xs text-neon-green font-medium">{metric.change}</div>
-                  </div>
+                  <MetricCounter key={index} metric={metric} index={index} />
                 ))}
               </div>
             </div>
@@ -409,7 +553,7 @@ export default function CaseStudyPage() {
 
           {/* Research Overview */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            <Card className="glass-morphism border-electric-cyan/30 bg-gradient-to-br from-electric-cyan/10 to-transparent">
+            <Card className="glass-morphism border-electric-cyan/30 bg-gradient-to-br from-electric-cyan/10 to-transparent" data-animate="card-1">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-3">
                   <Users className="h-6 w-6 text-electric-cyan" />
@@ -424,7 +568,7 @@ export default function CaseStudyPage() {
               </CardContent>
             </Card>
 
-            <Card className="glass-morphism border-neon-pink/30 bg-gradient-to-br from-neon-pink/10 to-transparent">
+            <Card className="glass-morphism border-neon-pink/30 bg-gradient-to-br from-neon-pink/10 to-transparent" data-animate="card-2">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-3">
                   <TestTube className="h-6 w-6 text-neon-pink" />
@@ -439,7 +583,7 @@ export default function CaseStudyPage() {
               </CardContent>
             </Card>
 
-            <Card className="glass-morphism border-neon-green/30 bg-gradient-to-br from-neon-green/10 to-transparent">
+            <Card className="glass-morphism border-neon-green/30 bg-gradient-to-br from-neon-green/10 to-transparent" data-animate="card-3">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-3">
                   <Lightbulb className="h-6 w-6 text-neon-green" />
@@ -503,7 +647,7 @@ export default function CaseStudyPage() {
           </div>
 
           {/* User Journey Maps & Research Artifacts */}
-          <div className="mb-16">
+          <div className="mb-16" data-animate="fade">
             <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
               <Eye className="h-8 w-8 text-electric-cyan" />
               User Journey Maps & Research Artifacts
@@ -511,7 +655,7 @@ export default function CaseStudyPage() {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* User Journey Map */}
-              <Card className="glass-morphism border-glass-border">
+              <Card className="glass-morphism border-glass-border" data-animate="slide-left">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-3">
                     <Users className="h-6 w-6 text-electric-cyan" />
@@ -552,7 +696,7 @@ export default function CaseStudyPage() {
               </Card>
 
               {/* User Personas */}
-              <Card className="glass-morphism border-glass-border">
+              <Card className="glass-morphism border-glass-border" data-animate="slide-right">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-3">
                     <Users className="h-6 w-6 text-neon-pink" />
