@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import shakilLogo from '@assets/generated_images/Dribbble-style_creative_tool_brand_cee52e2d.png';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { profileImage, profileAlt } from '@/lib/profile';
 
 export function WorldClassAboutSection() {
   const [activeTab, setActiveTab] = useState('story');
@@ -141,12 +142,19 @@ export function WorldClassAboutSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                   {/* Profile Image Area */}
                   <div className="text-center lg:text-left">
-                    <div className="w-40 h-20 mx-auto lg:mx-0 mb-6 flex items-center justify-center">
-                      <img 
-                        src={shakilLogo} 
-                        alt="Shakil Ahmed Emon Logo" 
-                        className="w-full h-full object-contain"
-                      />
+                    <div className="mx-auto lg:mx-0 mb-6 flex items-center justify-center">
+                      <Avatar className="w-40 h-40 rounded-2xl ring-2 ring-electric-cyan/30 shadow-2xl overflow-hidden" data-testid="img-headshot-about">
+                        <AvatarImage 
+                          src={profileImage} 
+                          alt={profileAlt} 
+                          loading="lazy" 
+                          decoding="async" 
+                          width={320} 
+                          height={320}
+                          className="object-cover"
+                        />
+                        <AvatarFallback className="bg-gradient-to-br from-electric-cyan to-neon-pink text-deep-black text-3xl font-bold">SE</AvatarFallback>
+                      </Avatar>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-2">Shakil Ahmed Emon</h3>
                     <p className="text-electric-cyan font-medium mb-4">Senior UX/UI Product Designer</p>

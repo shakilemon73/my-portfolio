@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { profileImage, profileAlt } from '@/lib/profile';
 
 export function FaangLevelHero() {
   const [currentMetric, setCurrentMetric] = useState(0);
@@ -140,11 +141,11 @@ export function FaangLevelHero() {
 
           {/* Right Content - Professional Showcase */}
           <div className="space-y-6">
-            {/* Main Professional Image Placeholder */}
+            {/* Main Professional Image */}
             <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-charcoal via-deep-black to-charcoal rounded-3xl shadow-2xl flex items-center justify-center border border-glass-border relative overflow-hidden">
+              <div className="w-full h-96 lg:h-[520px] bg-gradient-to-br from-charcoal via-deep-black to-charcoal rounded-3xl shadow-2xl relative overflow-hidden border border-glass-border">
                 {/* Animated Background Pattern */}
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-10 z-0">
                   <div className="grid grid-cols-8 h-full">
                     {Array.from({ length: 64 }).map((_, index) => (
                       <div 
@@ -156,12 +157,18 @@ export function FaangLevelHero() {
                   </div>
                 </div>
                 
-                <div className="text-center z-10">
-                  <div className="w-24 h-24 bg-gradient-to-br from-electric-cyan to-neon-pink rounded-full flex items-center justify-center text-deep-black text-3xl font-bold mb-4 mx-auto animate-glow">
-                    SE
-                  </div>
-                  <p className="text-cool-gray text-sm">Professional Portfolio Showcase</p>
-                </div>
+                {/* Professional Headshot */}
+                <img 
+                  src={profileImage} 
+                  alt={profileAlt} 
+                  className="absolute inset-0 w-full h-full object-cover rounded-3xl z-10" 
+                  loading="eager" 
+                  decoding="async" 
+                  fetchPriority="high"
+                  width={1200} 
+                  height={900} 
+                  data-testid="img-headshot-hero"
+                />
 
                 {/* Floating Design Elements */}
                 <div className="absolute top-4 right-4 glass-morphism rounded-lg p-3 animate-float">
