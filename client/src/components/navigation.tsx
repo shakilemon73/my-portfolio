@@ -82,6 +82,14 @@ export function Navigation() {
                 <span className="scannable-text">Credentials</span>
               </button>
               <button 
+                onClick={() => scrollToSection('resume')}
+                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+                data-hover
+                aria-label="Navigate to resume section"
+              >
+                <span className="scannable-text">Resume</span>
+              </button>
+              <button 
                 onClick={() => scrollToSection('about')}
                 className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
@@ -168,6 +176,16 @@ export function Navigation() {
           >
             <i className="fas fa-award mr-3 text-electric-cyan w-4"></i>
             <span>Credentials</span>
+          </button>
+          <button 
+            onClick={() => scrollToSection('resume')}
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+            data-hover
+            role="menuitem"
+            aria-label="Navigate to resume section"
+          >
+            <i className="fas fa-file-alt mr-3 text-electric-cyan w-4"></i>
+            <span>Resume</span>
           </button>
           <button 
             onClick={() => scrollToSection('about')}

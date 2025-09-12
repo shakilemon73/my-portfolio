@@ -5,6 +5,7 @@ import { WorldClassHero } from '@/components/world-class-hero';
 import { UltimatePortfolioShowcase } from '@/components/ultimate-portfolio-showcase';
 import { WorldClassDesignProcess } from '@/components/world-class-design-process';
 import { FaangCredentialsSection } from '@/components/faang-credentials-section';
+import { FaangResumeSection } from '@/components/faang-resume-section';
 import { WorldClassAboutSection } from '@/components/world-class-about-section';
 import { EnhancedSkillsSection } from '@/components/enhanced-skills-section';
 import { EnhancedTestimonialsSection } from '@/components/enhanced-testimonials-section';
@@ -22,6 +23,7 @@ export default function Home() {
         <UltimatePortfolioShowcase />
         <WorldClassDesignProcess />
         <FaangCredentialsSection />
+        <FaangResumeSection />
         <WorldClassAboutSection />
         <EnhancedSkillsSection />
         <EnhancedTestimonialsSection />
