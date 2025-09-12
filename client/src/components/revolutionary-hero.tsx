@@ -214,7 +214,7 @@ export function RevolutionaryHero() {
   return (
     <section 
       id="home" 
-      className="revolutionary-hero min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="hero-grid-section relative min-h-screen pt-24 md:pt-28 scroll-mt-24 flex items-center justify-center overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -225,32 +225,39 @@ export function RevolutionaryHero() {
         style={{ zIndex: 1 }}
       />
       
+      {/* Professional Grid Background - Same as FaangLevelHero */}
+      <div className="absolute inset-0 hero-grid-background">
+        <div className="absolute inset-0 hero-main-grid"></div>
+        <div className="absolute inset-0 hero-grid-overlay"></div>
+        <div className="absolute inset-0 hero-gradient-accent"></div>
+      </div>
+
       {/* Dynamic Neural Network Background */}
-      <div className="absolute inset-0 opacity-20" style={{ zIndex: 2 }}>
+      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ zIndex: 1 }}>
         {neuralNodes.map((node, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-cyan-400 rounded-full animate-pulse"
+            className="absolute w-2 h-2 bg-electric-cyan rounded-full"
             style={{
               left: `${node.x}%`,
               top: `${node.y}%`,
               animationDelay: `${node.pulse}s`,
-              transform: `scale(${1 + Math.sin(time * 2 + node.pulse) * 0.5})`,
+              transform: `scale(${1 + Math.sin(time * 2 + node.pulse) * 0.3})`,
             }}
           />
         ))}
       </div>
 
-      {/* Holographic Grid Overlay */}
+      {/* Subtle Grid Overlay */}
       <div 
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
           background: `
-            linear-gradient(90deg, transparent 0%, cyan 50%, transparent 100%),
-            linear-gradient(0deg, transparent 0%, rgba(0,255,255,0.1) 50%, transparent 100%)
+            linear-gradient(90deg, transparent 0%, rgba(0,210,255,0.2) 50%, transparent 100%),
+            linear-gradient(0deg, transparent 0%, rgba(0,210,255,0.1) 50%, transparent 100%)
           `,
-          transform: `translate(${mousePos.x * 0.02}px, ${mousePos.y * 0.02}px)`,
-          zIndex: 3,
+          transform: `translate(${mousePos.x * 0.01}px, ${mousePos.y * 0.01}px)`,
+          zIndex: 2,
         }}
       />
 
@@ -259,217 +266,128 @@ export function RevolutionaryHero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content - Enhanced Typography */}
           <div className="space-y-8">
-            {/* Morphing Badge */}
-            <div className="mb-6 transform hover:scale-110 transition-all duration-500">
+            {/* Designer Badge */}
+            <div className="mb-6">
               <Badge 
                 variant="outline" 
-                className="glass-morphism border-cyan-400 text-cyan-400 font-medium px-6 py-3 text-lg backdrop-blur-xl bg-cyan-400/10 hover:bg-cyan-400/20 transition-all duration-300"
-                style={{
-                  transform: `perspective(1000px) rotateX(${Math.sin(time) * 5}deg) rotateY(${Math.cos(time) * 5}deg)`,
-                }}
+                className="glass-morphism border-electric-cyan text-electric-cyan font-medium px-4 py-2"
               >
-                <Brain className="w-5 h-5 mr-2 animate-pulse" />
-                Neural UX Architect
+                Senior UX/UI Product Designer
               </Badge>
             </div>
 
-            {/* Morphing Typography */}
-            <div className="space-y-4">
-              <h1 
-                className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight text-clip"
-                style={{
-                  backgroundImage: `linear-gradient(
-                    ${45 + Math.sin(time) * 45}deg,
-                    #00ffff ${Math.sin(time) * 20 + 30}%,
-                    #ffffff ${Math.cos(time) * 20 + 50}%,
-                    #ff00ff ${Math.sin(time + Math.PI) * 20 + 70}%
-                  )`,
-                  transform: `scale(${1 + Math.sin(time * 2) * 0.02})`,
-                }}
-              >
-                I architect
-                <br />
-                <span 
-                  className="relative inline-block"
-                  style={{
-                    transform: `skew(${Math.sin(time) * 2}deg, ${Math.cos(time) * 1}deg)`,
-                  }}
-                >
-                  digital
-                  <div 
-                    className="absolute inset-0 blur-lg opacity-50 text-clip"
-                    style={{
-                      backgroundImage: 'linear-gradient(45deg, cyan, magenta)',
-                    }}
-                  >
-                    digital
-                  </div>
-                </span>
-                <br />
-                consciousness.
+            {/* Value Proposition Headline - Clear and Readable */}
+            <div className="bg-deep-black/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-glass-border">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight text-white drop-shadow-lg">
+                Design leader for data-heavy SaaS.
+                <span className="text-electric-cyan"> I turn complexity into measurable outcomes.</span>
               </h1>
               
-              <p 
-                className="text-xl text-cyan-200 max-w-2xl leading-relaxed"
-                style={{
-                  opacity: 0.9 + Math.sin(time * 3) * 0.1,
-                }}
-              >
-                Transforming data complexity into neural pathways. 
-                <span className="text-cyan-400 font-semibold">
-                  25M+ synapses fired, 150+ neural networks designed.
-                </span>
+              <p className="text-xl text-cool-gray mb-4 max-w-2xl">
+                25M+ users, 150+ projects, 99% CSAT across Fortune 500 and YC-backed startups
               </p>
 
-              <div className="flex items-center space-x-4 text-sm text-cyan-300">
-                <div className="flex items-center space-x-2">
-                  <Zap className="w-4 h-4 animate-pulse text-cyan-400" />
-                  <span>Real-time Processing</span>
+              <p className="text-sm text-cool-gray/70 mb-8">
+                Shakil Ahmed Emon • Available for New Projects
+              </p>
+
+              <div className="flex items-center space-x-6 text-sm">
+                <div className="flex items-center space-x-2 text-cool-gray">
+                  <MapPin className="w-4 h-4 text-electric-cyan" />
+                  <span>Available Globally (Remote)</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Cpu className="w-4 h-4 animate-pulse text-cyan-400" />
-                  <span>AI-Enhanced Design</span>
+                <div className="flex items-center space-x-2 text-cool-gray">
+                  <Clock className="w-4 h-4 text-electric-cyan" />
+                  <span>Open to Opportunities</span>
                 </div>
               </div>
             </div>
 
-            {/* Interactive CTAs */}
-            <div className="flex flex-col sm:flex-row gap-6">
+            {/* Call to Action Buttons - Same as FaangLevelHero */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button
                 onClick={() => scrollToSection('work')}
-                className="group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-slate-900 font-bold px-8 py-6 h-auto min-w-[220px] rounded-2xl transition-all duration-500 transform hover:scale-105"
-                style={{
-                  boxShadow: `0 0 ${20 + Math.sin(time * 4) * 10}px rgba(0, 255, 255, 0.5)`,
-                }}
-                data-testid="button-neural-portfolio"
+                className="bg-electric-cyan hover:bg-electric-cyan/90 text-slate-900 font-semibold px-8 py-4 h-14 min-w-[200px] rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-electric-cyan/25 group"
+                data-testid="button-view-case-studies"
               >
-                <div className="relative z-10 flex items-center">
-                  <Brain className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform animate-pulse" />
-                  Neural Portfolio
-                  <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform" />
-                </div>
-                <div 
-                  className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent rounded-2xl"
-                  style={{
-                    transform: `translateX(${-100 + Math.sin(time * 2) * 10}%)`,
-                  }}
-                />
+                <Eye className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
+                View Case Studies
+                <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" />
               </Button>
 
               <Button
                 variant="outline"
                 onClick={() => scrollToSection('contact')}
-                className="group border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 hover:text-cyan-300 font-semibold px-8 py-6 h-auto min-w-[200px] rounded-2xl transition-all duration-500 backdrop-blur-xl bg-cyan-400/5"
-                data-testid="button-connect"
+                className="border-2 border-electric-cyan text-electric-cyan hover:bg-electric-cyan hover:text-slate-900 font-semibold px-8 py-4 h-14 min-w-[180px] rounded-xl transition-all duration-300 group"
+                data-testid="button-contact"
               >
                 <MessageCircle className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-                Connect
+                Contact Me
               </Button>
             </div>
           </div>
 
-          {/* Right Content - Holographic Profile */}
+          {/* Right Content - Professional Showcase */}
           <div className="relative">
-            {/* Holographic Container */}
-            <div 
-              className="relative w-full h-96 lg:h-[600px]"
-              style={{
-                transform: `perspective(1000px) rotateY(${Math.sin(time * 0.5) * 5}deg) rotateX(${Math.cos(time * 0.5) * 3}deg)`,
-              }}
-            >
-              {/* Holographic Frame */}
-              <div 
-                className="absolute inset-0 rounded-3xl border-2 border-cyan-400/50 bg-gradient-to-br from-cyan-400/10 via-transparent to-blue-400/10 backdrop-blur-xl overflow-hidden"
-                style={{
-                  boxShadow: `
-                    0 0 50px rgba(0, 255, 255, 0.3),
-                    inset 0 0 50px rgba(0, 255, 255, 0.1)
-                  `,
-                }}
-              >
-                {/* Scanning Lines */}
-                <div 
-                  className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-400/20 to-transparent h-4"
-                  style={{
-                    transform: `translateY(${Math.sin(time * 3) * 100 + 50}%)`,
-                  }}
-                />
-                
-                {/* Profile Image with Glitch Effect */}
-                <div className="relative w-full h-full">
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative w-full h-96 lg:h-[520px]">
+                <div className="w-full h-96 lg:h-[520px] bg-gradient-to-br from-charcoal via-deep-black to-charcoal rounded-3xl shadow-2xl relative overflow-hidden border border-glass-border">
+                  {/* Animated Background Pattern */}
+                  <div className="absolute inset-0 opacity-10 z-0">
+                    <div className="grid grid-cols-8 h-full">
+                      {Array.from({ length: 64 }).map((_, index) => (
+                        <div
+                          key={index}
+                          className="border border-electric-cyan opacity-20"
+                          style={{ animationDelay: `${index * 0.1}s` }}
+                        ></div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Professional Headshot */}
                   <img
                     src={profileImage}
                     alt={profileAlt}
-                    className="w-full h-full object-cover rounded-3xl"
-                    style={{
-                      filter: `
-                        hue-rotate(${Math.sin(time) * 10}deg)
-                        saturate(${1.2 + Math.sin(time * 2) * 0.2})
-                        brightness(${1.1 + Math.sin(time * 1.5) * 0.1})
-                      `,
-                    }}
-                    fetchPriority="high"
-                    data-testid="img-holographic-profile"
-                  />
-                  
-                  {/* Glitch Overlay */}
-                  <div 
-                    className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-transparent rounded-3xl mix-blend-screen"
-                    style={{
-                      opacity: 0.1 + Math.sin(time * 10) * 0.05,
-                      transform: `translateX(${Math.sin(time * 5) * 2}px)`,
-                    }}
+                    className="absolute inset-0 w-full h-full object-cover rounded-3xl z-10"
+                    loading="eager"
+                    decoding="async"
+                    width={1200}
+                    height={900}
+                    data-testid="img-headshot-hero"
                   />
                 </div>
 
-                {/* Floating Data Streams */}
-                {Array.from({ length: 8 }).map((_, i) => (
+                {/* Floating Info Panels - Same as FaangLevelHero */}
+                {[
+                  { icon: Layers, text: '150+ Projects', delay: 0 },
+                  { icon: Users, text: '25M+ Users', delay: 1 },
+                  { icon: Zap, text: '99% Success', delay: 2 },
+                ].map((item, i) => (
                   <div
                     key={i}
-                    className="absolute w-1 bg-cyan-400/60 rounded-full"
+                    className="absolute glass-morphism border border-electric-cyan/30 bg-electric-cyan/5 backdrop-blur-xl rounded-xl p-3 transform transition-all duration-500 hover:scale-110"
                     style={{
-                      height: `${Math.random() * 60 + 20}px`,
-                      left: `${(i + 1) * 12}%`,
-                      bottom: '10%',
-                      transform: `translateY(${Math.sin(time * 2 + i) * 20}px)`,
-                      animationDelay: `${i * 0.2}s`,
+                      top: `${20 + i * 25}%`,
+                      right: i % 2 === 0 ? '-10%' : 'auto',
+                      left: i % 2 === 1 ? '-10%' : 'auto',
+                      transform: `
+                        translate(${Math.sin(time + item.delay) * 5}px, ${Math.cos(time + item.delay) * 5}px)
+                        scale(${0.95 + Math.sin(time * 2 + item.delay) * 0.05})
+                      `,
                     }}
-                  />
+                  >
+                    <div className="flex items-center space-x-2 text-electric-cyan">
+                      <item.icon className="w-4 h-4" />
+                      <span className="text-sm font-medium">{item.text}</span>
+                    </div>
+                  </div>
                 ))}
               </div>
-
-              {/* Floating Info Panels */}
-              {[
-                { icon: Layers, text: '150+ Projects', delay: 0 },
-                { icon: Users, text: '25M+ Users', delay: 1 },
-                { icon: Zap, text: '99% Success', delay: 2 },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="absolute glass-morphism border border-cyan-400/30 bg-cyan-400/5 backdrop-blur-xl rounded-xl p-3 transform transition-all duration-500 hover:scale-110"
-                  style={{
-                    top: `${20 + i * 25}%`,
-                    right: i % 2 === 0 ? '-10%' : 'auto',
-                    left: i % 2 === 1 ? '-10%' : 'auto',
-                    transform: `
-                      translate(${Math.sin(time + item.delay) * 10}px, ${Math.cos(time + item.delay) * 10}px)
-                      scale(${0.9 + Math.sin(time * 2 + item.delay) * 0.1})
-                    `,
-                  }}
-                >
-                  <div className="flex items-center space-x-2 text-cyan-400">
-                    <item.icon className="w-4 h-4 animate-pulse" />
-                    <span className="text-sm font-medium">{item.text}</span>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
       </div>
-
-      {/* Bottom Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900 to-transparent pointer-events-none" style={{ zIndex: 5 }} />
     </section>
   );
 }
