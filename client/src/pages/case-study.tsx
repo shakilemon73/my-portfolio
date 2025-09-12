@@ -687,7 +687,7 @@ export default function CaseStudyPage() {
                   
                   <div className="flex items-center justify-between">
                     <span className="text-cool-gray text-sm">5 detailed journey scenarios mapped</span>
-                    <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 min-h-[44px]" data-testid="button-view-journey">
+                    <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 min-h-[48px]" data-testid="button-view-journey">
                       <ExternalLink className="h-4 w-4 mr-2" />
                       View Full Map
                     </Button>
@@ -713,7 +713,7 @@ export default function CaseStudyPage() {
                         <div className="text-white font-medium text-sm">{persona.split(' - ')[0]}</div>
                         <div className="text-cool-gray text-xs">{persona.split(' - ')[1]}</div>
                       </div>
-                      <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 min-h-[44px]" data-testid={`button-persona-${index}`}>
+                      <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 min-h-[48px]" data-testid={`button-persona-${index}`}>
                         <Eye className="h-4 w-4" />
                       </Button>
                     </div>
@@ -818,7 +818,7 @@ export default function CaseStudyPage() {
                               </div>
                             ))}
                           </div>
-                          <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 w-full min-h-[44px]" data-testid="button-view-wireframes">
+                          <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 w-full min-h-[48px]" data-testid="button-view-wireframes">
                             <ExternalLink className="h-4 w-4 mr-2" />
                             View All Wireframes
                           </Button>
@@ -839,7 +839,7 @@ export default function CaseStudyPage() {
                               </div>
                             ))}
                           </div>
-                          <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 w-full mt-3 min-h-[44px]" data-testid="button-view-flows">
+                          <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 w-full mt-3 min-h-[48px]" data-testid="button-view-flows">
                             <ExternalLink className="h-4 w-4 mr-2" />
                             View User Flows
                           </Button>
@@ -939,7 +939,7 @@ export default function CaseStudyPage() {
                       </div>
                       
                       <div className="flex justify-center mt-4">
-                        <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 min-h-[44px]" data-testid="button-view-mockups">
+                        <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 min-h-[48px]" data-testid="button-view-mockups">
                           <ExternalLink className="h-4 w-4 mr-2" />
                           View All Mockups & Prototypes
                         </Button>
@@ -1034,7 +1034,7 @@ export default function CaseStudyPage() {
                       </div>
                     </div>
                   </div>
-                  <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 w-full min-h-[44px]" data-testid="button-view-desktop">
+                  <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 w-full min-h-[48px]" data-testid="button-view-desktop">
                     <ExternalLink className="h-4 w-4 mr-2" />
                     View Desktop Screens
                   </Button>
@@ -1068,7 +1068,7 @@ export default function CaseStudyPage() {
                       </div>
                     </div>
                   </div>
-                  <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 w-full min-h-[44px]" data-testid="button-view-mobile">
+                  <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 w-full min-h-[48px]" data-testid="button-view-mobile">
                     <ExternalLink className="h-4 w-4 mr-2" />
                     View Mobile Screens
                   </Button>
@@ -1106,7 +1106,7 @@ export default function CaseStudyPage() {
                       </div>
                     </div>
                   </div>
-                  <Button variant="ghost" size="sm" className="text-neon-green hover:bg-neon-green/20 w-full min-h-[44px]" data-testid="button-view-architecture">
+                  <Button variant="ghost" size="sm" className="text-neon-green hover:bg-neon-green/20 w-full min-h-[48px]" data-testid="button-view-architecture">
                     <ExternalLink className="h-4 w-4 mr-2" />
                     View Site Map
                   </Button>
@@ -1194,7 +1194,7 @@ export default function CaseStudyPage() {
                     <div className="pt-4 border-t border-glass-border">
                       <div className="flex justify-between items-center text-sm">
                         <span className="text-cool-gray">45+ reusable components</span>
-                        <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 min-h-[44px]" data-testid="button-view-components">
+                        <Button variant="ghost" size="sm" className="text-electric-cyan hover:bg-electric-cyan/20 min-h-[48px]" data-testid="button-view-components">
                           <ExternalLink className="h-4 w-4 mr-2" />
                           View Storybook
                         </Button>
@@ -1252,7 +1252,7 @@ export default function CaseStudyPage() {
                     </div>
                     
                     <div className="pt-4 border-t border-glass-border">
-                      <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 w-full min-h-[44px]" data-testid="button-view-tokens">
+                      <Button variant="ghost" size="sm" className="text-neon-pink hover:bg-neon-pink/20 w-full min-h-[48px]" data-testid="button-view-tokens">
                         <ExternalLink className="h-4 w-4 mr-2" />
                         View Design Tokens
                       </Button>
@@ -1377,7 +1377,7 @@ export default function CaseStudyPage() {
                       <Button 
                         variant="ghost" 
                         size="sm" 
-                        className="text-electric-cyan hover:text-white hover:bg-electric-cyan/20 min-h-[44px]"
+                        className="text-electric-cyan hover:text-white hover:bg-electric-cyan/20 min-h-[48px]"
                         data-testid={`button-linkedin-${index}`}
                       >
                         <ExternalLink className="h-4 w-4 mr-2" />

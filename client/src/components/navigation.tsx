@@ -37,11 +37,11 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* UX Enhancement: Clear Brand Identity (Jonathan Ive - Purpose) */}
-            <div className="min-h-[44px] flex items-center" role="banner">
+            <div className="min-h-[48px] flex items-center" role="banner">
               <img 
                 src={shakilLogo} 
                 alt="Shakil Ahmed Emon - Senior UX/UI Designer" 
-                className="h-12 w-auto hover:scale-105 transition-transform duration-300 cursor-pointer min-h-[44px] min-w-[44px]"
+                className="h-12 w-auto hover:scale-105 transition-transform duration-300 cursor-pointer min-h-[48px] min-w-[48px]"
                 onClick={() => scrollToSection('home')}
                 data-testid="brand-logo"
               />
@@ -51,7 +51,7 @@ export function Navigation() {
             <div className="hidden md:flex space-x-2" role="navigation" aria-label="Main navigation">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+                className="min-h-[48px] min-w-[48px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
                 aria-label="Navigate to home section"
               >
@@ -59,7 +59,7 @@ export function Navigation() {
               </button>
               <button 
                 onClick={() => scrollToSection('work')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+                className="min-h-[48px] min-w-[48px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
                 aria-label="Navigate to work portfolio section"
               >
@@ -67,7 +67,7 @@ export function Navigation() {
               </button>
               <button 
                 onClick={() => scrollToSection('process')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+                className="min-h-[48px] min-w-[48px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
                 aria-label="Navigate to design process section"
               >
@@ -75,7 +75,7 @@ export function Navigation() {
               </button>
               <button 
                 onClick={() => scrollToSection('credentials')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+                className="min-h-[48px] min-w-[48px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
                 aria-label="Navigate to credentials section"
               >
@@ -83,7 +83,7 @@ export function Navigation() {
               </button>
               <button 
                 onClick={() => scrollToSection('resume')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+                className="min-h-[48px] min-w-[48px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
                 aria-label="Navigate to resume section"
               >
@@ -91,7 +91,7 @@ export function Navigation() {
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+                className="min-h-[48px] min-w-[48px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
                 aria-label="Navigate to about section"
               >
@@ -99,7 +99,7 @@ export function Navigation() {
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="min-h-[44px] min-w-[44px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+                className="min-h-[48px] min-w-[48px] px-4 py-3 text-white hover:text-electric-cyan transition-all duration-300 flex items-center justify-center rounded-lg hover:bg-electric-cyan/10 focus:bg-electric-cyan/20 focus:text-electric-cyan" 
                 data-hover
                 aria-label="Navigate to contact section"
               >
@@ -111,7 +111,7 @@ export function Navigation() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-electric-cyan p-2 min-h-[44px] min-w-[44px]"
+                className="text-electric-cyan p-2 min-h-[48px] min-w-[48px]"
                 id="mobileMenuBtn"
                 data-hover
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

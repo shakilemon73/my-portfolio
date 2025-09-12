@@ -228,7 +228,7 @@ export function EnhancedTestimonialsSection() {
           <div className="flex justify-center items-center mt-8 gap-4">
             <button
               onClick={() => setAutoplay(false)}
-              className="text-cool-gray hover:text-electric-cyan transition-colors min-h-[44px] px-4"
+              className="text-cool-gray hover:text-electric-cyan transition-colors min-h-[48px] min-w-[48px] px-4 flex items-center justify-center"
               data-testid="button-pause-testimonials"
             >
               <i className={`fas ${autoplay ? 'fa-pause' : 'fa-play'}`}></i>
@@ -242,13 +242,15 @@ export function EnhancedTestimonialsSection() {
                     setActiveTestimonial(index);
                     setAutoplay(false);
                   }}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center ${
+                  className={`relative min-h-[48px] min-w-[48px] flex items-center justify-center transition-all duration-300`}
+                  data-testid={`testimonial-nav-${index}`}
+                >
+                  <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === activeTestimonial
                       ? 'bg-electric-cyan scale-125'
                       : 'bg-glass-border hover:bg-cool-gray'
-                  }`}
-                  data-testid={`testimonial-nav-${index}`}
-                />
+                  }`} />
+                </button>
               ))}
             </div>
           </div>
