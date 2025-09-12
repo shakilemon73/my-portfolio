@@ -20,14 +20,14 @@ export function FaangLevelHero() {
       <div className="absolute inset-0 hero-grid-background">
         {/* Main Grid Pattern */}
         <div className="absolute inset-0 hero-main-grid"></div>
-        
+
         {/* Subtle Grid Overlay */}
         <div className="absolute inset-0 hero-grid-overlay"></div>
-        
+
         {/* Gradient Accent */}
         <div className="absolute inset-0 hero-gradient-accent"></div>
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -59,7 +59,7 @@ export function FaangLevelHero() {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               {/* Primary CTA */}
-              <Button 
+              <Button
                 onClick={() => scrollToSection('work')}
                 className="bg-electric-cyan hover:bg-electric-cyan/90 text-slate-900 font-semibold px-8 py-4 h-14 min-w-[200px] rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-electric-cyan/25 group"
                 data-testid="button-view-case-studies"
@@ -68,9 +68,9 @@ export function FaangLevelHero() {
                 View Case Studies
                 <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Button>
-              
+
               {/* Secondary CTA */}
-              <Button 
+              <Button
                 variant="outline"
                 onClick={() => scrollToSection('contact')}
                 className="border-2 border-electric-cyan text-electric-cyan hover:bg-electric-cyan hover:text-slate-900 font-semibold px-8 py-4 h-14 min-w-[180px] rounded-xl transition-all duration-300 group"
@@ -127,33 +127,32 @@ export function FaangLevelHero() {
                 <div className="absolute inset-0 opacity-10 z-0">
                   <div className="grid grid-cols-8 h-full">
                     {Array.from({ length: 64 }).map((_, index) => (
-                      <div 
-                        key={index} 
+                      <div
+                        key={index}
                         className="border border-electric-cyan opacity-20"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       ></div>
                     ))}
                   </div>
                 </div>
-                
+
                 {/* Professional Headshot */}
-                <img 
-                  src={profileImage} 
-                  alt={profileAlt} 
-                  className="absolute inset-0 w-full h-full object-cover rounded-3xl z-10" 
-                  loading="eager" 
-                  decoding="async" 
+                <img
+                  src={profileImage}
+                  alt={profileAlt}
+                  className="absolute inset-0 w-full h-full object-cover rounded-3xl z-10"
+                  loading="eager"
+                  decoding="async"
                   fetchPriority="high"
-                  width={1200} 
-                  height={900} 
+                  width={1200}
+                  height={900}
                   data-testid="img-headshot-hero"
                 />
 
                 {/* Removed floating elements to reduce visual noise and focus on primary CTAs */}
               </div>
             </div>
-
-
+          </div>
         </div>
 
         {/* Impact Metrics - Moved below the fold */}
