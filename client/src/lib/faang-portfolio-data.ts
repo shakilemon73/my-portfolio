@@ -2,12 +2,12 @@
 // Authentic information for UX/UI Designer portfolio
 
 export const FAANG_PORTFOLIO_DATA = {
-  name: "Shakil Ahmed Emon",
-  title: "Senior UX/UI Product Designer",
-  experience: "6+ years",
+  name: "Shakil Ahmed",
+  title: "UI/UX Designer",
+  experience: "7+ years",
   tagline: "I design digital products that people actually want to use, backed by research and real results",
-  email: "shakil.ahmed.emon@gmail.com",
-  location: "Dhaka, Bangladesh (Remote Global)",
+  email: "shakilemon73@gmail.com",
+  location: "Ulipur, Rajshahi, Bangladesh (Remote Global)",
   
   // Professional metrics based on real experience
   impact_metrics: {
@@ -262,45 +262,118 @@ export const FAANG_PORTFOLIO_DATA = {
     }
   ],
 
+  // Professional work experience
+  work_experience: [
+    {
+      title: "CEO & Founder",
+      company: "Emon Finance Ltd",
+      duration: "January 2018 - Present (7+ years)",
+      location: "Ulipur, Rajshahi, Bangladesh",
+      description: "Founded and led financial services company, overseeing strategic direction and operational excellence.",
+      responsibilities: [
+        "Strategic business planning and leadership",
+        "Team management and organizational development", 
+        "Financial product development and market analysis",
+        "Client relationship management and business growth"
+      ]
+    },
+    {
+      title: "UI/UX Designer",
+      company: "DesignCrowd",
+      duration: "October 2022 - Present (3+ years)",
+      location: "Remote",
+      description: "Collaborated with developers and stakeholders to create user-centered digital solutions.",
+      responsibilities: [
+        "Collaborated with developers and stakeholders to understand user needs and business goals",
+        "Designed high-fidelity mockups and prototypes using Sketch, Adobe Creative Suite, Figma, and InVision", 
+        "Conducted user research and usability testing, improving designs based on feedback",
+        "Created comprehensive design systems and component libraries"
+      ]
+    },
+    {
+      title: "UI/UX Designer", 
+      company: "Fiverr",
+      duration: "January 2018 - January 2025 (7 years)",
+      location: "Remote",
+      description: "Provided freelance UI/UX design services to global clients across various industries.",
+      responsibilities: [
+        "Delivered custom design solutions for web and mobile applications",
+        "Worked with diverse international clients to understand unique requirements",
+        "Created wireframes, prototypes, and high-fidelity designs",
+        "Maintained consistent quality and client satisfaction across 100+ projects"
+      ]
+    },
+    {
+      title: "UI/UX Designer",
+      company: "Radisson Digital Technologies Ltd.",
+      duration: "January 2019 - January 2023 (4 years)",
+      location: "Bangladesh",
+      description: "First on-site company position, gaining valuable team collaboration experience.",
+      responsibilities: [
+        "Started first on-site company job and worked as UI/UX Designer for 4 years",
+        "Collaborated with cross-functional teams in professional corporate environment",
+        "Developed design skills through mentorship and structured project work",
+        "Contributed to multiple digital product initiatives and design improvements"
+      ]
+    },
+    {
+      title: "Enumerator",
+      company: "Bangladesh Bureau of Statistics",
+      duration: "June 2021 - June 2022 (1 year)",
+      location: "Bangladesh", 
+      description: "Conducted demographic research and data collection for national statistical purposes.",
+      responsibilities: [
+        "Visited and surveyed residents to collect important demographic information",
+        "Gathered economic profile data of citizens for statistical analysis",
+        "Ensured accurate data collection and reporting protocols",
+        "Contributed to national census and demographic research initiatives"
+      ]
+    }
+  ],
+
   // Professional background
   experience_summary: {
-    overview: "I've been designing digital products for over 6 years, working mostly with healthcare apps, online stores, and educational platforms. I really care about making things accessible and understanding how different people use technology.",
+    overview: "I've been designing digital products for over 7 years, working with diverse clients from healthcare apps to e-commerce platforms. I combine business leadership experience with hands-on design expertise, understanding both user needs and business objectives.",
     
     specializations: [
       "Mobile-first responsive design",
-      "Accessibility and inclusive design",
-      "Healthcare and telehealth UX",
-      "E-commerce conversion optimization",
-      "Cross-cultural user research",
+      "User-centered design principles", 
+      "Cross-functional team collaboration",
+      "Business strategy and design alignment",
+      "International client communication",
       "Design systems and component libraries"
     ],
     
-    industries: ["Healthcare", "E-commerce", "Education", "Fintech", "Government"],
+    industries: ["Finance", "E-commerce", "Healthcare", "Technology", "Government"],
     
     career_highlights: [
-      "Redesigned a telehealth app that now helps over 100,000 patients book appointments",
-      "Fixed an e-commerce checkout flow and nearly tripled their conversion rate",
-      "Made interfaces that actually work for older users, not just young tech people",
-      "Built design systems that other teams could actually use and maintain",
-      "Did user research with people from different backgrounds and income levels"
+      "Founded and successfully led a financial services company for 7+ years",
+      "Delivered 100+ successful UI/UX projects through freelance platforms",
+      "Gained comprehensive team experience through 4-year corporate position", 
+      "Worked with international clients across multiple time zones and cultures",
+      "Combined business leadership with technical design expertise"
     ]
   },
 
   // Education and credentials
   education: [
     {
-      degree: "Bachelor of Computer Science",
-      institution: "University of Dhaka",
-      year: "2018",
-      focus: "Human-Computer Interaction"
+      degree: "Bachelor of Science - Chemistry",
+      institution: "National University | Bangladesh",
+      year: "2021 - 2025",
+      focus: "Chemistry with strong analytical and problem-solving foundation"
+    },
+    {
+      degree: "Higher Secondary School - Science",
+      institution: "Ulipur Government College",
+      year: "2017 - 2019",
+      focus: "Science"
     }
   ],
   
   certifications: [
     "Google UX Design Professional Certificate",
-    "Figma Advanced Prototyping",
-    "Accessibility Specialist (WCAG 2.1)",
-    "Mobile UX Design Certification"
+    "Work Experience Certificate (Portfolio of UX Projects)"
   ],
 
   // Awards and achievements
@@ -373,9 +446,9 @@ export const FAANG_PORTFOLIO_DATA = {
 
   // Contact and availability
   contact: {
-    email: "shakil.ahmed.emon@gmail.com",
-    linkedin: "https://linkedin.com/in/shakil-ahmed-emon",
-    portfolio: "https://shakil-emon-design.com",
+    email: "shakilemon73@gmail.com",
+    linkedin: "https://www.linkedin.com/in/shakil-ahmed710",
+    portfolio: "https://shakil-ahmed-portfolio.com",
     timezone: "GMT+6 (Bangladesh Standard Time)",
     availability: "Available for remote work globally"
   }
