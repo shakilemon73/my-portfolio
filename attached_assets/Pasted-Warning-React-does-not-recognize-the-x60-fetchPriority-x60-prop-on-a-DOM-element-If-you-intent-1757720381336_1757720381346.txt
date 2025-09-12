@@ -1,0 +1,41 @@
+Warning: React does not recognize the &#x60;fetchPriority&#x60; prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase &#x60;fetchpriority&#x60; instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+    at img
+    at div
+    at div
+    at div
+    at div
+    at div
+    at section
+    at FaangLevelHero
+    at main
+    at div
+    at Home
+    at Route (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=f9fcdf8a:323:16)
+    at Switch (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=f9fcdf8a:379:17)
+    at Router
+    at Provider (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-BCLB22GG.js?v=f9fcdf8a:22:15)
+    at TooltipProvider (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=f9fcdf8a:2246:5)
+    at QueryClientProvider (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=f9fcdf8a:2805:3)
+    at App (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/src/App.tsx?v=V7nXOKu_P6GhDQcpGQu1n:54:3)
+at img
+at div
+at div
+at div
+at div
+at div
+at section
+at FaangLevelHero
+at main
+at div
+at Home
+at Route (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=f9fcdf8a:323:16)
+at Switch (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=f9fcdf8a:379:17)
+at Router
+at Provider (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-BCLB22GG.js?v=f9fcdf8a:22:15)
+at TooltipProvider (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=f9fcdf8a:2246:5)
+at QueryClientProvider (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=f9fcdf8a:2805:3)
+at App (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/src/App.tsx?v=V7nXOKu_P6GhDQcpGQu1n:54:3)
+at t.value (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://824e7098-2218-41bd-be47-c1f097cb550c-00-1sshr5d3d1yd9.kirk.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400
