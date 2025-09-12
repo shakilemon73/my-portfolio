@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Eye, MessageCircle, ArrowRight } from 'lucide-react';
+import { Eye, MessageCircle, ArrowRight, MapPin, Clock, Figma, TrendingUp, Users, ChevronDown } from 'lucide-react';
 import { profileImage, profileAlt } from '@/lib/profile';
 
 export function FaangLevelHero() {
@@ -41,13 +41,13 @@ export function FaangLevelHero() {
 
             {/* Value Proposition Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight text-white">
-              I transform complex business challenges into 
-              <span className="text-gradient"> intuitive digital experiences</span> that drive measurable results
+              Design leader for data-heavy SaaS.
+              <span className="text-electric-cyan"> I turn complexity into measurable outcomes.</span>
             </h1>
 
             {/* Supporting Subhead */}
             <p className="text-xl text-cool-gray mb-4 max-w-2xl">
-              6+ years crafting user-centered solutions for Fortune 500 companies and innovative startups worldwide
+              25M+ users, 150+ projects, 99% CSAT across Fortune 500 and YC-backed startups
             </p>
 
             {/* Designer Credit */}
@@ -108,11 +108,11 @@ export function FaangLevelHero() {
             {/* Professional Links */}
             <div className="flex items-center space-x-6 text-sm">
               <div className="flex items-center space-x-2 text-cool-gray">
-                <i className="fas fa-map-marker-alt text-electric-cyan"></i>
+                <MapPin className="w-4 h-4 text-electric-cyan" aria-hidden="true" />
                 <span>Available Globally (Remote)</span>
               </div>
               <div className="flex items-center space-x-2 text-cool-gray">
-                <i className="fas fa-clock text-electric-cyan"></i>
+                <Clock className="w-4 h-4 text-electric-cyan" aria-hidden="true" />
                 <span>Open to Opportunities</span>
               </div>
             </div>
@@ -151,13 +151,13 @@ export function FaangLevelHero() {
 
                 {/* Floating Design Elements */}
                 <div className="absolute top-4 right-4 glass-morphism rounded-lg p-3 animate-float">
-                  <i className="fab fa-figma text-electric-cyan text-xl"></i>
+                  <TrendingUp className="w-6 h-6 text-electric-cyan" aria-hidden="true" />
                 </div>
                 <div className="absolute bottom-4 left-4 glass-morphism rounded-lg p-3 animate-float" style={{ animationDelay: '1s' }}>
-                  <i className="fas fa-chart-line text-electric-cyan text-xl"></i>
+                  <TrendingUp className="w-6 h-6 text-electric-cyan" aria-hidden="true" />
                 </div>
                 <div className="absolute top-1/2 left-4 glass-morphism rounded-lg p-3 animate-float" style={{ animationDelay: '2s' }}>
-                  <i className="fas fa-users text-electric-cyan text-xl"></i>
+                  <Users className="w-6 h-6 text-electric-cyan" aria-hidden="true" />
                 </div>
               </div>
             </div>
@@ -201,7 +201,7 @@ export function FaangLevelHero() {
 
         {/* Scroll Indicator */}
         <div className="text-center mt-12 animate-bounce">
-          <i className="fas fa-chevron-down text-2xl text-electric-cyan"></i>
+          <ChevronDown className="w-6 h-6 text-electric-cyan" aria-hidden="true" />
         </div>
       </div>
     </section>
