@@ -246,9 +246,104 @@
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out;
   }
+
+  /* Revolutionary Hero Styles */
+  .revolutionary-hero {
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.03) 0%, transparent 50%),
+                linear-gradient(180deg, hsl(9, 9%, 4%) 0%, hsl(16, 3%, 8%) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .revolutionary-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300ffff' fill-opacity='0.03'%3E%3Cpath d='m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    opacity: 0.1;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .neural-node {
+    animation: neuralPulse 3s ease-in-out infinite;
+  }
+
+  .holographic-frame {
+    background: linear-gradient(45deg, 
+      rgba(0, 255, 255, 0.1) 0%, 
+      rgba(0, 255, 255, 0.05) 25%, 
+      transparent 50%, 
+      rgba(0, 255, 255, 0.05) 75%, 
+      rgba(0, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 
+      0 0 30px rgba(0, 255, 255, 0.2),
+      inset 0 0 30px rgba(0, 255, 255, 0.1);
+  }
+
+  .glitch-text {
+    position: relative;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+
+  .glitch-text::before {
+    animation: glitch-anim-1 0.3s infinite linear alternate-reverse;
+    color: #ff00ff;
+    z-index: -1;
+  }
+
+  .glitch-text::after {
+    animation: glitch-anim-2 0.3s infinite linear alternate-reverse;
+    color: #00ffff;
+    z-index: -2;
+  }
+
+  .particle-system {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: radial-gradient(circle, #00ffff 0%, transparent 70%);
+    border-radius: 50%;
+    animation: particleFloat 8s infinite linear;
+  }
+
+  .data-stream {
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #00ffff, transparent);
+    animation: dataStream 2s infinite ease-in-out;
+  }
   
   .animate-scale-in {
     animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Text clipping utility */
+  .text-clip {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   .animate-stagger {
@@ -287,7 +382,6 @@
     .text-h2 { font-size: 1.75rem; }
     .text-h3 { font-size: 1.5rem; }
   }
-}
 
 /* Font family utilities */
 .font-inter {

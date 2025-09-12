@@ -1,7 +1,7 @@
 import { ScrollProgress } from '@/components/scroll-progress';
 import { UXEnhancementSystem } from '@/components/ux-enhancement-system';
 import { Navigation } from '@/components/navigation';
-import { FaangLevelHero } from '@/components/faang-level-hero';
+import { RevolutionaryHero } from '@/components/revolutionary-hero';
 import { UltimatePortfolioShowcase } from '@/components/ultimate-portfolio-showcase';
 import { WorldClassDesignProcess } from '@/components/world-class-design-process';
 import { FaangCredentialsSection } from '@/components/faang-credentials-section';
@@ -19,7 +19,7 @@ export default function Home() {
       <ScrollProgress />
       <Navigation />
       <main>
-        <FaangLevelHero />
+        <RevolutionaryHero />
         <UltimatePortfolioShowcase />
         <WorldClassDesignProcess />
         <FaangCredentialsSection />
