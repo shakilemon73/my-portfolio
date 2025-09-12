@@ -31,19 +31,82 @@ export function FaangLevelHero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated Background Grid */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="grid grid-cols-12 h-full animate-pulse">
-          {Array.from({ length: 144 }).map((_, index) => (
-            <div 
-              key={index} 
-              className="border border-electric-cyan"
-              style={{ 
-                animationDelay: `${index * 0.05}s`,
-                animationDuration: '3s' 
+      {/* Dynamic Animated Background - Inspired by emonfinance.art */}
+      <div className="absolute inset-0">
+        {/* Floating Geometric Elements */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 20 }).map((_, index) => (
+            <div
+              key={`circle-${index}`}
+              className="absolute rounded-full border border-electric-cyan/20 animate-float"
+              style={{
+                width: `${Math.random() * 100 + 50}px`,
+                height: `${Math.random() * 100 + 50}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 10}s`,
+                animationDuration: `${Math.random() * 20 + 15}s`,
               }}
-            ></div>
+            />
           ))}
+        </div>
+
+        {/* Glowing Particles */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 15 }).map((_, index) => (
+            <div
+              key={`particle-${index}`}
+              className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-electric-cyan to-neon-pink animate-pulse-glow"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${Math.random() * 3 + 2}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Dynamic Lines */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <div
+              key={`line-${index}`}
+              className="absolute w-px bg-gradient-to-b from-transparent via-electric-cyan/30 to-transparent animate-line-move"
+              style={{
+                height: '100%',
+                left: `${(index + 1) * 16.666}%`,
+                animationDelay: `${index * 0.5}s`,
+                animationDuration: '8s',
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Gradient Orbs */}
+        <div className="absolute inset-0">
+          <div className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-electric-cyan/10 to-transparent blur-3xl animate-float-slow" 
+               style={{ top: '10%', left: '80%', animationDuration: '25s' }} />
+          <div className="absolute w-72 h-72 rounded-full bg-gradient-to-r from-neon-pink/10 to-transparent blur-3xl animate-float-slow" 
+               style={{ top: '60%', left: '10%', animationDuration: '30s', animationDelay: '5s' }} />
+          <div className="absolute w-80 h-80 rounded-full bg-gradient-to-r from-neon-green/10 to-transparent blur-3xl animate-float-slow" 
+               style={{ top: '30%', left: '70%', animationDuration: '35s', animationDelay: '10s' }} />
+        </div>
+
+        {/* Mesh Grid Overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="grid grid-cols-12 h-full">
+            {Array.from({ length: 144 }).map((_, index) => (
+              <div 
+                key={`grid-${index}`} 
+                className="border border-electric-cyan/20 animate-grid-pulse"
+                style={{ 
+                  animationDelay: `${(index % 12) * 0.1}s`,
+                  animationDuration: '4s' 
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
       
