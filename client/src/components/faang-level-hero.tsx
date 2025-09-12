@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Eye, MessageCircle, ArrowRight, MapPin, Clock, Figma, TrendingUp, Users, ChevronDown } from 'lucide-react';
@@ -153,15 +153,7 @@ export function FaangLevelHero() {
               </div>
             </div>
 
-            {/* Stats moved below the fold for cleaner above-the-fold experience */}
 
-            {/* Tech stack moved below for cleaner focus */}
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Impact Metrics - Moved below the fold */}
