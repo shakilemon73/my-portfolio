@@ -87,7 +87,7 @@ export function WorldClassHero() {
         )}
       </div>
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
         {/* Professional Status Indicators */}
         <div className={`mb-8 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
           <div className="flex flex-wrap justify-center gap-3 mb-6">

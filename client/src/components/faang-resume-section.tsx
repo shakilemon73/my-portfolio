@@ -47,7 +47,7 @@ export function FaangResumeSection() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center p-3 glass-morphism rounded-full mb-6">
