@@ -47,46 +47,28 @@ export function FaangLevelHero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="animate-fade-in">
-            {/* Tech Company Badges */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              <Badge variant="outline" className="glass-morphism border-electric-cyan text-electric-cyan">
-                <i className="fab fa-google mr-2"></i>
-                FAANG Ready
-              </Badge>
-              <Badge variant="outline" className="glass-morphism border-neon-pink text-neon-pink">
-                <i className="fas fa-star mr-2"></i>
-                Top 100 Portfolio
-              </Badge>
-              <Badge variant="outline" className="glass-morphism border-neon-green text-neon-green">
-                <i className="fas fa-trophy mr-2"></i>
-                Award Winning
-              </Badge>
-            </div>
-
+            {/* Designer Badge */}
             <div className="mb-6">
-              <span className="font-mono text-electric-cyan text-sm tracking-wider">
-                SENIOR UX/UI PRODUCT DESIGNER
-              </span>
+              <Badge variant="outline" className="glass-morphism border-electric-cyan text-electric-cyan font-medium px-4 py-2">
+                Senior UX/UI Product Designer
+              </Badge>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black mb-6 leading-tight">
-              <span className="block">SHAKIL</span>
-              <span className="block text-gradient">AHMED</span>
-              <span className="block">EMON</span>
+            {/* Value Proposition Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight text-white">
+              I transform complex business challenges into 
+              <span className="text-gradient"> intuitive digital experiences</span> that drive measurable results
             </h1>
 
-            <div className="mb-8">
-              <p className="text-xl sm:text-2xl text-cool-gray mb-4 leading-relaxed">
-                I've spent <span className="text-white font-semibold">6+ years</span> solving real problems for real people. 
-                <span className="text-electric-cyan">Every design decision</span> I make is backed by 
-                <span className="text-neon-pink">user research and data</span>
-              </p>
-              <p className="text-lg text-cool-gray">
-                Whether it's <span className="text-neon-green">building something from scratch</span> or 
-                <span className="text-electric-cyan">fixing what's broken</span>, I focus on creating stuff that 
-                <span className="text-neon-pink">actually works</span> for both users and business goals
-              </p>
-            </div>
+            {/* Supporting Subhead */}
+            <p className="text-xl text-cool-gray mb-4 max-w-2xl">
+              6+ years crafting user-centered solutions for Fortune 500 companies and innovative startups worldwide
+            </p>
+
+            {/* Designer Credit */}
+            <p className="text-sm text-cool-gray/70 mb-8">
+              Shakil Ahmed Emon • Available for New Projects
+            </p>
 
             {/* Dynamic Metrics Display */}
             <div className="glass-morphism rounded-2xl p-6 mb-8 hover-glow transition-all duration-500">
