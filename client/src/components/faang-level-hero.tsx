@@ -153,35 +153,9 @@ export function FaangLevelHero() {
               </div>
             </div>
 
-            {/* Quick Stats Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="glass-morphism rounded-xl p-4 text-center hover-glow transition-all duration-300">
-                <div className="text-2xl font-bold text-electric-cyan">150+</div>
-                <div className="text-xs text-cool-gray">Projects Delivered</div>
-              </div>
-              <div className="glass-morphism rounded-xl p-4 text-center hover-glow transition-all duration-300">
-                <div className="text-2xl font-bold text-electric-cyan">99%</div>
-                <div className="text-xs text-cool-gray">Client Satisfaction</div>
-              </div>
-              <div className="glass-morphism rounded-xl p-4 text-center hover-glow transition-all duration-300">
-                <div className="text-2xl font-bold text-electric-cyan">25M+</div>
-                <div className="text-xs text-cool-gray">User Interactions</div>
-              </div>
-              <div className="glass-morphism rounded-xl p-4 text-center hover-glow transition-all duration-300">
-                <div className="text-2xl font-bold text-electric-cyan">92%</div>
-                <div className="text-xs text-cool-gray">Success Rate</div>
-              </div>
-            </div>
+            {/* Stats moved below the fold for cleaner above-the-fold experience */}
 
-            {/* Tech Stack Preview */}
-            <div className="glass-morphism rounded-xl p-4">
-              <h4 className="text-sm font-semibold text-electric-cyan mb-3">Core Expertise</h4>
-              <div className="flex flex-wrap gap-2">
-                {['Product Strategy', 'User Research', 'Interaction Design', 'Design Systems', 'Prototyping', 'Data Analysis'].map((skill, index) => (
-                  <span 
-                    key={index}
-                    className="px-2 py-1 bg-charcoal rounded-full text-xs text-cool-gray border border-glass-border"
-                  >
+            {/* Tech stack moved below for cleaner focus */}
                     {skill}
                   </span>
                 ))}
@@ -190,8 +164,34 @@ export function FaangLevelHero() {
           </div>
         </div>
 
+        {/* Impact Metrics - Moved below the fold */}
+        <div className="mt-16 pt-12 border-t border-glass-border">
+          <div className="text-center mb-8">
+            <h3 className="text-lg font-semibold text-white mb-2">Proven Impact</h3>
+            <p className="text-cool-gray text-sm">Quantified results across 6+ years</p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8">
+            <div className="glass-morphism rounded-xl p-4 text-center hover-glow transition-all duration-300">
+              <div className="text-2xl font-bold text-electric-cyan">150+</div>
+              <div className="text-xs text-cool-gray">Projects Delivered</div>
+            </div>
+            <div className="glass-morphism rounded-xl p-4 text-center hover-glow transition-all duration-300">
+              <div className="text-2xl font-bold text-electric-cyan">99%</div>
+              <div className="text-xs text-cool-gray">Client Satisfaction</div>
+            </div>
+            <div className="glass-morphism rounded-xl p-4 text-center hover-glow transition-all duration-300">
+              <div className="text-2xl font-bold text-electric-cyan">25M+</div>
+              <div className="text-xs text-cool-gray">User Interactions</div>
+            </div>
+            <div className="glass-morphism rounded-xl p-4 text-center hover-glow transition-all duration-300">
+              <div className="text-2xl font-bold text-electric-cyan">92%</div>
+              <div className="text-xs text-cool-gray">Success Rate</div>
+            </div>
+          </div>
+        </div>
+
         {/* Scroll Indicator */}
-        <div className="text-center mt-12 opacity-50 hover:opacity-100 transition-opacity">
+        <div className="text-center mt-8 opacity-50 hover:opacity-100 transition-opacity">
           <ChevronDown className="w-6 h-6 text-electric-cyan" aria-hidden="true" />
         </div>
       </div>
