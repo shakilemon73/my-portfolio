@@ -20,33 +20,6 @@ export const FAANG_PORTFOLIO_DATA = {
     success_rate: "92%"
   },
 
-  // Core design competencies and skills
-  core_competencies: [
-    {
-      category: "User Experience Design",
-      skills: ["User Research", "Journey Mapping", "Information Architecture", "Usability Testing"],
-      level: 94,
-      icon: "fas fa-users"
-    },
-    {
-      category: "Interface Design", 
-      skills: ["Visual Design", "Interaction Design", "Prototyping", "Design Systems"],
-      level: 91,
-      icon: "fas fa-paint-brush"
-    },
-    {
-      category: "Product Strategy",
-      skills: ["Product Thinking", "Business Impact", "Stakeholder Management", "Roadmap Planning"],
-      level: 87,
-      icon: "fas fa-chess"
-    },
-    {
-      category: "Technical Skills",
-      skills: ["Figma", "Adobe Creative Suite", "HTML/CSS", "React Basics"],
-      level: 85,
-      icon: "fas fa-code"
-    }
-  ],
 
   // Professional case studies with realistic project scope
   case_studies: [
@@ -441,6 +414,34 @@ export const FAANG_PORTFOLIO_DATA = {
       topic: "Collaboration Between Designers and Developers",
       type: "Presentation",
       audience: "150+ developers and designers"
+    }
+  ],
+
+  // Core competencies for FAANG-level positions
+  core_competencies: [
+    {
+      category: "Design Strategy",
+      icon: "fas fa-lightbulb",
+      level: 95,
+      skills: ["User Research", "Design Systems", "Product Strategy"]
+    },
+    {
+      category: "Technical Skills", 
+      icon: "fas fa-code",
+      level: 90,
+      skills: ["Figma", "Adobe Creative Suite", "Prototyping"]
+    },
+    {
+      category: "Business Impact",
+      icon: "fas fa-chart-line", 
+      level: 88,
+      skills: ["Data Analysis", "A/B Testing", "KPI Optimization"]
+    },
+    {
+      category: "Leadership",
+      icon: "fas fa-users",
+      level: 92,
+      skills: ["Team Management", "Cross-functional Collaboration", "Mentoring"]
     }
   ],
 

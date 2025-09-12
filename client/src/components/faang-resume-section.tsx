@@ -2,22 +2,30 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { FAANG_PORTFOLIO_DATA } from '@/lib/faang-portfolio-data';
+import resumePdf from '@assets/Profile_1757713921701.pdf';
 
 export function FaangResumeSection() {
   const { 
     name, 
     title, 
-    contact, 
+    email,
+    location,
     experience_summary, 
     work_experience, 
     education, 
     certifications, 
-    core_competencies 
+    core_competencies,
+    contact 
   } = FAANG_PORTFOLIO_DATA;
 
   const handleDownloadResume = () => {
-    // For now, we'll create a print-friendly version
-    window.print();
+    // Download the actual PDF resume
+    const link = document.createElement('a');
+    link.href = resumePdf;
+    link.download = `${name.replace(' ', '_')}_Resume.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -95,7 +103,7 @@ export function FaangResumeSection() {
                 <div className="flex flex-wrap justify-center gap-6 text-cool-gray">
                   <div className="flex items-center">
                     <i className="fas fa-envelope text-neon-pink mr-2"></i>
-                    <span>{contact.email}</span>
+                    <span>{email}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="fab fa-linkedin text-electric-cyan mr-2"></i>
@@ -103,11 +111,11 @@ export function FaangResumeSection() {
                   </div>
                   <div className="flex items-center">
                     <i className="fas fa-map-marker-alt text-neon-green mr-2"></i>
-                    <span>Ulipur, Rajshahi, Bangladesh</span>
+                    <span>{location}</span>
                   </div>
                   <div className="flex items-center">
                     <i className="fas fa-clock text-purple-400 mr-2"></i>
-                    <span>Available for Remote Work</span>
+                    <span>{contact.availability}</span>
                   </div>
                 </div>
               </div>
