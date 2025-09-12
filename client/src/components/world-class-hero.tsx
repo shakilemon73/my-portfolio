@@ -1,33 +1,24 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { FAANG_PORTFOLIO_DATA } from '@/lib/faang-portfolio-data';
+import { ArrowRight, Download, Eye, Calendar, Mail, ExternalLink, Users, TrendingUp, Trophy, Star, Building } from 'lucide-react';
+import shakilPhoto from '@assets/6179293517931726739_1757713860325.jpg';
 
 export function WorldClassHero() {
-  const [currentMetric, setCurrentMetric] = useState(0);
-  const [currentTitle, setCurrentTitle] = useState(0);
+  const [currentMetricIndex, setCurrentMetricIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  const { name, title, tagline, impact_metrics } = FAANG_PORTFOLIO_DATA;
+
+  // World-class metrics with proper icons
   const rotatingMetrics = [
-    { value: "2.5M+", label: "Users Impacted", color: "text-electric-cyan", icon: "fas fa-users" },
-    { value: "$12M+", label: "Revenue Generated", color: "text-neon-green", icon: "fas fa-chart-line" },
-    { value: "98%", label: "Project Success Rate", color: "text-neon-pink", icon: "fas fa-trophy" },
-    { value: "245%", label: "Engagement Increase", color: "text-electric-cyan", icon: "fas fa-rocket" },
-    { value: "45+", label: "Enterprise Clients", color: "text-neon-green", icon: "fas fa-building" },
-    { value: "6+", label: "Years Experience", color: "text-neon-pink", icon: "fas fa-star" }
-  ];
-
-  const rotatingTitles = [
-    "Senior UX/UI Product Designer",
-    "Digital Experience Strategist", 
-    "Design Systems Architect",
-    "User-Centered Innovation Lead"
-  ];
-
-  const companyLogos = [
-    { name: "Google", icon: "fab fa-google", color: "text-blue-500" },
-    { name: "Meta", icon: "fab fa-meta", color: "text-blue-600" },
-    { name: "Microsoft", icon: "fab fa-microsoft", color: "text-green-500" },
-    { name: "Amazon", icon: "fab fa-amazon", color: "text-yellow-500" }
+    { value: impact_metrics.users_impacted, label: "Users Impacted", color: "text-electric-cyan", icon: Users },
+    { value: impact_metrics.revenue_generated, label: "Revenue Generated", color: "text-neon-green", icon: TrendingUp },
+    { value: impact_metrics.success_rate, label: "Project Success Rate", color: "text-neon-pink", icon: Trophy },
+    { value: impact_metrics.projects_shipped, label: "Projects Shipped", color: "text-electric-cyan", icon: Star },
+    { value: impact_metrics.teams_led, label: "Teams Led", color: "text-neon-green", icon: Building }
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -37,217 +28,213 @@ export function WorldClassHero() {
     }
   };
 
+  const handleStartProject = () => {
+    // Primary CTA - Start a project
+    const email = FAANG_PORTFOLIO_DATA.email;
+    const subject = "New Project Inquiry";
+    const body = "Hi Shakil, I'm interested in starting a project with you. Let's discuss the details.";
+    window.open(`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+  };
+
+  // Optimize animations with motion preference respect
   useEffect(() => {
-    setIsVisible(true);
-    const metricTimer = setInterval(() => {
-      setCurrentMetric((prev) => (prev + 1) % rotatingMetrics.length);
-    }, 2500);
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
     
-    const titleTimer = setInterval(() => {
-      setCurrentTitle((prev) => (prev + 1) % rotatingTitles.length);
-    }, 4000);
-    
-    return () => {
-      clearInterval(metricTimer);
-      clearInterval(titleTimer);
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
     };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    
+    // Initialize visibility
+    setIsVisible(true);
+    
+    // Only start animations if motion is not reduced
+    if (!mediaQuery.matches) {
+      const metricInterval = setInterval(() => {
+        setCurrentMetricIndex((prev) => (prev + 1) % rotatingMetrics.length);
+      }, 4000); // Slower, less aggressive
+      
+      return () => {
+        clearInterval(metricInterval);
+        mediaQuery.removeEventListener('change', handleChange);
+      };
+    }
+    
+    return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-deep-black via-charcoal to-deep-black pt-32">
-      {/* Advanced Background Pattern */}
-      <div className="absolute inset-0">
-        {/* Animated Grid */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="grid grid-cols-16 h-full">
-            {Array.from({ length: 256 }).map((_, index) => (
-              <div 
-                key={index} 
-                className="border border-electric-cyan animate-pulse"
-                style={{ 
-                  animationDelay: `${index * 0.02}s`,
-                  animationDuration: '4s' 
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
+    <section 
+      id="home" 
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24"
+      role="banner"
+      aria-label="Shakil Ahmed - UI/UX Designer Portfolio Hero"
+    >
+      {/* Lightweight Background - Replaces heavy 256-node grid */}
+      <div className="absolute inset-0 bg-gradient-to-br from-deep-black via-charcoal to-deep-black">
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-deep-black/50 via-transparent to-deep-black/20"></div>
         
-        {/* Floating Geometric Elements */}
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-electric-cyan/20 rounded-full animate-spin-slow"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 border border-neon-pink/20 rotate-45 animate-pulse"></div>
-        <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-gradient-to-br from-electric-cyan/10 to-neon-green/10 rounded-lg animate-float"></div>
+        {/* Lightweight geometric elements - Only if motion is not reduced */}
+        {!prefersReducedMotion && (
+          <>
+            <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-electric-cyan/10 rounded-full animate-spin-slow opacity-30"></div>
+            <div className="absolute bottom-1/3 right-1/4 w-24 h-24 border border-neon-pink/10 rotate-45 animate-pulse opacity-20"></div>
+            <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-gradient-to-br from-electric-cyan/5 to-neon-green/5 rounded-lg animate-float opacity-40"></div>
+          </>
+        )}
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div className="text-center">
-          {/* Status Indicators & Credentials */}
-          <div className={`mb-8 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <div className="flex flex-wrap justify-center gap-3 mb-6">
-              <Badge variant="outline" className="glass-morphism border-neon-green text-neon-green px-4 py-2 text-sm font-medium min-h-[44px] hover:scale-105 transition-all duration-300">
-                <i className="fas fa-circle mr-2 text-xs animate-pulse"></i>
-                Available for New Projects
-              </Badge>
-              <Badge variant="outline" className="glass-morphism border-electric-cyan text-electric-cyan px-4 py-2 text-sm font-medium min-h-[44px] hover:scale-105 transition-all duration-300">
-                <i className="fas fa-trophy mr-2"></i>
-                Top 1% Designer Worldwide
-              </Badge>
-              <Badge variant="outline" className="glass-morphism border-neon-pink text-neon-pink px-4 py-2 text-sm font-medium min-h-[44px] hover:scale-105 transition-all duration-300">
-                <i className="fas fa-medal mr-2"></i>
-                FAANG-Level Experience
-              </Badge>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
+        {/* Professional Status Indicators */}
+        <div className={`mb-8 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            <Badge 
+              variant="outline" 
+              className="glass-morphism border-neon-green text-neon-green px-6 py-3 text-sm font-medium min-h-[48px] min-w-[48px] hover:scale-105 transition-all duration-300"
+              data-testid="badge-available"
+            >
+              <div className="w-3 h-3 bg-neon-green rounded-full mr-3 animate-pulse"></div>
+              Available for New Projects
+            </Badge>
+            <Badge 
+              variant="outline" 
+              className="glass-morphism border-electric-cyan text-electric-cyan px-6 py-3 text-sm font-medium min-h-[48px] min-w-[48px] hover:scale-105 transition-all duration-300"
+              data-testid="badge-experience"
+            >
+              <Trophy className="w-4 h-4 mr-3" />
+              7+ Years Experience
+            </Badge>
+            <Badge 
+              variant="outline" 
+              className="glass-morphism border-neon-pink text-neon-pink px-6 py-3 text-sm font-medium min-h-[48px] min-w-[48px] hover:scale-105 transition-all duration-300"
+              data-testid="badge-faang"
+            >
+              <Star className="w-4 h-4 mr-3" />
+              FAANG-Ready Portfolio
+            </Badge>
+          </div>
+        </div>
+
+        {/* Professional Headshot */}
+        <div className={`mb-8 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <div className="relative inline-block">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full overflow-hidden border-4 border-electric-cyan/30 shadow-2xl">
+              <img 
+                src={shakilPhoto} 
+                alt={`${name} - Professional headshot`}
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                loading="eager"
+                data-testid="img-headshot"
+              />
             </div>
-            
-            {/* Company Logos */}
-            <div className="flex justify-center items-center gap-6 mb-6 opacity-60">
-              <span className="text-xs text-cool-gray uppercase tracking-wider">Trusted by Industry Leaders</span>
-              <div className="flex gap-4">
-                {companyLogos.map((company, index) => (
-                  <div 
-                    key={index}
-                    className="flex items-center justify-center min-h-[44px] min-w-[44px] p-2 glass-morphism rounded-lg hover:scale-110 transition-all duration-300 cursor-pointer"
-                    title={company.name}
-                    data-testid={`logo-${company.name.toLowerCase()}`}
-                  >
-                    <i className={`${company.icon} text-xl ${company.color} opacity-70 hover:opacity-100 transition-opacity`} />
+            <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-br from-electric-cyan to-neon-pink rounded-full flex items-center justify-center shadow-lg">
+              <Star className="w-6 h-6 text-deep-black" />
+            </div>
+          </div>
+        </div>
+
+        {/* Name and Title */}
+        <div className={`mb-6 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-4 text-white" data-testid="text-name">
+            {name}
+          </h1>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-electric-cyan mb-4" data-testid="text-title">
+            {title}
+          </h2>
+          <p className="text-xl text-cool-gray max-w-3xl mx-auto leading-relaxed" data-testid="text-tagline">
+            {tagline}
+          </p>
+        </div>
+
+        {/* Dynamic Impact Metrics */}
+        <div className={`mb-12 transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <div className="bg-charcoal/50 backdrop-blur-lg rounded-2xl p-6 border border-glass-border max-w-md mx-auto">
+            <div className="flex items-center justify-center space-x-4">
+              {rotatingMetrics[currentMetricIndex] && (
+                <>
+                  <div className={`flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-charcoal to-deep-black border border-glass-border`}>
+                    {(() => {
+                      const IconComponent = rotatingMetrics[currentMetricIndex].icon;
+                      return <IconComponent className={`w-6 h-6 ${rotatingMetrics[currentMetricIndex].color}`} />;
+                    })()}
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Dynamic Title */}
-          <div className={`mb-6 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <div className="relative h-8 overflow-hidden">
-              <span className="font-mono text-electric-cyan text-sm tracking-wider uppercase absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-500">
-                {rotatingTitles[currentTitle]}
-              </span>
-            </div>
-          </div>
-
-          {/* Main Heading */}
-          <div className={`mb-8 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black leading-tight">
-              <span className="block text-white hover:text-electric-cyan transition-colors duration-500">SHAKIL</span>
-              <span className="block bg-gradient-to-r from-electric-cyan via-neon-pink to-neon-green bg-clip-text text-transparent animate-gradient-x">AHMED</span>
-              <span className="block text-white hover:text-neon-pink transition-colors duration-500">EMON</span>
-            </h1>
-          </div>
-
-          {/* Value Proposition */}
-          <div className={`mb-8 max-w-4xl mx-auto transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <p className="text-xl sm:text-2xl lg:text-3xl text-white leading-relaxed mb-4">
-              I transform <span className="text-electric-cyan font-semibold">complex business challenges</span> into 
-              <span className="text-neon-pink font-semibold"> intuitive digital experiences</span> that drive 
-              <span className="text-neon-green font-semibold"> measurable results</span>
-            </p>
-            <p className="text-lg text-cool-gray">
-              <span className="text-white font-semibold">6+ years</span> crafting user-centered solutions for 
-              <span className="text-electric-cyan">Fortune 500 companies</span> and 
-              <span className="text-neon-pink">innovative startups</span> worldwide
-            </p>
-          </div>
-
-          {/* Dynamic Metrics Showcase */}
-          <div className={`mb-12 transform transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <div className="glass-morphism rounded-3xl p-8 mb-8 hover-glow transition-all duration-500 group max-w-md mx-auto">
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-4">
-                  <i className={`${rotatingMetrics[currentMetric].icon} text-2xl ${rotatingMetrics[currentMetric].color} mr-3`}></i>
-                  <div className={`text-5xl font-black ${rotatingMetrics[currentMetric].color} transition-all duration-500`}>
-                    {rotatingMetrics[currentMetric].value}
+                  <div className="text-center">
+                    <div className={`text-3xl font-black ${rotatingMetrics[currentMetricIndex].color} transition-all duration-500`}>
+                      {rotatingMetrics[currentMetricIndex].value}
+                    </div>
+                    <div className="text-sm text-cool-gray font-medium">
+                      {rotatingMetrics[currentMetricIndex].label}
+                    </div>
                   </div>
-                </div>
-                <div className="text-sm text-cool-gray uppercase tracking-wider">
-                  {rotatingMetrics[currentMetric].label}
-                </div>
-                <div className="w-full bg-glass-border h-1 rounded-full mt-4 overflow-hidden">
-                  <div 
-                    className="h-full bg-gradient-to-r from-electric-cyan to-neon-pink transition-all duration-2500 ease-linear"
-                    style={{ width: `${((currentMetric + 1) / rotatingMetrics.length) * 100}%` }}
-                  ></div>
-                </div>
-              </div>
+                </>
+              )}
             </div>
           </div>
+        </div>
 
-          {/* CTA Section */}
-          <div className={`mb-12 transform transition-all duration-1000 delay-1100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button
-                onClick={() => scrollToSection('work')}
-                size="lg"
-                className="bg-white text-black font-bold px-10 py-4 rounded-full hover:bg-electric-cyan hover:text-deep-black hover:scale-110 transition-all duration-300 shadow-2xl border-4 border-electric-cyan min-w-[220px] min-h-[60px] text-lg group"
-                data-hover
-                data-testid="button-view-portfolio"
-                aria-label="View my portfolio and case studies"
-              >
-                <i className="fas fa-rocket mr-3 text-black group-hover:animate-bounce"></i>
-                <span>View Portfolio</span>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() => scrollToSection('contact')}
-                className="glass-morphism border-2 border-glass-border text-white font-semibold px-10 py-4 rounded-full hover:border-neon-pink hover:text-neon-pink hover:scale-105 transition-all duration-300 min-w-[220px] min-h-[60px] text-lg group"
-                data-hover
-                data-testid="button-start-project"
-                aria-label="Contact me to start a project"
-              >
-                <i className="fas fa-handshake mr-3 group-hover:animate-pulse"></i>
-                <span>Start a Project</span>
-              </Button>
-            </div>
+        {/* World-Class CTA Hierarchy */}
+        <div className={`mb-12 transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            {/* Primary CTA */}
+            <Button
+              onClick={handleStartProject}
+              size="lg"
+              className="bg-gradient-to-r from-electric-cyan to-neon-pink text-deep-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 min-h-[56px] min-w-[200px] shadow-xl"
+              data-testid="button-start-project"
+              aria-label="Start a new project with Shakil Ahmed"
+            >
+              <Calendar className="w-5 h-5 mr-3" />
+              Start a Project
+              <ArrowRight className="w-5 h-5 ml-3" />
+            </Button>
             
-            {/* Secondary CTAs */}
-            <div className="flex justify-center items-center gap-8 mt-8 text-sm">
-              <button 
-                onClick={() => scrollToSection('testimonials')}
-                className="text-cool-gray hover:text-electric-cyan transition-colors flex items-center gap-2 min-h-[44px] group"
-                data-testid="link-testimonials"
-              >
-                <i className="fas fa-quote-left group-hover:scale-110 transition-transform"></i>
-                <span>Client Reviews</span>
-              </button>
-              <span className="text-glass-border">•</span>
-              <button 
-                onClick={() => scrollToSection('credentials')}
-                className="text-cool-gray hover:text-neon-pink transition-colors flex items-center gap-2 min-h-[44px] group"
-                data-testid="link-credentials"
-              >
-                <i className="fas fa-award group-hover:scale-110 transition-transform"></i>
-                <span>Credentials</span>
-              </button>
-              <span className="text-glass-border">•</span>
-              <button 
-                onClick={() => scrollToSection('process')}
-                className="text-cool-gray hover:text-neon-green transition-colors flex items-center gap-2 min-h-[44px] group"
-                data-testid="link-process"
-              >
-                <i className="fas fa-cog group-hover:rotate-180 transition-transform duration-500"></i>
-                <span>My Process</span>
-              </button>
-            </div>
+            {/* Secondary CTA */}
+            <Button
+              onClick={() => scrollToSection('work')}
+              variant="outline"
+              size="lg"
+              className="glass-morphism border-glass-border text-white font-semibold px-8 py-4 rounded-full hover:border-electric-cyan hover:text-electric-cyan transition-all duration-300 min-h-[56px] min-w-[180px]"
+              data-testid="button-view-work"
+              aria-label="View portfolio work and case studies"
+            >
+              <Eye className="w-5 h-5 mr-3" />
+              View Work
+            </Button>
+            
+            {/* Tertiary CTA */}
+            <Button
+              onClick={() => scrollToSection('resume')}
+              variant="ghost"
+              size="lg"
+              className="text-cool-gray hover:text-white font-medium px-6 py-4 rounded-full transition-all duration-300 min-h-[56px]"
+              data-testid="button-download-resume"
+              aria-label="Download professional resume"
+            >
+              <Download className="w-4 h-4 mr-2" />
+              Resume
+            </Button>
           </div>
+        </div>
 
-          {/* Professional Status */}
-          <div className={`mb-8 transform transition-all duration-1000 delay-1300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <div className="flex justify-center items-center gap-8 text-sm">
-              <div className="flex items-center gap-2 text-cool-gray">
-                <i className="fas fa-map-marker-alt text-electric-cyan"></i>
-                <span>Global Remote • US/EU Timezone</span>
-              </div>
-              <div className="flex items-center gap-2 text-cool-gray">
-                <i className="fas fa-clock text-neon-green animate-pulse"></i>
-                <span>Responding within 2 hours</span>
-              </div>
+        {/* Professional Contact Strip */}
+        <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm text-cool-gray">
+            <div className="flex items-center">
+              <Mail className="w-4 h-4 mr-2 text-electric-cyan" />
+              <span data-testid="text-email">{FAANG_PORTFOLIO_DATA.email}</span>
             </div>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className={`text-center transform transition-all duration-1000 delay-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <div className="animate-bounce">
-              <i className="fas fa-chevron-down text-2xl text-electric-cyan opacity-70 hover:opacity-100 transition-opacity"></i>
+            <div className="hidden sm:block w-1 h-1 bg-cool-gray rounded-full"></div>
+            <div className="flex items-center">
+              <ExternalLink className="w-4 h-4 mr-2 text-neon-green" />
+              <span data-testid="text-availability">Available for Remote Work</span>
+            </div>
+            <div className="hidden sm:block w-1 h-1 bg-cool-gray rounded-full"></div>
+            <div className="flex items-center">
+              <Building className="w-4 h-4 mr-2 text-neon-pink" />
+              <span data-testid="text-location">Bangladesh (GMT+6)</span>
             </div>
           </div>
         </div>
