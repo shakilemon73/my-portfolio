@@ -81,6 +81,30 @@ export function FaangLevelHero() {
               </Button>
             </div>
 
+            {/* Social Proof - Client Trust Indicators */}
+            <div className="mb-8" data-testid="section-social-proof">
+              <p className="text-xs text-cool-gray/60 mb-4 font-medium tracking-wide">
+                TRUSTED BY LEADING COMPANIES
+              </p>
+              <ul className="flex flex-wrap items-center gap-6 opacity-70" aria-label="Trusted by leading companies">
+                <li className="text-cool-gray/70 text-sm font-medium" data-testid="text-trust-fortune500">
+                  Fortune 500
+                </li>
+                <li className="w-1 h-1 bg-cool-gray/30 rounded-full" aria-hidden="true" role="presentation"></li>
+                <li className="text-cool-gray/70 text-sm font-medium" data-testid="text-trust-yc">
+                  Y Combinator
+                </li>
+                <li className="w-1 h-1 bg-cool-gray/30 rounded-full" aria-hidden="true" role="presentation"></li>
+                <li className="text-cool-gray/70 text-sm font-medium" data-testid="text-trust-startups">
+                  Series A-C Startups
+                </li>
+                <li className="w-1 h-1 bg-cool-gray/30 rounded-full" aria-hidden="true" role="presentation"></li>
+                <li className="text-cool-gray/70 text-sm font-medium" data-testid="text-trust-global">
+                  Global Brands
+                </li>
+              </ul>
+            </div>
+
             {/* Professional Links */}
             <div className="flex items-center space-x-6 text-sm">
               <div className="flex items-center space-x-2 text-cool-gray">
