@@ -112,7 +112,7 @@ export function FaangLevelHero() {
                 <span>Available Globally (Remote)</span>
               </div>
               <div className="flex items-center space-x-2 text-cool-gray">
-                <i className="fas fa-clock text-neon-green"></i>
+                <i className="fas fa-clock text-electric-cyan"></i>
                 <span>Open to Opportunities</span>
               </div>
             </div>
@@ -154,10 +154,10 @@ export function FaangLevelHero() {
                   <i className="fab fa-figma text-electric-cyan text-xl"></i>
                 </div>
                 <div className="absolute bottom-4 left-4 glass-morphism rounded-lg p-3 animate-float" style={{ animationDelay: '1s' }}>
-                  <i className="fas fa-chart-line text-neon-pink text-xl"></i>
+                  <i className="fas fa-chart-line text-electric-cyan text-xl"></i>
                 </div>
                 <div className="absolute top-1/2 left-4 glass-morphism rounded-lg p-3 animate-float" style={{ animationDelay: '2s' }}>
-                  <i className="fas fa-users text-neon-green text-xl"></i>
+                  <i className="fas fa-users text-electric-cyan text-xl"></i>
                 </div>
               </div>
             </div>
@@ -169,11 +169,11 @@ export function FaangLevelHero() {
                 <div className="text-xs text-cool-gray">Projects Delivered</div>
               </div>
               <div className="glass-morphism rounded-xl p-4 text-center hover-glow transition-all duration-300">
-                <div className="text-2xl font-bold text-neon-pink">99%</div>
+                <div className="text-2xl font-bold text-electric-cyan">99%</div>
                 <div className="text-xs text-cool-gray">Client Satisfaction</div>
               </div>
               <div className="glass-morphism rounded-xl p-4 text-center hover-glow transition-all duration-300">
-                <div className="text-2xl font-bold text-neon-green">25M+</div>
+                <div className="text-2xl font-bold text-electric-cyan">25M+</div>
                 <div className="text-xs text-cool-gray">User Interactions</div>
               </div>
               <div className="glass-morphism rounded-xl p-4 text-center hover-glow transition-all duration-300">
