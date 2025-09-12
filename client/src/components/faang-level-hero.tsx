@@ -1,19 +1,10 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Eye, MessageCircle, ArrowRight } from 'lucide-react';
 import { profileImage, profileAlt } from '@/lib/profile';
 
 export function FaangLevelHero() {
-  const [currentMetric, setCurrentMetric] = useState(0);
-  
-  const metrics = [
-    { value: "1.2M+", label: "Users Impacted Globally", color: "text-electric-cyan" },
-    { value: "$3.8M+", label: "Revenue Generated", color: "text-neon-pink" },
-    { value: "245%", label: "User Engagement Increase", color: "text-neon-green" },
-    { value: "92%", label: "Project Success Rate", color: "text-electric-cyan" },
-    { value: "45%", label: "Efficiency Improvement", color: "text-neon-pink" },
-    { value: "89%", label: "User Satisfaction Score", color: "text-neon-green" }
-  ];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -22,12 +13,6 @@ export function FaangLevelHero() {
     }
   };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentMetric((prev) => (prev + 1) % metrics.length);
-    }, 2000);
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <section id="home" className="hero-grid-section min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -70,37 +55,29 @@ export function FaangLevelHero() {
               Shakil Ahmed Emon • Available for New Projects
             </p>
 
-            {/* Dynamic Metrics Display */}
-            <div className="glass-morphism rounded-2xl p-6 mb-8 hover-glow transition-all duration-500">
-              <div className="text-center">
-                <div className={`text-4xl font-black mb-2 ${metrics[currentMetric].color}`}>
-                  {metrics[currentMetric].value}
-                </div>
-                <div className="text-sm text-cool-gray">
-                  {metrics[currentMetric].label}
-                </div>
-              </div>
-            </div>
+            {/* Call to Action Buttons */}
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-start items-start mb-8">
-              <Button
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              {/* Primary CTA */}
+              <Button 
                 onClick={() => scrollToSection('work')}
-                size="lg"
-                className="bg-white text-black font-bold rounded-full hover:bg-gray-100 hover:scale-105 transition-all duration-300 min-w-[200px] shadow-xl border-4 border-electric-cyan"
-                data-hover
+                className="bg-electric-cyan hover:bg-electric-cyan/90 text-slate-900 font-semibold px-8 py-4 h-14 min-w-[200px] rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-electric-cyan/25 group"
+                data-testid="button-view-case-studies"
               >
-                <i className="fas fa-rocket mr-2 text-black"></i>
+                <Eye className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" aria-hidden="true" />
                 View Case Studies
+                <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Button>
-              <Button
+              
+              {/* Secondary CTA */}
+              <Button 
                 variant="outline"
-                size="lg"
                 onClick={() => scrollToSection('contact')}
-                className="glass-morphism rounded-full font-semibold hover-glow transition-all duration-300 border-glass-border min-w-[200px]"
-                data-hover
+                className="border-2 border-electric-cyan text-electric-cyan hover:bg-electric-cyan hover:text-slate-900 font-semibold px-8 py-4 h-14 min-w-[180px] rounded-xl transition-all duration-300 group"
+                data-testid="button-contact"
               >
-                <i className="fab fa-linkedin mr-2"></i>
-                Let's Connect
+                <MessageCircle className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                Contact Me
               </Button>
             </div>
 
