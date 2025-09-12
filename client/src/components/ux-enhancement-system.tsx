@@ -143,15 +143,15 @@ export function UXEnhancementSystem() {
       const currentHeight = parseInt(computedStyle.height) || htmlElement.offsetHeight;
       const currentWidth = parseInt(computedStyle.width) || htmlElement.offsetWidth;
       
-      // Ensure minimum 44px touch targets
-      if (currentHeight < 44) {
-        htmlElement.style.minHeight = '44px';
+      // Ensure minimum 48px touch targets
+      if (currentHeight < 48) {
+        htmlElement.style.minHeight = '48px';
         htmlElement.style.paddingTop = Math.max(8, parseInt(computedStyle.paddingTop) || 8) + 'px';
         htmlElement.style.paddingBottom = Math.max(8, parseInt(computedStyle.paddingBottom) || 8) + 'px';
       }
       
-      if (currentWidth < 44) {
-        htmlElement.style.minWidth = '44px';
+      if (currentWidth < 48) {
+        htmlElement.style.minWidth = '48px';
         htmlElement.style.paddingLeft = Math.max(12, parseInt(computedStyle.paddingLeft) || 12) + 'px';
         htmlElement.style.paddingRight = Math.max(12, parseInt(computedStyle.paddingRight) || 12) + 'px';
       }
@@ -306,7 +306,7 @@ export function UXEnhancementSystem() {
         return;
       }
       
-      if (rect.height < 44 || rect.width < 44) {
+      if (rect.height < 48 || rect.width < 48) {
         results.touchTargets = false;
         const elementDesc = element.tagName + (element.className ? '.' + element.className.split(' ')[0] : '') + (element.textContent ? ': ' + element.textContent.substring(0, 20) : '');
         failingElements.push(`${elementDesc} (${Math.round(rect.width)}x${Math.round(rect.height)}px)`);

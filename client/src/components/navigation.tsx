@@ -139,7 +139,7 @@ export function Navigation() {
         <div className="flex flex-col space-y-2 p-6">
           <button 
             onClick={() => scrollToSection('home')}
-            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[48px] min-w-[48px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
             role="menuitem"
             aria-label="Navigate to home section"
@@ -149,7 +149,7 @@ export function Navigation() {
           </button>
           <button 
             onClick={() => scrollToSection('work')}
-            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[48px] min-w-[48px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
             role="menuitem"
             aria-label="Navigate to work portfolio section"
@@ -159,7 +159,7 @@ export function Navigation() {
           </button>
           <button 
             onClick={() => scrollToSection('process')}
-            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[48px] min-w-[48px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
             role="menuitem"
             aria-label="Navigate to design process section"
@@ -169,7 +169,7 @@ export function Navigation() {
           </button>
           <button 
             onClick={() => scrollToSection('credentials')}
-            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[48px] min-w-[48px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
             role="menuitem"
             aria-label="Navigate to credentials section"
@@ -179,7 +179,7 @@ export function Navigation() {
           </button>
           <button 
             onClick={() => scrollToSection('resume')}
-            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[48px] min-w-[48px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
             role="menuitem"
             aria-label="Navigate to resume section"
@@ -189,7 +189,7 @@ export function Navigation() {
           </button>
           <button 
             onClick={() => scrollToSection('about')}
-            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[48px] min-w-[48px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
             role="menuitem"
             aria-label="Navigate to about section"
@@ -199,7 +199,7 @@ export function Navigation() {
           </button>
           <button 
             onClick={() => scrollToSection('contact')}
-            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[44px] min-w-[44px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
+            className="text-lg text-white hover:text-electric-cyan hover:bg-electric-cyan/10 rounded-lg transition-all duration-300 text-left min-h-[48px] min-w-[48px] py-3 px-4 flex items-center focus:bg-electric-cyan/20 focus:text-electric-cyan" 
             data-hover
             role="menuitem"
             aria-label="Navigate to contact section"

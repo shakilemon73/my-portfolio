@@ -37,7 +37,7 @@ export function CaseStudyCard({ project, onOpenModal }: CaseStudyCardProps) {
 
   return (
     <div 
-      className={`${project.gridSpan} glass-morphism rounded-3xl p-6 lg:p-8 hover-glow transition-all duration-500 group cursor-pointer min-h-[44px]`}
+      className={`${project.gridSpan} glass-morphism rounded-3xl p-6 lg:p-8 hover-glow transition-all duration-500 group cursor-pointer min-h-[48px]`}
       onClick={() => onOpenModal(project)}
       data-hover
       role="button"

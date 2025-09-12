@@ -107,7 +107,7 @@ export function EnhancedSkillsSection() {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center px-6 py-3 rounded-full font-medium transition-all duration-300 min-h-[44px] ${
+              className={`flex items-center px-6 py-3 rounded-full font-medium transition-all duration-300 min-h-[48px] ${
                 activeCategory === category.id
                   ? 'bg-gradient-to-r from-electric-cyan to-neon-pink text-deep-black'
                   : 'glass-morphism text-cool-gray hover:text-white hover:border-electric-cyan'

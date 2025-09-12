@@ -33,7 +33,7 @@ function validateNormanPrinciples(): boolean {
 
 /**
  * Luke Wroblewski - Mobile First & Forms
- * Validates 44px minimum touch targets
+ * Validates 48px minimum touch targets
  */
 function validateTouchTargets(): boolean {
   const interactiveElements = document.querySelectorAll('button, a, input, textarea, select');
@@ -41,7 +41,7 @@ function validateTouchTargets(): boolean {
   
   interactiveElements.forEach(element => {
     const rect = element.getBoundingClientRect();
-    if (rect.height < 44 || rect.width < 44) {
+    if (rect.height < 48 || rect.width < 48) {
       console.warn('Touch target too small:', element, `${rect.width}x${rect.height}`);
       allTargetsValid = false;
     }
@@ -195,7 +195,7 @@ function runValidation(): void {
   
   // Report any issues
   if (!compliance.touchTargets) {
-    console.warn('UX Issue: Some interactive elements are smaller than 44px');
+    console.warn('UX Issue: Some interactive elements are smaller than 48px');
   }
   if (!compliance.contrast) {
     console.warn('UX Issue: Text contrast problems detected');
