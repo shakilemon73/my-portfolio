@@ -129,7 +129,7 @@ export function FaangLevelHero() {
                     {Array.from({ length: 64 }).map((_, index) => (
                       <div 
                         key={index} 
-                        className="border border-electric-cyan animate-pulse"
+                        className="border border-electric-cyan opacity-20"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       ></div>
                     ))}
@@ -149,16 +149,7 @@ export function FaangLevelHero() {
                   data-testid="img-headshot-hero"
                 />
 
-                {/* Floating Design Elements */}
-                <div className="absolute top-4 right-4 glass-morphism rounded-lg p-3 animate-float">
-                  <TrendingUp className="w-6 h-6 text-electric-cyan" aria-hidden="true" />
-                </div>
-                <div className="absolute bottom-4 left-4 glass-morphism rounded-lg p-3 animate-float" style={{ animationDelay: '1s' }}>
-                  <TrendingUp className="w-6 h-6 text-electric-cyan" aria-hidden="true" />
-                </div>
-                <div className="absolute top-1/2 left-4 glass-morphism rounded-lg p-3 animate-float" style={{ animationDelay: '2s' }}>
-                  <Users className="w-6 h-6 text-electric-cyan" aria-hidden="true" />
-                </div>
+                {/* Removed floating elements to reduce visual noise and focus on primary CTAs */}
               </div>
             </div>
 
@@ -200,7 +191,7 @@ export function FaangLevelHero() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="text-center mt-12 animate-bounce">
+        <div className="text-center mt-12 opacity-50 hover:opacity-100 transition-opacity">
           <ChevronDown className="w-6 h-6 text-electric-cyan" aria-hidden="true" />
         </div>
       </div>
