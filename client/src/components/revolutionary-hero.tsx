@@ -366,7 +366,7 @@ export function RevolutionaryHero() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="absolute glass-morphism border border-electric-cyan/30 bg-electric-cyan/5 backdrop-blur-xl rounded-xl transform transition-all duration-500 hover:scale-110 cursor-pointer flex items-center justify-center"
+                    className="absolute z-20 glass-morphism border border-electric-cyan/30 bg-electric-cyan/5 backdrop-blur-xl rounded-xl transform transition-all duration-500 hover:scale-110 cursor-pointer flex items-center justify-center"
                     style={{
                       top: `${20 + i * 25}%`,
                       right: i % 2 === 0 ? '-10%' : 'auto',
