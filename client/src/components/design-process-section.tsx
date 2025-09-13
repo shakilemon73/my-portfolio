@@ -368,7 +368,7 @@ export function DesignProcessSection() {
           <button
             onClick={() => setActiveStep(Math.max(0, activeStep - 1))}
             disabled={activeStep === 0}
-            className="px-6 py-3 glass-morphism rounded-full font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover-glow transition-all duration-300"
+            className="px-6 py-3 glass-morphism rounded-full font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover-glow transition-all duration-300 min-h-[48px] min-w-[48px]"
             data-hover
           >
             <i className="fas fa-chevron-left mr-2"></i>
@@ -377,7 +377,7 @@ export function DesignProcessSection() {
           <button
             onClick={() => setActiveStep(Math.min(processSteps.length - 1, activeStep + 1))}
             disabled={activeStep === processSteps.length - 1}
-            className="px-6 py-3 bg-electric-cyan text-deep-black rounded-full font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover-glow transition-all duration-300"
+            className="px-6 py-3 bg-electric-cyan text-deep-black rounded-full font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover-glow transition-all duration-300 min-h-[48px] min-w-[48px]"
             data-hover
           >
             Next

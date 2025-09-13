@@ -41,7 +41,7 @@ export function Navigation() {
               <img 
                 src={shakilLogo} 
                 alt="Shakil Ahmed Emon - Senior UX/UI Designer" 
-                className="h-12 w-auto hover:scale-105 transition-transform duration-300 cursor-pointer min-h-[48px] min-w-[48px]"
+                className="h-12 w-12 hover:scale-105 transition-transform duration-300 cursor-pointer min-h-[48px] min-w-[48px]"
                 onClick={() => scrollToSection('home')}
                 data-testid="brand-logo"
               />
