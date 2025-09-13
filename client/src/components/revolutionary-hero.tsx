@@ -366,7 +366,7 @@ export function RevolutionaryHero() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="absolute z-20 glass-morphism border border-electric-cyan/30 bg-electric-cyan/5 backdrop-blur-xl rounded-xl transform transition-all duration-500 hover:scale-110 cursor-pointer flex items-center justify-center"
+                    className="absolute z-20 bg-black/80 border-2 border-electric-cyan/60 backdrop-blur-xl rounded-xl transform transition-all duration-500 hover:scale-110 cursor-pointer flex items-center justify-center shadow-lg shadow-electric-cyan/20 hover:shadow-electric-cyan/40 hover:bg-black/90 hover:border-electric-cyan"
                     style={{
                       top: `${20 + i * 25}%`,
                       right: i % 2 === 0 ? '-10%' : 'auto',
@@ -384,9 +384,9 @@ export function RevolutionaryHero() {
                     tabIndex={0}
                     aria-label={`${item.text} achievement stat`}
                   >
-                    <div className="flex items-center space-x-3 text-electric-cyan">
-                      <item.icon className="w-5 h-5 flex-shrink-0" />
-                      <span className="text-sm font-medium whitespace-nowrap">{item.text}</span>
+                    <div className="flex items-center space-x-3 text-white">
+                      <item.icon className="w-5 h-5 flex-shrink-0 text-electric-cyan" />
+                      <span className="text-sm font-bold whitespace-nowrap text-white">{item.text}</span>
                     </div>
                   </div>
                 ))}
