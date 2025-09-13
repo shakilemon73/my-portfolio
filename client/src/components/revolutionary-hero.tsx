@@ -366,20 +366,27 @@ export function RevolutionaryHero() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="absolute glass-morphism border border-electric-cyan/30 bg-electric-cyan/5 backdrop-blur-xl rounded-xl p-3 transform transition-all duration-500 hover:scale-110"
+                    className="absolute glass-morphism border border-electric-cyan/30 bg-electric-cyan/5 backdrop-blur-xl rounded-xl transform transition-all duration-500 hover:scale-110 cursor-pointer flex items-center justify-center"
                     style={{
                       top: `${20 + i * 25}%`,
                       right: i % 2 === 0 ? '-10%' : 'auto',
                       left: i % 2 === 1 ? '-10%' : 'auto',
+                      minHeight: '52px',
+                      minWidth: '150px',
+                      padding: '14px 18px',
                       transform: `
                         translate(${Math.sin(time + item.delay) * 5}px, ${Math.cos(time + item.delay) * 5}px)
                         scale(${0.95 + Math.sin(time * 2 + item.delay) * 0.05})
                       `,
                     }}
+                    data-testid={`stats-card-${item.text.toLowerCase().replace(/[\s+%]/g, '-')}`}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`${item.text} achievement stat`}
                   >
-                    <div className="flex items-center space-x-2 text-electric-cyan">
-                      <item.icon className="w-4 h-4" />
-                      <span className="text-sm font-medium">{item.text}</span>
+                    <div className="flex items-center space-x-3 text-electric-cyan">
+                      <item.icon className="w-5 h-5 flex-shrink-0" />
+                      <span className="text-sm font-medium whitespace-nowrap">{item.text}</span>
                     </div>
                   </div>
                 ))}
