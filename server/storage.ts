@@ -299,6 +299,10 @@ export class MemStorage implements IStorage {
     const settings: ProfileSettings = {
       ...profile,
       id: randomUUID(),
+      profileImageUrl: profile.profileImageUrl || null,
+      resumePdfUrl: profile.resumePdfUrl || null,
+      linkedinUrl: profile.linkedinUrl || null,
+      portfolioUrl: profile.portfolioUrl || null,
       updatedAt: new Date()
     };
     this.profileSettings = settings;
@@ -322,7 +326,8 @@ export class MemStorage implements IStorage {
   }
 
   async getAllThemes(): Promise<ThemeSettings[]> {
-    return Array.from(this.themeSettings.values()).sort((a, b) => a.name.localeCompare(b.name));
+    const themes = Array.from(this.themeSettings.values());
+    return themes.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   async getTheme(id: string): Promise<ThemeSettings | undefined> {
@@ -333,6 +338,13 @@ export class MemStorage implements IStorage {
     const newTheme: ThemeSettings = {
       ...theme,
       id: randomUUID(),
+      name: theme.name || "New Theme",
+      colors: theme.colors || null,
+      gradients: theme.gradients || null,
+      typography: theme.typography || null,
+      logoUrl: theme.logoUrl || null,
+      faviconUrl: theme.faviconUrl || null,
+      isActive: theme.isActive || false,
       updatedAt: new Date()
     };
     this.themeSettings.set(newTheme.id, newTheme);
@@ -386,6 +398,10 @@ export class MemStorage implements IStorage {
     const newConfig: SectionConfig = {
       ...config,
       id: randomUUID(),
+      title: config.title || null,
+      subtitle: config.subtitle || null,
+      isVisible: config.isVisible ?? true,
+      customSettings: config.customSettings || null,
       updatedAt: new Date()
     };
     this.sectionConfigs.set(newConfig.id, newConfig);
@@ -442,6 +458,13 @@ export class MemStorage implements IStorage {
     const newCaseStudy: CaseStudy = {
       ...caseStudy,
       id,
+      displayOrder: caseStudy.displayOrder || null,
+      isDraft: caseStudy.isDraft ?? true,
+      featured: caseStudy.featured ?? false,
+      coverImageUrl: caseStudy.coverImageUrl || null,
+      galleryUrls: caseStudy.galleryUrls || null,
+      liveUrl: caseStudy.liveUrl || null,
+      caseStudyUrl: caseStudy.caseStudyUrl || null,
       createdAt: new Date(),
       updatedAt: new Date()
     };
@@ -502,6 +525,13 @@ export class MemStorage implements IStorage {
     const newExperience: WorkExperience = {
       ...experience,
       id,
+      displayOrder: experience.displayOrder || null,
+      isCurrentRole: experience.isCurrentRole ?? false,
+      companyLogoUrl: experience.companyLogoUrl || null,
+      companyUrl: experience.companyUrl || null,
+      achievements: experience.achievements || null,
+      technologies: experience.technologies || null,
+      responsibilities: experience.responsibilities || null,
       createdAt: new Date(),
       updatedAt: new Date()
     };
@@ -587,7 +617,19 @@ export class MemStorage implements IStorage {
   async getTestimonial(id: string): Promise<Testimonial | undefined> { return this.testimonials.get(id); }
   async createTestimonial(testimonial: InsertTestimonial): Promise<Testimonial> { 
     const id = randomUUID();
-    const newTestimonial: Testimonial = { ...testimonial, id, createdAt: new Date(), updatedAt: new Date() };
+    const newTestimonial: Testimonial = { 
+      ...testimonial, 
+      id, 
+      avatarUrl: testimonial.avatarUrl || null,
+      projectRelated: testimonial.projectRelated || null,
+      linkedinUrl: testimonial.linkedinUrl || null,
+      hasLinkedinBadge: testimonial.hasLinkedinBadge ?? false,
+      featured: testimonial.featured ?? false,
+      displayOrder: testimonial.displayOrder || null,
+      rating: testimonial.rating || 5,
+      createdAt: new Date(), 
+      updatedAt: new Date() 
+    };
     this.testimonials.set(id, newTestimonial);
     return newTestimonial;
   }
@@ -640,7 +682,18 @@ export class MemStorage implements IStorage {
   async getAsset(id: string): Promise<Asset | undefined> { return this.assets.get(id); }
   async createAsset(asset: InsertAsset): Promise<Asset> { 
     const id = randomUUID();
-    const newAsset: Asset = { ...asset, id, createdAt: new Date() };
+    const newAsset: Asset = { 
+      ...asset, 
+      id, 
+      width: asset.width || null,
+      height: asset.height || null,
+      altText: asset.altText || null,
+      tags: asset.tags || null,
+      folder: asset.folder || "uploads",
+      isPublic: asset.isPublic ?? true,
+      uploadedBy: asset.uploadedBy || null,
+      createdAt: new Date() 
+    };
     this.assets.set(id, newAsset);
     return newAsset;
   }
@@ -660,6 +713,10 @@ export class MemStorage implements IStorage {
     const newSubmission: ContactSubmission = {
       ...submission,
       id,
+      company: submission.company || null,
+      projectType: submission.projectType || null,
+      budget: submission.budget || null,
+      timeline: submission.timeline || null,
       status: "new",
       priority: "normal",
       isRead: false,
