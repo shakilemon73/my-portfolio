@@ -163,7 +163,7 @@ export function WorldClassAboutSection() {
                         6+ Years Experience
                       </Badge>
                       <Badge variant="outline" className="border-electric-cyan text-electric-cyan">
-                        MIT Graduate
+                        Experienced
                       </Badge>
                     </div>
                   </div>
@@ -174,7 +174,7 @@ export function WorldClassAboutSection() {
                       <div>
                         <h4 className="text-lg font-semibold text-white mb-3">The Journey</h4>
                         <p className="text-cool-gray leading-relaxed">
-                          My journey into UX design began with a computer science degree from MIT, where I discovered 
+                          My journey into UX design began from 2019, From there I discovered 
                           the fascinating intersection of technology and human behavior. What started as curiosity about 
                           how people interact with digital products evolved into a passion for creating meaningful experiences.
                         </p>
@@ -183,7 +183,7 @@ export function WorldClassAboutSection() {
                       <div>
                         <h4 className="text-lg font-semibold text-white mb-3">The Evolution</h4>
                         <p className="text-cool-gray leading-relaxed">
-                          Over 6+ years, I've had the privilege of working with Fortune 500 companies and innovative startups, 
+                          Over 6+ years, I've had the privilege of working with Fortune 80+ companies and innovative startups, 
                           designing products used by millions of people worldwide. From healthcare platforms saving lives to 
                           fintech solutions democratizing financial access—each project has shaped my approach to design.
                         </p>
