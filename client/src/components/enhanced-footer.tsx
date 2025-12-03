@@ -50,28 +50,28 @@ export function EnhancedFooter() {
     { 
       name: 'LinkedIn', 
       icon: Linkedin, 
-      url: 'https://linkedin.com/in/shakil-ahmed-emon', 
+      url: 'https://www.linkedin.com/in/shakil-ahmed710/', 
       color: 'text-blue-400',
       external: true
     },
     { 
       name: 'Behance', 
       icon: Briefcase, 
-      url: 'https://behance.net/shakilemon', 
+      url: 'https://www.behance.net/shakilahmed158', 
       color: 'text-blue-500',
       external: true
     },
     { 
       name: 'Dribbble', 
       icon: Dribbble, 
-      url: 'https://dribbble.com/shakilemon', 
+      url: 'https://dribbble.com/shakilemon73', 
       color: 'text-pink-400',
       external: true
     },
     { 
       name: 'Twitter', 
       icon: Twitter, 
-      url: 'https://twitter.com/shakilemon', 
+      url: 'https://twitter.com/shakilemon17', 
       color: 'text-blue-400',
       external: true
     }
